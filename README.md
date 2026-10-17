@@ -21,5 +21,8 @@ Reproduction and robustness test of MAGICAL (PPI-network classifier for syntheti
 
 The helpers in `src/` are generic starting points, not the paper's code.
 
+## Contact
+harshinisuresha7@gmail.com
+
 ## About the figures
 Figures 1-39 are computed and 40-59 simulated on a made-up 14-gene toy network, 60-79 are concept drawings, and 80-100 are empty placeholders for real results. None show MAGICAL results.
