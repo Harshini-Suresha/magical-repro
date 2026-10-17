@@ -109,7 +109,7 @@ ul.tight{max-width:68ch;padding-left:20px}ul.tight li{margin:7px 0}
 <section aria-labelledby="v1">
   <h2 id="v1">The idea in pictures</h2>
   <p>Synthetic lethality and its opposite, synthetic viability, are both about pairs of genes. The classifier tries to tell them apart from where the genes sit in the interaction network.</p>
-  <div class="viz"><svg id="concept" viewBox="0 0 700 270" role="img" aria-label="Cell outcomes when gene A, gene B or both are lost, for synthetic lethal and synthetic viable pairs"></svg></div>
+  <div class="viz"><svg id="concept" viewBox="0 0 700 185" role="img" aria-label="Cell outcomes when gene A, gene B or both are lost, for synthetic lethal and synthetic viable pairs"></svg></div>
   <div class="viz"><svg id="flow" viewBox="0 0 700 110" role="img" aria-label="Pipeline: pairs and network, features, classifier, evaluation, perturbation tests, candidate pairs"></svg></div>
 </section>
 
@@ -406,11 +406,11 @@ function Ln(p,x1,y1,x2,y2,a){a.x1=x1;a.y1=y1;a.x2=x2;a.y2=y2;p.appendChild(E("li
 var G=function(id){return document.getElementById(id)};
 
 var cv=G("concept");
-["Normal cell","Gene A lost","Gene B lost","A and B lost"].forEach(function(c,i){T(cv,230+i*150,22,c,"tm","middle",13)});
-[["Synthetic lethal",[1,1,1,0],["lives","lives","lives","dies"],"Each loss alone is tolerated. Losing both kills the cell."],["Synthetic viable",[1,0,1,1],["lives","sick","lives","lives"],"A harmful loss is rescued by also losing a second gene."]].forEach(function(r,ri){
- var cy=80+ri*105;T(cv,8,cy+5,r[0],"t","start",15);
- r[1].forEach(function(ok,i){var cx=230+i*150;cv.appendChild(E("circle",{cx:cx,cy:cy,r:27,fill:ok?"var(--sv)":"var(--sl)"}));T(cv,cx,cy+7,ok?"✓":"✕","w","middle",20);T(cv,cx,cy+46,r[2][i],"tm","middle",12)});
- T(cv,430,cy+68,r[3],"tm","middle",12)});
+["Normal cell","Gene A lost","Gene B lost","A and B lost"].forEach(function(c,i){T(cv,327+i*75,16,c,"tm","middle",12)});
+[["Synthetic lethal",[1,1,1,0],["lives","lives","lives","dies"],["Each loss alone is tolerated.","Losing both kills the cell."]],["Synthetic viable",[1,0,1,1],["lives","sick","lives","lives"],["A harmful loss is rescued by","also losing a second gene."]]].forEach(function(r,ri){
+ var cy=50+ri*76;T(cv,120,cy+4,r[0],"t","start",14);
+ r[1].forEach(function(ok,i){var cx=327+i*75;cv.appendChild(E("circle",{cx:cx,cy:cy,r:27,fill:ok?"var(--sv)":"var(--sl)"}));T(cv,cx,cy+7,ok?"✓":"✕","w","middle",20);T(cv,cx,cy+40,r[2][i],"tm","middle",11)});
+ r[3].forEach(function(line,k){T(cv,120,cy+20+k*15,line,"tm","start",11.5)})});
 
 var fv=G("flow");
 ["Pairs and|network","Network|features","Classifier|","Evaluation|","Perturbation|tests","Candidate|pairs"].forEach(function(s,i){var x=6+i*114,p=s.split("|");
