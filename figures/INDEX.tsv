@@ -78,24 +78,24 @@ fig_076.svg	Illustrative concept	Shortest path between TP53 and MEK1 is four ste
 fig_077.svg	Illustrative concept	ATM and BRCA1 share one neighbour, TP53
 fig_078.svg	Illustrative concept	Degree-preserving rewiring: original network and one rewired copy
 fig_079.svg	Illustrative concept	Noise test: six false interactions (dashed) added to the network
-fig_080.svg	Awaiting results	Confusion matrix on the published split (pending)
-fig_081.svg	Awaiting results	Confusion matrix on the random pairs (pending)
-fig_082.svg	Awaiting results	Confusion matrix on the gene held out (pending)
-fig_083.svg	Awaiting results	Confusion matrix on the source held out (pending)
-fig_084.svg	Awaiting results	ROC curve for the lethal class (pending)
-fig_085.svg	Awaiting results	ROC curve for the viable class (pending)
-fig_086.svg	Awaiting results	ROC curve for the other class (pending)
-fig_087.svg	Awaiting results	Precision-recall curve for the lethal class (pending)
-fig_088.svg	Awaiting results	Precision-recall curve for the viable class (pending)
-fig_089.svg	Awaiting results	Precision-recall curve for the other class (pending)
-fig_090.svg	Awaiting results	F1 score per class (pending)
-fig_091.svg	Awaiting results	Macro-F1 for the paper model, my rerun and baselines (pending)
-fig_092.svg	Awaiting results	Matthews correlation coefficient across splits (pending)
-fig_093.svg	Awaiting results	Learning curve: score against training size (pending)
-fig_094.svg	Awaiting results	Macro-F1 against genes removed (pending)
-fig_095.svg	Awaiting results	Macro-F1 against interactions removed (pending)
-fig_096.svg	Awaiting results	Macro-F1 against noise edges added (pending)
-fig_097.svg	Awaiting results	Macro-F1 against rewired (pending)
-fig_098.svg	Awaiting results	Calibration: predicted confidence against observed accuracy (pending)
-fig_099.svg	Awaiting results	Score by gene degree bucket (pending)
-fig_100.svg	Awaiting results	Candidate pairs against perturbations: stability (pending)
+fig_080.svg	MAGICAL results	Confusion matrix on the published split (30% test), seed 0 of 10
+fig_081.svg	MAGICAL results	Confusion matrix, random-pairs split, seed 1 (macro-F1 0.791); seed 0 matches the reproduction figure
+fig_082.svg	MAGICAL results	Confusion matrix, gene-held-out split, seed 0 (macro-F1 0.674)
+fig_083.svg	MAGICAL results	Confusion matrix holding out SynLethDB (macro-F1 0.345)
+fig_084.svg	MAGICAL results	ROC curve for the lethal class (AUC 0.912)
+fig_085.svg	MAGICAL results	ROC curve for the viable class (AUC 0.934)
+fig_086.svg	MAGICAL results	ROC curve for the other class (AUC 0.924)
+fig_087.svg	MAGICAL results	Precision-recall curve for the lethal class (average precision 0.887)
+fig_088.svg	MAGICAL results	Precision-recall curve for the viable class (average precision 0.919)
+fig_089.svg	MAGICAL results	Precision-recall curve for the other class (average precision 0.792)
+fig_090.svg	MAGICAL results	F1 by class on the published split (lethal 0.802, viable 0.835, other 0.724)
+fig_091.svg	MAGICAL results	Accuracy on the published split: paper model (5 features), its rerun and the baselines
+fig_092.svg	MAGICAL results	MCC on the published split and the two stricter splits (random 0.690, gene-held-out 0.503, source-held-out 0.296)
+fig_093.svg	MAGICAL results	Random-forest accuracy as the share of training pairs grows
+fig_094.svg	MAGICAL results	Macro-F1 against genes removed on the published split: macro-F1 0.706 at 0% and 0.517 at 30%, while the share of test pairs missing a gene rises from 24% to 60%
+fig_095.svg	MAGICAL results	Macro-F1 against interactions removed on the published split: macro-F1 0.706 at 0% and 0.526 at 30%
+fig_096.svg	MAGICAL results	Macro-F1 against noise edges added on the published split: macro-F1 0.706 at 0% and 0.527 at 30%
+fig_097.svg	MAGICAL results	Macro-F1 after degree-preserving rewiring (1x and 5x edge count swaps)
+fig_098.svg	MAGICAL results	Calibration on the published split: predicted confidence against observed accuracy (seed 0)
+fig_099.svg	MAGICAL results	Accuracy by average-degree bucket on the published split (seed 0)
+fig_100.svg	MAGICAL results	How often the 6535 NOT-pool pairs are predicted interacting across five network variants; 451 pairs are stable candidates

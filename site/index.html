@@ -55,6 +55,7 @@ th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vert
 th{font-family:"Bricolage Grotesque",sans-serif}
 tr:last-child td{border-bottom:0}
 .todo{color:var(--muted)}
+.done{color:var(--sv);font-weight:600;font-family:"Bricolage Grotesque",system-ui,sans-serif;font-size:.92rem}
 pre{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;overflow-x:auto;font-size:14px;line-height:1.5}
 .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
 @media (max-width:760px){.cols{grid-template-columns:1fr}}
@@ -119,14 +120,14 @@ ul.tight{max-width:68ch;padding-left:20px}ul.tight li{margin:7px 0}
     <div class="slide"><label for="rm">Share removed</label><input type="range" id="rm" min="0" max="20" value="0"><b id="rmout" aria-live="polite"></b></div></div>
   <div class="vg">
     <div class="viz"><svg id="hist" viewBox="0 0 340 225" role="img" aria-label="Histogram of connections per gene in the toy network"></svg></div>
-    <div class="viz"><svg id="cm" viewBox="0 0 340 225" role="img" aria-label="Empty confusion matrix awaiting results"></svg></div>
+    <div class="viz"><svg id="cm" viewBox="0 0 340 225" role="img" aria-label="Confusion matrix on the published split"></svg></div>
   </div>
 </section>
 
 <section aria-labelledby="v3">
-  <h2 id="v3">Charts waiting for results</h2>
-  <p>These stay empty until the experiments run. No numbers are shown on purpose.</p>
-  <div class="viz"><svg id="cmp" viewBox="0 0 700 200" role="img" aria-label="Model comparison placeholders"></svg></div>
+  <h2 id="v3">Results at a glance</h2>
+  <p>The model comparison below uses the real results on the paper's split; the schedule is the plan the experiments followed.</p>
+  <div class="viz"><svg id="cmp" viewBox="0 0 700 200" role="img" aria-label="Model accuracy on the published split"></svg></div>
   <div class="viz"><svg id="gantt" viewBox="0 0 700 225" role="img" aria-label="Three-week schedule"></svg></div>
 </section>
 
@@ -144,16 +145,16 @@ ul.tight{max-width:68ch;padding-left:20px}ul.tight li{margin:7px 0}
 
 <section aria-labelledby="res">
   <h2 id="res">Results tracker</h2>
-  <p>Nothing here has been run yet. Rows fill in as each stage finishes.</p>
+  <p>All five experiments have run on the real data. The numbers come from <code>results/</code>; the figures further down show them in context.</p>
   <div class="tablewrap">
   <table>
     <thead><tr><th>Experiment</th><th>Question</th><th>Status</th><th>Result</th></tr></thead>
     <tbody>
-      <tr><td>Reproduction</td><td>Do I match the paper's reported metrics?</td><td class="todo">Not started</td><td class="todo">-</td></tr>
-      <tr><td>Baselines</td><td>How much does the full model add over simple classifiers?</td><td class="todo">Not started</td><td class="todo">-</td></tr>
-      <tr><td>Node removal</td><td>How does performance fall as nodes are dropped?</td><td class="todo">Not started</td><td class="todo">-</td></tr>
-      <tr><td>Edge rewiring</td><td>Do predictions depend on the exact network wiring?</td><td class="todo">Not started</td><td class="todo">-</td></tr>
-      <tr><td>Candidate pairs</td><td>Which predictions are stable enough to follow up?</td><td class="todo">Not started</td><td class="todo">-</td></tr>
+      <tr><td>Reproduction</td><td>Do I match the paper's reported metrics?</td><td class="done">Done</td><td>Yes: 80.9% vs the paper's ~81% (seed 0); 73.4% with only 3 clean features</td></tr>
+      <tr><td>Baselines</td><td>How much does the full model add over simple classifiers?</td><td class="done">Done</td><td>RF 80.9%; all-20-column RF 87.5%; gradient boosting 77.2%; logistic 56.6%; degree stump 48.5%; path stump 55.5%</td></tr>
+      <tr><td>Node removal</td><td>How does performance fall as nodes are dropped?</td><td class="done">Done</td><td>Macro-F1 0.71 &rarr; 0.52 at 30% removal; 24% &rarr; 60% of test pairs lose a network gene</td></tr>
+      <tr><td>Edge rewiring</td><td>Do predictions depend on the exact network wiring?</td><td class="done">Done</td><td>Degree-preserving rewiring collapses macro-F1 to 0.41 (1&times;) and 0.40 (5&times;): the model depends on exact wiring</td></tr>
+      <tr><td>Candidate pairs</td><td>Which predictions are stable enough to follow up?</td><td class="done">Done</td><td>451 stable pairs from 6,535 unlabeled NOT-pool pairs (top confidence 0.97)</td></tr>
     </tbody>
   </table>
   </div>
@@ -347,7 +348,7 @@ ul.tight{max-width:68ch;padding-left:20px}ul.tight li{margin:7px 0}
 
 <section aria-labelledby="figs">
   <h2 id="figs"><span id="gcount">100</span> figures</h2>
-  <p>Each figure is labelled by where it comes from. <b>Computed</b> and <b>simulated</b> figures come from the made-up 14-gene toy network, so they show how the methods behave rather than anything about MAGICAL's real data. <b>Concept</b> figures are drawings with illustrative values. <b>Awaiting results</b> figures are empty on purpose and get filled in as experiments finish.</p>
+  <p>Each figure is labelled by where it comes from. <b>Computed</b> and <b>simulated</b> figures come from the made-up 14-gene toy network, so they show how the methods behave rather than anything about MAGICAL's real data. <b>Concept</b> figures are drawings with illustrative values. <b>MAGICAL results</b> figures are computed on the real network, labels and models.</p>
   <div class="flt" id="flt" role="group" aria-label="Filter figures"></div>
   <div class="gal" id="gal"></div>
 </section>
@@ -358,6 +359,8 @@ ul.tight{max-width:68ch;padding-left:20px}ul.tight li{margin:7px 0}
 </section>
 <footer>Project page. Original method and data belong to the MAGICAL authors. Contact: <a href="mailto:harshinisuresha7@gmail.com">harshinisuresha7@gmail.com</a></footer>
 </main>
+
+<script src="results.js"></script>
 
 <script>
 (function(){
@@ -444,13 +447,44 @@ T(hs,170,18,"Connections per gene (toy network)","t","middle",13);
 ds.forEach(function(d,i){var h=dg[d]/hm*120,x=40+i*(270/ds.length);Rc(hs,x,180-h,bw,h,{rx:4,fill:"var(--sl)"});T(hs,x+bw/2,174-h,dg[d],"t","middle",12);T(hs,x+bw/2,196,d,"tm","middle",12)});
 T(hs,170,216,"number of connections","tm","middle",12);
 
-var cm=G("cm");T(cm,170,16,"Confusion matrix, once run","t","middle",13);
-T(cm,8,44,"Actual","tm","start",11);T(cm,230,34,"Predicted","tm","middle",11);
-["Lethal","Viable","Other"].forEach(function(c,i){T(cm,125+i*68,46,c,"tm","middle",11);T(cm,86,79+i*52,c,"tm","end",11);
- for(var j=0;j<3;j++){Rc(cm,95+j*68,56+i*52,60,44,{rx:6,fill:"none",stroke:"var(--ink)","stroke-dasharray":"4 3"});T(cm,125+j*68,83+i*52,"?","tm","middle",16)}});
+var cm=G("cm");
+if(window.RES&&RES.repro){
+ T(cm,170,16,"Confusion matrix, seed 0","t","middle",13);
+ T(cm,8,44,"Actual","tm","start",11);T(cm,255,34,"Predicted","tm","middle",11);
+ var cml=["other","lethal","viable"],cmm=RES.repro.cm,cmpk=1,cmsum=0;
+ cmm.forEach(function(r){r.forEach(function(v){if(v>cmpk)cmpk=v;cmsum+=v})});
+ cml.forEach(function(c,i){T(cm,140+i*66,50,c,"tm","middle",11);T(cm,100,82+i*52,c,"tm","end",11);
+  for(var j=0;j<3;j++){var v=cmm[i][j];
+   Rc(cm,108+j*66,56+i*52,58,44,{rx:6,fill:i===j?"var(--sv)":"var(--sl)","fill-opacity":(0.07+0.85*v/cmpk).toFixed(2)});
+   T(cm,137+j*66,83+i*52,String(v),v>0.45*cmpk?"w":"t","middle",13)}});
+ T(cm,170,222,"rows: actual, columns: predicted. "+cmsum+" unique test pairs.","tm","middle",10)
+}else{
+ T(cm,170,16,"Confusion matrix, once run","t","middle",13);
+ T(cm,8,44,"Actual","tm","start",11);T(cm,230,34,"Predicted","tm","middle",11);
+ ["Lethal","Viable","Other"].forEach(function(c,i){T(cm,125+i*68,46,c,"tm","middle",11);T(cm,86,79+i*52,c,"tm","end",11);
+  for(var j=0;j<3;j++){Rc(cm,95+j*68,56+i*52,60,44,{rx:6,fill:"none",stroke:"var(--ink)","stroke-dasharray":"4 3"});T(cm,125+j*68,83+i*52,"?","tm","middle",16)}});
+}
 
-var cp=G("cmp");T(cp,10,18,"Score on the same test split (metric chosen after reading the paper)","t","start",13);
-["MAGICAL, published","MAGICAL, my rerun","Random forest","Logistic regression","Degree product, path length"].forEach(function(m,i){var y=34+i*32;T(cp,250,y+17,m,"t","end",13);Rc(cp,262,y,420,24,{rx:6,fill:"none",stroke:"var(--ink)","stroke-dasharray":"5 4"});T(cp,472,y+17,"awaiting results","tm","middle",12)});
+var cp=G("cmp");
+if(window.RES&&RES.baselines&&RES.repro){
+ var rows=[["MAGICAL, published",RES.paper.accuracy,null,"var(--muted)"],
+  ["MAGICAL, my rerun",RES.repro.paper_acc[0],RES.repro.paper_acc[1],"var(--sl)"],
+  ["Random forest, all 20 columns",RES.baselines.rf_all_columns.accuracy_mean,RES.baselines.rf_all_columns.accuracy_sd,"var(--sl)"],
+  ["Logistic regression",RES.baselines.logistic_regression.accuracy_mean,RES.baselines.logistic_regression.accuracy_sd,"var(--sl)"],
+  ["Gradient boosting",RES.baselines.gradient_boosting.accuracy_mean,RES.baselines.gradient_boosting.accuracy_sd,"var(--sl)"],
+  ["Average degree stump",RES.baselines.degree_stump.accuracy_mean,RES.baselines.degree_stump.accuracy_sd,"var(--sl)"],
+  ["Shortest path stump",RES.baselines.path_stump.accuracy_mean,RES.baselines.path_stump.accuracy_sd,"var(--sl)"]];
+ T(cp,10,18,"Accuracy on the published split (random forest on the paper's five features vs baselines)","t","start",13);
+ rows.forEach(function(r,i){var y=30+i*24,lo=0.55,hi=0.85,w=Math.max(0,(r[1]-lo)/(hi-lo))*380;
+  T(cp,250,y+16,r[0],"t","end",12.5);
+  Rc(cp,262,y+2,420,17,{rx:5,fill:"none",stroke:"var(--line)"});
+  Rc(cp,262,y+2,w,17,{rx:5,fill:r[3]});
+  T(cp,690,y+16,r[1].toFixed(3)+(r[2]!=null?" ± "+r[2].toFixed(3):""),"t","start",11.5)});
+ T(cp,10,190,"bars scaled from 55% to 85% accuracy. The published figure is a single reported number, so it has no interval.","t","start",11)
+}else{
+ T(cp,10,18,"Score on the same test split (metric chosen after reading the paper)","t","start",13);
+ ["MAGICAL, published","MAGICAL, my rerun","Random forest","Logistic regression","Degree product, path length"].forEach(function(m,i){var y=34+i*32;T(cp,250,y+17,m,"t","end",13);Rc(cp,262,y,420,24,{rx:6,fill:"none",stroke:"var(--ink)","stroke-dasharray":"5 4"});T(cp,472,y+17,"awaiting results","tm","middle",12)});
+}
 
 var gt=G("gantt"),D=function(d){return 190+d*490/21};
 for(var w=0;w<3;w++){Ln(gt,D(w*7),28,D(w*7),215,{stroke:"var(--line)"});T(gt,D(w*7+3.5),20,"Week "+(w+1),"tm","middle",12)}
@@ -504,7 +538,7 @@ function sc(s,t,x,y,xl,yl){fr(s,t,xl,yl);var xa=mn(x),xb=mx(x),ya=mn(y),yb=mx(y)
 function heat(s,t,m,lab){T(s,150,14,t,"t","middle",10.5);var top=0,c=150/N;m.forEach(function(r){r.forEach(function(v){if(v>top)top=v})});top=top||1;m.forEach(function(r,a){r.forEach(function(v,b){Rc(s,70+b*c,24+a*c,c-.6,c-.6,{fill:"var(--sl)","fill-opacity":v/top*.95+.03})})});T(s,145,196,lab||"gene index (rows and columns)","tm","middle",9)}
 function ln(s,t,xs,ser,xl,yl,lo,hi,u){fr(s,t,xl,yl);var all=[].concat.apply([],ser.map(function(a){return a.v}));lo=lo==null?mn(all):lo;hi=hi==null?mx(all):hi;if(hi===lo)hi=lo+1;yt(s,lo,hi);var xa=xs[0],xb=xs[xs.length-1],un=u==null?"%":u;T(s,X0,Y0+10,xa+un,"tm","start",8);T(s,X1,Y0+10,xb+un,"tm","end",8);ser.forEach(function(a,k){s.appendChild(E("polyline",{points:a.v.map(function(v,q){return(X0+(xs[q]-xa)/(xb-xa)*(X1-X0))+","+(Y0-(v-lo)/(hi-lo)*(Y0-Y1))}).join(" "),fill:"none",stroke:a.c,"stroke-width":2.2}));if(ser.length>1){T(s,X1-4,Y1+10+k*10,a.n,"tm","end",8);s.lastChild.setAttribute("style","fill:"+a.c)}})}
 function add(c,cap,fn){figs.push({c:c,t:cap,d:fn})}
-var NET="Computed on the toy network",SIM="Simulated on the toy network",CON="Illustrative concept",PEN="Awaiting results";
+var NET="Computed on the toy network",SIM="Simulated on the toy network",CON="Illustrative concept",PEN="Awaiting results",DCAT=window.RES?"MAGICAL results":PEN;
 /* A: computed on the toy network (39) */
 var MT=[["Degree",A0.map(function(a){return a.length})],["Betweenness",btw(A0)],["Closeness",clo(A0)],["Clustering",clus(A0)],["Triangles",tri(A0)],["Avg neighbour degree",nbd(A0)],["PageRank",pr(A0)],["Eccentricity",ecc(A0)]];
 MT.forEach(function(m){add(NET,m[0]+" of each gene",function(s){bars(s,m[0]+" by gene",nm,m[1],"var(--sl)","gene","value")})});
@@ -548,23 +582,55 @@ add(CON,"Shortest path between TP53 and MEK1 is four steps",function(s){T(s,150,
 add(CON,"ATM and BRCA1 share one neighbour, TP53",function(s){T(s,150,14,"Common neighbour of ATM and BRCA1","t","middle",10.5);mg(s,edges,10,26,.5,[1,3,0],[0,2,3])});
 add(CON,"Degree-preserving rewiring: original network and one rewired copy",function(s){T(s,150,14,"Rewiring keeps every degree","t","middle",10.5);mg(s,edges,8,50,.24);mg(s,rew(),160,50,.24);T(s,70,150,"original","tm","middle",9);T(s,222,150,"rewired","tm","middle",9)});
 add(CON,"Noise test: six false interactions (dashed) added to the network",function(s){T(s,150,14,"Noise edges added","t","middle",10.5);var ex=[],q=0,a,b;while(ex.length<6){a=ri(N);b=ri(N);if(a!==b&&A0[a].indexOf(b)<0)ex.push([a,b])}mg(s,edges.concat(ex),10,26,.5,null,[M,M+1,M+2,M+3,M+4,M+5],[M,M+1,M+2,M+3,M+4,M+5])});
-/* D: awaiting results (21) */
+/* D: real results (21) */
 function ph(s,t,xl,yl,kind,labs){fr(s,t,xl,yl);var w=X1-X0,h=Y0-Y1,dsh={fill:"none",stroke:"var(--ink)","stroke-dasharray":"4 3","stroke-opacity":.5,rx:5};if(kind==="diag")Ln(s,X0,Y0,X1,Y1,{"stroke-dasharray":"4 3"});if(kind==="bars"){labs.forEach(function(l,k){var b=w/labs.length;Rc(s,X0+k*b+5,Y1+10,b-10,h-10,dsh);T(s,X0+k*b+b/2,Y0+10,l,"tm","middle",7.5)})}else Rc(s,X0+4,Y1+4,w-8,h-8,dsh);T(s,(X0+X1)/2,(Y0+Y1)/2+3,"awaiting results","tm","middle",10)}
 function cmph(s,t){T(s,150,14,t,"t","middle",10.5);["Lethal","Viable","Other"].forEach(function(c,a){T(s,123+a*52,36,c,"tm","middle",8);T(s,62,66+a*40,c,"tm","end",8);for(var b=0;b<3;b++){Rc(s,100+b*52,44+a*40,46,34,{fill:"none",stroke:"var(--ink)","stroke-dasharray":"4 3","stroke-opacity":.6,rx:5});T(s,123+b*52,66+a*40,"?","tm","middle",14)}});T(s,150,184,"rows: true class, columns: predicted","tm","middle",9)}
-["Published split","Random pairs","Gene held out","Source held out"].forEach(function(n){add(PEN,"Confusion matrix on the "+n.toLowerCase()+" (pending)",function(s){cmph(s,"Confusion: "+n.toLowerCase())})});
-["lethal","viable","other"].forEach(function(c){add(PEN,"ROC curve for the "+c+" class (pending)",function(s){ph(s,"ROC, "+c+" class","false positive rate","true positive rate","diag")})});
-["lethal","viable","other"].forEach(function(c){add(PEN,"Precision-recall curve for the "+c+" class (pending)",function(s){ph(s,"Precision-recall, "+c+" class","recall","precision","curve")})});
-add(PEN,"F1 score per class (pending)",function(s){ph(s,"F1 per class","class","F1","bars",["Lethal","Viable","Other"])});
-add(PEN,"Macro-F1 for the paper model, my rerun and baselines (pending)",function(s){ph(s,"Macro-F1 by model","model","macro-F1","bars",["Paper","Rerun","RF","LogReg","Degree"])});
-add(PEN,"Matthews correlation coefficient across splits (pending)",function(s){ph(s,"MCC by split","split","MCC","bars",["Publ.","Random","Gene","Source"])});
-add(PEN,"Learning curve: score against training size (pending)",function(s){ph(s,"Learning curve","share of training data","macro-F1","curve")});
-["genes removed","interactions removed","noise edges added","rewired"].forEach(function(n){add(PEN,"Macro-F1 against "+n+" (pending)",function(s){ph(s,"Macro-F1 vs "+n,n,"macro-F1","curve")})});
-add(PEN,"Calibration: predicted confidence against observed accuracy (pending)",function(s){ph(s,"Calibration","predicted confidence","observed accuracy","diag")});
-add(PEN,"Score by gene degree bucket (pending)",function(s){ph(s,"Score by degree bucket","degree bucket","macro-F1","bars",["Low","Mid","High"])});
-add(PEN,"Candidate pairs against perturbations: stability (pending)",function(s){T(s,150,14,"Candidate stability","t","middle",10.5);for(var a=0;a<8;a++)for(var b=0;b<5;b++)Rc(s,62+b*34,28+a*18,30,14,{fill:"none",stroke:"var(--ink)","stroke-dasharray":"3 3","stroke-opacity":.5,rx:3});T(s,150,190,"rows: candidate pairs, columns: perturbations","tm","middle",9)});
+var RA=window.RES||null,Rr=RA&&RA.repro,Rb=RA&&RA.baselines,Rs=RA&&RA.splits,Rp=RA&&RA.perturb,Rcands=RA&&RA.candidates;
+function addD(ready,capD,capP,fnR,fnP){var r=!!ready;add(DCAT,r?(typeof capD==="function"?capD():capD):capP,r?fnR:fnP)}
+function cmReal(s,m,names,note){T(s,150,14,"Confusion matrix","t","middle",10.5);if(note)T(s,150,202,note,"tm","middle",8.5);var x0=72,y0=26,c=52,pk=1;m.forEach(function(r){r.forEach(function(v){if(v>pk)pk=v})});
+ names.forEach(function(l,j){T(s,x0+j*c+c/2,24,l,"tm","middle",8)});
+ names.forEach(function(l,i){T(s,x0-4,y0+i*c+c/2+3,l,"tm","end",8);m[i].forEach(function(v,j){Rc(s,x0+j*c+1,y0+i*c+1,c-2,c-2,{rx:4,fill:i===j?"var(--sv)":"var(--sl)","fill-opacity":(0.07+0.85*v/pk).toFixed(2)});T(s,x0+j*c+c/2,y0+i*c+c/2+4,String(v),v>0.45*pk?"w":"t","middle",10)})})}
+function rocReal(s,r){fr(s,"ROC curve","false positive rate","true positive rate");Ln(s,X0,Y0,X1,Y1,{stroke:"var(--muted)","stroke-dasharray":"4 3"});
+ s.appendChild(E("polyline",{points:r.fpr.map(function(x,k){return (X0+x*(X1-X0))+","+(Y0-r.tpr[k]*(Y0-Y1))}).join(" "),fill:"none",stroke:"var(--sl)","stroke-width":2.2}));
+ T(s,X1-4,Y1+12,"AUC "+r.auc.toFixed(3),"t","end",9)}
+function prReal(s,r){fr(s,"Precision-recall","recall","precision");
+ s.appendChild(E("polyline",{points:r.recall.map(function(x,k){return (X0+x*(X1-X0))+","+(Y0-r.precision[k]*(Y0-Y1))}).join(" "),fill:"none",stroke:"var(--sl)","stroke-width":2.2}));
+ T(s,X1-4,Y1+12,"avg precision "+r.auc.toFixed(3),"t","end",9)}
+function barsR(s,t,labs,v,cols,yl,fmt){fr(s,t,yl,"score");var m=Math.max.apply(null,v.concat([.001]))*1.15;yt(s,0,m);var w=(X1-X0)/v.length;
+ v.forEach(function(x,k){var h=x/m*(Y0-Y1);Rc(s,X0+k*w+4,Y0-h,w-8,h,{rx:3,fill:cols[k]||"var(--sl)"});T(s,X0+k*w+w/2,Y0-h-3,fmt?fmt(x):x.toFixed(2),"t","middle",8);T(s,X0+k*w+w/2,Y0+10,labs[k],"tm","middle",7.2)})}
+function curveR(s,t,pts,xl,yl){fr(s,t,xl,yl);var xs=pts.map(function(p){return p[0]}),xa=xs[0],xb=xs[xs.length-1],lo=Math.min.apply(null,pts.map(function(p){return p[1]}))*.95,hi=Math.max.apply(null,pts.map(function(p){return p[1]}))*1.05;yt(s,lo,hi);
+ s.appendChild(E("polyline",{points:pts.map(function(p){return (X0+(p[0]-xa)/(xb-xa||1)*(X1-X0))+","+(Y0-(p[1]-lo)/(hi-lo||1)*(Y0-Y1))}).join(" "),fill:"none",stroke:"var(--sl)","stroke-width":2.2}));
+ pts.forEach(function(p){s.appendChild(E("circle",{cx:X0+(p[0]-xa)/(xb-xa||1)*(X1-X0),cy:Y0-(p[1]-lo)/(hi-lo||1)*(Y0-Y1),r:2.4,fill:"var(--sl)"}))});
+ T(s,X0,Y0+10,Math.round(xa*100)+"%","tm","start",8);T(s,X1,Y0+10,Math.round(xb*100)+"%","tm","end",8)}
+function famPts(fam,key){var out=[];if(Rp.baseline)out.push([0,Rp.baseline[key]]);Object.keys(Rp).forEach(function(t){var v=Rp[t];if(v.family===fam)out.push([v.param,v[key]])});return out.sort(function(a,b){return a[0]-b[0]})}
+function robReal(s,t,fam){fr(s,t,"share removed","macro-F1");yt(s,0,1.01);var pts=famPts(fam,"macro_f1"),drp=famPts(fam,"dropped_share");
+ s.appendChild(E("polyline",{points:pts.map(function(p){return (X0+p[0]/0.3*(X1-X0))+","+(Y0-p[1]*(Y0-Y1))}).join(" "),fill:"none",stroke:"var(--sl)","stroke-width":2.2}));
+ pts.forEach(function(p){s.appendChild(E("circle",{cx:X0+p[0]/0.3*(X1-X0),cy:Y0-p[1]*(Y0-Y1),r:2.4,fill:"var(--sl)"}))});
+ if(drp.length>1)s.appendChild(E("polyline",{points:drp.map(function(p){return (X0+p[0]/0.3*(X1-X0))+","+(Y0-p[1]*(Y0-Y1))}).join(" "),fill:"none",stroke:"var(--sv)","stroke-width":1.8,"stroke-dasharray":"4 3"}));
+ T(s,X0,184,"solid: macro-F1","tm","start",8);T(s,X1,184,"dashed: test pairs dropped","tm","end",8)}
+function calReal(s){fr(s,"Calibration","predicted confidence","observed accuracy");Ln(s,X0,Y0,X1,Y1,{stroke:"var(--muted)","stroke-dasharray":"4 3"});var lo=.2,hi=1;yt(s,lo,hi);
+ s.appendChild(E("polyline",{points:Rr.calibration.map(function(p){return (X0+(p.conf-lo)/(hi-lo)*(X1-X0))+","+(Y0-(p.acc-lo)/(hi-lo)*(Y0-Y1))}).join(" "),fill:"none",stroke:"var(--sl)","stroke-width":2.2}));
+ Rr.calibration.forEach(function(p){s.appendChild(E("circle",{cx:X0+(p.conf-lo)/(hi-lo)*(X1-X0),cy:Y0-(p.acc-lo)/(hi-lo)*(Y0-Y1),r:2.6,fill:"var(--sl)"}))})}
+addD(Rr,"Confusion matrix on the published split (30% test), seed 0 of 10","Confusion matrix on the published split (pending)",function(s){cmReal(s,Rr.cm,["other","lethal","viable"],"rows: actual, columns: predicted")},function(s){cmph(s,"Confusion: published split")});
+addD(Rs&&(Rs.random_pairs&&(Rs.random_pairs.confusion_seed1||Rs.random_pairs.confusion_seed0)),function(){return "Confusion matrix, random-pairs split, seed 1 (macro-F1 "+Rs.random_pairs.macro_f1_mean.toFixed(3)+"); seed 0 matches the reproduction figure"},"Confusion matrix on the random pairs (pending)",function(s){cmReal(s,Rs.random_pairs.confusion_seed1||Rs.random_pairs.confusion_seed0,["other","lethal","viable"])},function(s){cmph(s,"Confusion: random pairs")});
+addD(Rs&&Rs.gene_held_out&&Rs.gene_held_out.confusion_seed0,function(){return "Confusion matrix, gene-held-out split, seed 0 (test set "+ (Rs.gene_held_out.test_share_mean*100).toFixed(1)+"% of rows)"},"Confusion matrix on the gene held out (pending)",function(s){cmReal(s,Rs.gene_held_out.confusion_seed0,["other","lethal","viable"])},function(s){cmph(s,"Confusion: genes held out")});
+addD(Rs&&Rs.source_held_out&&Object.keys(Rs.source_held_out).some(function(k){return Rs.source_held_out[k]&&Rs.source_held_out[k].confusion_seed0}),function(){var best=null;Object.keys(Rs.source_held_out).forEach(function(k){var v=Rs.source_held_out[k];if(v&&v.confusion_seed0&&(!best||v.n_test_rows>best[1].n_test_rows))best=[k,v]});return "Confusion matrix holding out "+best[0]+" (macro-F1 "+best[1].macro_f1_mean.toFixed(3)+", "+best[1].n_test_rows+" test rows)"},"Confusion matrix on the source held out (pending)",function(s){var best=null;Object.keys(Rs.source_held_out).forEach(function(k){var v=Rs.source_held_out[k];if(v&&v.confusion_seed0&&(!best||v.n_test_rows>best[1].n_test_rows))best=[k,v]});cmReal(s,best[1].confusion_seed0,["other","lethal","viable"])},function(s){cmph(s,"Confusion: source held out")});
+[["SL","lethal"],["SV","viable"],["NOT","other"]].forEach(function(c){addD(Rr,function(){return "ROC curve for the "+c[1]+" class (AUC "+Rr.roc[c[0]].auc.toFixed(3)+")"},"ROC curve for the "+c[1]+" class (pending)",function(s){rocReal(s,Rr.roc[c[0]])},function(s){ph(s,"ROC, "+c[1]+" class","false positive rate","true positive rate","diag")})});
+[["SL","lethal"],["SV","viable"],["NOT","other"]].forEach(function(c){addD(Rr,function(){return "Precision-recall curve for the "+c[1]+" class (average precision "+Rr.pr[c[0]].auc.toFixed(3)+")"},"Precision-recall curve for the "+c[1]+" class (pending)",function(s){prReal(s,Rr.pr[c[0]])},function(s){ph(s,"Precision-recall, "+c[1]+" class","recall","precision","curve")})});
+addD(Rr,"F1 by class on the published split, seed 0","F1 score per class (pending)",function(s){barsR(s,"F1 by class",["Lethal","Viable","Other"],[Rr.per_class.SL.f,Rr.per_class.SV.f,Rr.per_class.NOT.f],["var(--sl)","var(--sv)","var(--muted)"],"class")},function(s){ph(s,"F1 per class","class","F1","bars",["Lethal","Viable","Other"])});
+addD(Rb&&Rr,"Accuracy for the paper model, my rerun and baselines","Macro-F1 for the paper model, my rerun and baselines (pending)",function(s){barsR(s,"Accuracy by model",["Paper","Rerun","RF 20 col","Logistic","Grad boost","Avg deg","Path"],[RA.paper.accuracy,Rr.paper_acc[0],Rb.rf_all_columns.accuracy_mean,Rb.logistic_regression.accuracy_mean,Rb.gradient_boosting.accuracy_mean,Rb.degree_stump.accuracy_mean,Rb.path_stump.accuracy_mean],["var(--muted)","var(--sl)","var(--sl)","var(--sl)","var(--sl)","var(--sl)","var(--sl)"],"model")},function(s){ph(s,"Macro-F1 by model","model","macro-F1","bars",["Paper","Rerun","RF","LogReg","Degree"])});
+addD(Rs,"MCC across the published split and the two stricter splits","Matthews correlation coefficient across splits (pending)",function(s){var sh=0,n=0;Object.keys(Rs.source_held_out).forEach(function(k){var v=Rs.source_held_out[k];if(v&&v.mcc_mean!=null){sh+=v.mcc_mean;n++}});barsR(s,"MCC by split",["Random","Genes out","Sources out"],[Rs.random_pairs.mcc_mean,Rs.gene_held_out.mcc_mean,n?sh/n:0],["var(--sl)","var(--sv)","var(--muted)"],"split")},function(s){ph(s,"MCC by split","split","MCC","bars",["Publ.","Random","Gene","Source"])});
+addD(Rr,"Learning curve: accuracy against training size","Learning curve: score against training size (pending)",function(s){curveR(s,"Learning curve",Rr.learning.map(function(p){return [p.frac,p.accuracy]}),"share of training pairs","accuracy")},function(s){ph(s,"Learning curve","share of training data","macro-F1","curve")});
+addD(Rp,"Macro-F1 against genes removed","Macro-F1 against genes removed (pending)",function(s){robReal(s,"Macro-F1 vs genes removed","node")},function(s){ph(s,"Macro-F1 vs genes removed","genes removed","macro-F1","curve")});
+addD(Rp,"Macro-F1 against interactions removed","Macro-F1 against interactions removed (pending)",function(s){robReal(s,"Macro-F1 vs interactions removed","edge")},function(s){ph(s,"Macro-F1 vs interactions removed","interactions removed","macro-F1","curve")});
+addD(Rp,"Macro-F1 against noise edges added","Macro-F1 against noise edges added (pending)",function(s){robReal(s,"Macro-F1 vs noise edges","noise")},function(s){ph(s,"Macro-F1 vs noise edges",'noise edges added',"macro-F1","curve")});
+addD(Rp,"Macro-F1 after degree-preserving rewiring","Macro-F1 against rewired (pending)",function(s){var rw=[];Object.keys(Rp).forEach(function(t){var v=Rp[t];if(v.family==="rewire")rw.push([v.param,v.macro_f1])});rw.sort(function(a,b){return a[0]-b[0]});barsR(s,"Macro-F1 vs rewiring",["Original","Rewired 1x","Rewired 5x"],[Rp.baseline.macro_f1].concat(rw.map(function(p){return p[1]})),["var(--muted)","var(--sl)","var(--sl)"],"rewiring")},function(s){ph(s,"Macro-F1 vs rewired","rewired","macro-F1","curve")});
+addD(Rr,"Calibration: predicted confidence against observed accuracy, seed 0","Calibration: predicted confidence against observed accuracy (pending)",function(s){calReal(s)},function(s){ph(s,"Calibration","predicted confidence","observed accuracy","diag")});
+addD(Rr,"Accuracy by average-degree bucket, seed 0","Score by gene degree bucket (pending)",function(s){barsR(s,"Accuracy by degree bucket",Rr.degree_buckets.map(function(b){return b.bucket}),Rr.degree_buckets.map(function(b){return b.accuracy}),Rr.degree_buckets.map(function(){return "var(--sl)"}),"degree bucket")},function(s){ph(s,"Score by degree bucket","degree bucket","macro-F1","bars",["Low","Mid","High"])});
+addD(Rcands,function(){return "Candidate pairs against perturbations: "+Rcands.stable+" of "+Rcands.pool+" NOT-pool pairs are called interacting in most variants"},"Candidate pairs against perturbations: stability (pending)",function(s){var ks=Object.keys(Rcands.histogram).sort(function(a,b){return a-b});barsR(s,"Candidate stability",ks.map(function(k){return k+" of "+Rcands.n_variants}),ks.map(function(k){return Rcands.histogram[k]}),ks.map(function(k){return +k>=Rcands.n_variants-1?"var(--sv)":"var(--muted)"}),"variant count")},function(s){T(s,150,14,"Candidate stability","t","middle",10.5);for(var a=0;a<8;a++)for(var b=0;b<5;b++)Rc(s,62+b*34,28+a*18,30,14,{fill:"none",stroke:"var(--ink)","stroke-dasharray":"3 3","stroke-opacity":.5,rx:3});T(s,150,190,"rows: candidate pairs, columns: perturbations","tm","middle",9)});
 window.FIGS=figs;
 var gal=document.getElementById("gal");
-if(gal){var cats=[NET,SIM,CON,PEN],fl=document.getElementById("flt");
+ if(gal){var cats=[NET,SIM,CON,DCAT],fl=document.getElementById("flt");
  var show=function(c){[].forEach.call(gal.children,function(f){f.hidden=!!c&&f.getAttribute("data-c")!==c});[].forEach.call(fl.children,function(b){b.setAttribute("aria-pressed",String((b.getAttribute("data-c")||"")===(c||"")))})};
  figs.forEach(function(f,n){var fg=document.createElement("figure");fg.className="fg";fg.setAttribute("data-c",f.c);var s=E("svg",{viewBox:"0 0 300 210",role:"img","aria-label":f.t});f.d(s);fg.appendChild(s);var cp=document.createElement("figcaption");cp.innerHTML="<b>Fig. "+(n+1)+".</b> "+f.t+"<br>"+f.c;fg.appendChild(cp);gal.appendChild(fg)});
  [""].concat(cats).forEach(function(c){var b=document.createElement("button");b.type="button";b.setAttribute("data-c",c);b.textContent=(c||"All")+" ("+(c?figs.filter(function(f){return f.c===c}).length:figs.length)+")";b.addEventListener("click",function(){show(c)});fl.appendChild(b)});

@@ -1,0 +1,87 @@
+{
+ "magical_reextract_rf": {
+  "features": [
+   "avgneighbor2",
+   "avgbet",
+   "avgtriangle",
+   "shortest_path",
+   "adhesion"
+  ],
+  "accuracy_mean": 0.8091443262108488,
+  "accuracy_sd": 0.004038538105109858,
+  "macro_f1_mean": 0.7912405276239549,
+  "macro_f1_sd": 0.0047177129068494
+ },
+ "logistic_regression": {
+  "features": [
+   "avgneighbor2",
+   "avgbet",
+   "avgtriangle",
+   "shortest_path",
+   "adhesion"
+  ],
+  "accuracy_mean": 0.5658673831616883,
+  "accuracy_sd": 0.004674846553407771,
+  "macro_f1_mean": 0.5621662471882328,
+  "macro_f1_sd": 0.004966980700125093
+ },
+ "gradient_boosting": {
+  "features": [
+   "avgneighbor2",
+   "avgbet",
+   "avgtriangle",
+   "shortest_path",
+   "adhesion"
+  ],
+  "accuracy_mean": 0.7715868797709635,
+  "accuracy_sd": 0.004156872769881816,
+  "macro_f1_mean": 0.7528006341019944,
+  "macro_f1_sd": 0.005302827077185384
+ },
+ "degree_stump": {
+  "features": [
+   "avgdeg"
+  ],
+  "accuracy_mean": 0.4851026913680451,
+  "accuracy_sd": 0.005019706217722032,
+  "macro_f1_mean": 0.38818968414679117,
+  "macro_f1_sd": 0.003238238841456058
+ },
+ "path_stump": {
+  "features": [
+   "shortest_path"
+  ],
+  "accuracy_mean": 0.555426446447943,
+  "accuracy_sd": 0.0026459786174228704,
+  "macro_f1_mean": 0.39768078475426816,
+  "macro_f1_sd": 0.001704025798652005
+ },
+ "rf_all_columns": {
+  "features": [
+   "avgdeg",
+   "avgbet",
+   "avgclose",
+   "avgcore",
+   "avgcons",
+   "avgecc",
+   "avgeigen_cen",
+   "avghub_score",
+   "avgneighbor1",
+   "avgneighbor2",
+   "avgneighbor3",
+   "avgneighbor4",
+   "avgneighbor5",
+   "avgneighbor6",
+   "avgtriangle",
+   "avgcommon_neighbor",
+   "comm.detect",
+   "shortest_path",
+   "cohesion",
+   "adhesion"
+  ],
+  "accuracy_mean": 0.8745841919583242,
+  "accuracy_sd": 0.0038351988753671353,
+  "macro_f1_mean": 0.8745913006720247,
+  "macro_f1_sd": 0.004859915433562669
+ }
+}

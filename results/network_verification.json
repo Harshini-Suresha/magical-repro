@@ -1,0 +1,22 @@
+{
+ "network": {
+  "nodes": 26965,
+  "edges": 104116,
+  "components": 1229,
+  "largest_component": 23663
+ },
+ "reproduced_share": {
+  "degree": 1.0,
+  "neighbor2": 0.984,
+  "triangle": 1.0,
+  "betweenness": 1.0,
+  "shortest_path": 0.082
+ },
+ "adhesion_exact_share_50rows": 0.06,
+ "edge_connectivity_ms_per_pair": 14.44,
+ "notes": [
+  "degree, neighbour2, triangle and betweenness reproduce the shipped values",
+  "shipped shortest_path and adhesion do not: the pair-level loop in network-property-calculation.R queried graph vertices with factor values, so the two columns cannot be recomputed from the shipped edge list",
+  "shipped files contain no pair at distance 1 (adjacency pairs were dropped by na.omit after cohesion was set NA for them)"
+ ]
+}

@@ -1,0 +1,2018 @@
+{
+ "pool": 6535,
+ "n_variants": 5,
+ "predicted_interacting_in_any_variant": 5472,
+ "stable_candidates": 451,
+ "stability_histogram": {
+  "0": 1063,
+  "1": 2889,
+  "2": 932,
+  "3": 314,
+  "4": 501,
+  "5": 836
+ },
+ "top_sl": [
+  {
+   "gene1": 80288,
+   "gene2": 80905,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.969
+  },
+  {
+   "gene1": 4088,
+   "gene2": 79102,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.837
+  },
+  {
+   "gene1": 675,
+   "gene2": 57561,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.825
+  },
+  {
+   "gene1": 4130,
+   "gene2": 10949,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.824
+  },
+  {
+   "gene1": 2289,
+   "gene2": 5915,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.815
+  },
+  {
+   "gene1": 853811,
+   "gene2": 43740570,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.812
+  },
+  {
+   "gene1": 51109,
+   "gene2": 60481,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.811
+  },
+  {
+   "gene1": 5245,
+   "gene2": 220134,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.81
+  },
+  {
+   "gene1": 3575,
+   "gene2": 51426,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.801
+  },
+  {
+   "gene1": 3065,
+   "gene2": 29086,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.8
+  },
+  {
+   "gene1": 6271,
+   "gene2": 27161,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.796
+  },
+  {
+   "gene1": 828756,
+   "gene2": 829746,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.794
+  },
+  {
+   "gene1": 23286,
+   "gene2": 27180,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.791
+  },
+  {
+   "gene1": 5612,
+   "gene2": 258010,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.789
+  },
+  {
+   "gene1": 7046,
+   "gene2": 9657,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.789
+  }
+ ],
+ "top_sv": [
+  {
+   "gene1": 1997,
+   "gene2": 387357,
+   "class": "SV",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.712
+  },
+  {
+   "gene1": 6207,
+   "gene2": 46194,
+   "class": "SV",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.613
+  },
+  {
+   "gene1": 853787,
+   "gene2": 856449,
+   "class": "SV",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.604
+  },
+  {
+   "gene1": 2107,
+   "gene2": 3674,
+   "class": "SV",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.595
+  },
+  {
+   "gene1": 17131,
+   "gene2": 285527,
+   "class": "SV",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.526
+  },
+  {
+   "gene1": 174,
+   "gene2": 79874,
+   "class": "SV",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.502
+  },
+  {
+   "gene1": 2318,
+   "gene2": 4093,
+   "class": "SV",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.437
+  }
+ ],
+ "candidate_frame_sample": [
+  {
+   "gene1": 80288,
+   "gene2": 80905,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.969
+  },
+  {
+   "gene1": 4088,
+   "gene2": 79102,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.837
+  },
+  {
+   "gene1": 675,
+   "gene2": 57561,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.825
+  },
+  {
+   "gene1": 4130,
+   "gene2": 10949,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.824
+  },
+  {
+   "gene1": 2289,
+   "gene2": 5915,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.815
+  },
+  {
+   "gene1": 853811,
+   "gene2": 43740570,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.812
+  },
+  {
+   "gene1": 51109,
+   "gene2": 60481,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.811
+  },
+  {
+   "gene1": 5245,
+   "gene2": 220134,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.81
+  },
+  {
+   "gene1": 3575,
+   "gene2": 51426,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.801
+  },
+  {
+   "gene1": 3065,
+   "gene2": 29086,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.8
+  },
+  {
+   "gene1": 6271,
+   "gene2": 27161,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.796
+  },
+  {
+   "gene1": 828756,
+   "gene2": 829746,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.794
+  },
+  {
+   "gene1": 23286,
+   "gene2": 27180,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.791
+  },
+  {
+   "gene1": 5612,
+   "gene2": 258010,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.789
+  },
+  {
+   "gene1": 7046,
+   "gene2": 9657,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.789
+  },
+  {
+   "gene1": 5300,
+   "gene2": 10001,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.788
+  },
+  {
+   "gene1": 5364,
+   "gene2": 155030,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.786
+  },
+  {
+   "gene1": 852538,
+   "gene2": 856246,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.783
+  },
+  {
+   "gene1": 23363,
+   "gene2": 57761,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.782
+  },
+  {
+   "gene1": 3980,
+   "gene2": 10687,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.78
+  },
+  {
+   "gene1": 851957,
+   "gene2": 851996,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.779
+  },
+  {
+   "gene1": 3298,
+   "gene2": 29089,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.775
+  },
+  {
+   "gene1": 26223,
+   "gene2": 51719,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.774
+  },
+  {
+   "gene1": 5927,
+   "gene2": 25820,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.771
+  },
+  {
+   "gene1": 54780,
+   "gene2": 57506,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.77
+  },
+  {
+   "gene1": 5470,
+   "gene2": 850907,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.768
+  },
+  {
+   "gene1": 3728,
+   "gene2": 10992,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.766
+  },
+  {
+   "gene1": 5063,
+   "gene2": 55074,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.762
+  },
+  {
+   "gene1": 29066,
+   "gene2": 80851,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.761
+  },
+  {
+   "gene1": 4841,
+   "gene2": 6274,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.754
+  },
+  {
+   "gene1": 3297,
+   "gene2": 64343,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.754
+  },
+  {
+   "gene1": 3091,
+   "gene2": 850620,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.753
+  },
+  {
+   "gene1": 11331,
+   "gene2": 494470,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.753
+  },
+  {
+   "gene1": 851990,
+   "gene2": 852586,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.752
+  },
+  {
+   "gene1": 3376,
+   "gene2": 55611,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.751
+  },
+  {
+   "gene1": 181557,
+   "gene2": 43740572,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.751
+  },
+  {
+   "gene1": 509,
+   "gene2": 10133,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.749
+  },
+  {
+   "gene1": 5599,
+   "gene2": 56888,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.747
+  },
+  {
+   "gene1": 2264,
+   "gene2": 11059,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.746
+  },
+  {
+   "gene1": 1022,
+   "gene2": 2876,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.746
+  },
+  {
+   "gene1": 6184,
+   "gene2": 348303,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.745
+  },
+  {
+   "gene1": 5829,
+   "gene2": 55367,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.745
+  },
+  {
+   "gene1": 843,
+   "gene2": 7030,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.74
+  },
+  {
+   "gene1": 1211,
+   "gene2": 5514,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.739
+  },
+  {
+   "gene1": 10728,
+   "gene2": 30818,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.737
+  },
+  {
+   "gene1": 7126,
+   "gene2": 57161,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.737
+  },
+  {
+   "gene1": 3313,
+   "gene2": 51176,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.735
+  },
+  {
+   "gene1": 7529,
+   "gene2": 175721,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.733
+  },
+  {
+   "gene1": 6732,
+   "gene2": 6772,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.732
+  },
+  {
+   "gene1": 5764,
+   "gene2": 8453,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.732
+  },
+  {
+   "gene1": 815,
+   "gene2": 10940,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.731
+  },
+  {
+   "gene1": 5930,
+   "gene2": 25962,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.731
+  },
+  {
+   "gene1": 1027,
+   "gene2": 850568,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.73
+  },
+  {
+   "gene1": 55975,
+   "gene2": 64344,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.729
+  },
+  {
+   "gene1": 142,
+   "gene2": 8878,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.729
+  },
+  {
+   "gene1": 526,
+   "gene2": 5156,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.728
+  },
+  {
+   "gene1": 3191,
+   "gene2": 9457,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.728
+  },
+  {
+   "gene1": 2049,
+   "gene2": 5159,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.728
+  },
+  {
+   "gene1": 9978,
+   "gene2": 171923,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.727
+  },
+  {
+   "gene1": 2289,
+   "gene2": 23513,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.727
+  },
+  {
+   "gene1": 3217,
+   "gene2": 10381,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.726
+  },
+  {
+   "gene1": 25909,
+   "gene2": 161882,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.725
+  },
+  {
+   "gene1": 10645,
+   "gene2": 55585,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.724
+  },
+  {
+   "gene1": 2551,
+   "gene2": 10410,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.722
+  },
+  {
+   "gene1": 867,
+   "gene2": 5887,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.72
+  },
+  {
+   "gene1": 26272,
+   "gene2": 79892,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.718
+  },
+  {
+   "gene1": 5245,
+   "gene2": 20674,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.717
+  },
+  {
+   "gene1": 10507,
+   "gene2": 81922,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.717
+  },
+  {
+   "gene1": 9892,
+   "gene2": 79586,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.717
+  },
+  {
+   "gene1": 5753,
+   "gene2": 150684,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.716
+  },
+  {
+   "gene1": 3015,
+   "gene2": 55031,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.716
+  },
+  {
+   "gene1": 7324,
+   "gene2": 55835,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.716
+  },
+  {
+   "gene1": 79050,
+   "gene2": 2542606,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.715
+  },
+  {
+   "gene1": 6478,
+   "gene2": 220972,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.715
+  },
+  {
+   "gene1": 1997,
+   "gene2": 387357,
+   "class": "SV",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.712
+  },
+  {
+   "gene1": 7556,
+   "gene2": 10551,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.71
+  },
+  {
+   "gene1": 850918,
+   "gene2": 856162,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.709
+  },
+  {
+   "gene1": 6617,
+   "gene2": 8450,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.708
+  },
+  {
+   "gene1": 8826,
+   "gene2": 10236,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.708
+  },
+  {
+   "gene1": 5018,
+   "gene2": 54951,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.708
+  },
+  {
+   "gene1": 890,
+   "gene2": 5704,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.707
+  },
+  {
+   "gene1": 8676,
+   "gene2": 856089,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.706
+  },
+  {
+   "gene1": 22863,
+   "gene2": 55294,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.705
+  },
+  {
+   "gene1": 2004,
+   "gene2": 4928,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.704
+  },
+  {
+   "gene1": 2803,
+   "gene2": 4689,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.702
+  },
+  {
+   "gene1": 56616,
+   "gene2": 852487,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.702
+  },
+  {
+   "gene1": 84131,
+   "gene2": 122769,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.701
+  },
+  {
+   "gene1": 51028,
+   "gene2": 57787,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.701
+  },
+  {
+   "gene1": 4676,
+   "gene2": 9722,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.7
+  },
+  {
+   "gene1": 852963,
+   "gene2": 856048,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.7
+  },
+  {
+   "gene1": 855258,
+   "gene2": 856478,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.699
+  },
+  {
+   "gene1": 851539,
+   "gene2": 855883,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.699
+  },
+  {
+   "gene1": 2071,
+   "gene2": 9807,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.699
+  },
+  {
+   "gene1": 851150,
+   "gene2": 854372,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.698
+  },
+  {
+   "gene1": 5577,
+   "gene2": 163590,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.696
+  },
+  {
+   "gene1": 3476,
+   "gene2": 55872,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.693
+  },
+  {
+   "gene1": 7025,
+   "gene2": 9820,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.692
+  },
+  {
+   "gene1": 8139,
+   "gene2": 51435,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.692
+  },
+  {
+   "gene1": 855652,
+   "gene2": 856015,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.692
+  },
+  {
+   "gene1": 852243,
+   "gene2": 852697,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.692
+  },
+  {
+   "gene1": 7531,
+   "gene2": 259215,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.691
+  },
+  {
+   "gene1": 8767,
+   "gene2": 100038882,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.691
+  },
+  {
+   "gene1": 851558,
+   "gene2": 853649,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.69
+  },
+  {
+   "gene1": 5378,
+   "gene2": 54902,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.69
+  },
+  {
+   "gene1": 9232,
+   "gene2": 80155,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.689
+  },
+  {
+   "gene1": 2288,
+   "gene2": 89849,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.689
+  },
+  {
+   "gene1": 8412,
+   "gene2": 64714,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.688
+  },
+  {
+   "gene1": 6629,
+   "gene2": 7132,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.688
+  },
+  {
+   "gene1": 9392,
+   "gene2": 10152,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.688
+  },
+  {
+   "gene1": 10577,
+   "gene2": 29974,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.688
+  },
+  {
+   "gene1": 5479,
+   "gene2": 5518,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.686
+  },
+  {
+   "gene1": 5338,
+   "gene2": 852212,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.686
+  },
+  {
+   "gene1": 4627,
+   "gene2": 246330,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.686
+  },
+  {
+   "gene1": 6311,
+   "gene2": 16150,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.686
+  },
+  {
+   "gene1": 855154,
+   "gene2": 855757,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.686
+  },
+  {
+   "gene1": 1803,
+   "gene2": 5079,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.684
+  },
+  {
+   "gene1": 10146,
+   "gene2": 399694,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.684
+  },
+  {
+   "gene1": 5564,
+   "gene2": 853475,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.683
+  },
+  {
+   "gene1": 852969,
+   "gene2": 856076,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.683
+  },
+  {
+   "gene1": 11316,
+   "gene2": 856571,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.682
+  },
+  {
+   "gene1": 1843,
+   "gene2": 4772,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.682
+  },
+  {
+   "gene1": 6002,
+   "gene2": 7532,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.681
+  },
+  {
+   "gene1": 4772,
+   "gene2": 8358,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.681
+  },
+  {
+   "gene1": 2355,
+   "gene2": 5985,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.68
+  },
+  {
+   "gene1": 9519,
+   "gene2": 2540956,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.68
+  },
+  {
+   "gene1": 854307,
+   "gene2": 854700,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.678
+  },
+  {
+   "gene1": 11155,
+   "gene2": 54531,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.678
+  },
+  {
+   "gene1": 850624,
+   "gene2": 856367,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.676
+  },
+  {
+   "gene1": 855450,
+   "gene2": 856126,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.676
+  },
+  {
+   "gene1": 23607,
+   "gene2": 80153,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.674
+  },
+  {
+   "gene1": 6580,
+   "gene2": 57410,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.674
+  },
+  {
+   "gene1": 114,
+   "gene2": 2975,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.674
+  },
+  {
+   "gene1": 3483,
+   "gene2": 7319,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.674
+  },
+  {
+   "gene1": 1478,
+   "gene2": 22196,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.673
+  },
+  {
+   "gene1": 10769,
+   "gene2": 64837,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.672
+  },
+  {
+   "gene1": 79172,
+   "gene2": 855621,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.672
+  },
+  {
+   "gene1": 23191,
+   "gene2": 85458,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.67
+  },
+  {
+   "gene1": 5582,
+   "gene2": 6184,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.67
+  },
+  {
+   "gene1": 5744,
+   "gene2": 5883,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.67
+  },
+  {
+   "gene1": 853589,
+   "gene2": 855549,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.669
+  },
+  {
+   "gene1": 9055,
+   "gene2": 51548,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.669
+  },
+  {
+   "gene1": 23077,
+   "gene2": 26965,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.669
+  },
+  {
+   "gene1": 84272,
+   "gene2": 283899,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.669
+  },
+  {
+   "gene1": 851532,
+   "gene2": 854421,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.668
+  },
+  {
+   "gene1": 10693,
+   "gene2": 10794,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.668
+  },
+  {
+   "gene1": 5447,
+   "gene2": 8778,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.668
+  },
+  {
+   "gene1": 854372,
+   "gene2": 855890,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.667
+  },
+  {
+   "gene1": 6769,
+   "gene2": 9810,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.667
+  },
+  {
+   "gene1": 582,
+   "gene2": 23332,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.667
+  },
+  {
+   "gene1": 79026,
+   "gene2": 83999,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.667
+  },
+  {
+   "gene1": 850584,
+   "gene2": 852810,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.666
+  },
+  {
+   "gene1": 8079,
+   "gene2": 26146,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.666
+  },
+  {
+   "gene1": 596,
+   "gene2": 8831,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.665
+  },
+  {
+   "gene1": 55840,
+   "gene2": 64854,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.664
+  },
+  {
+   "gene1": 310,
+   "gene2": 7110,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.664
+  },
+  {
+   "gene1": 1432,
+   "gene2": 4547,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.664
+  },
+  {
+   "gene1": 22853,
+   "gene2": 155061,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.663
+  },
+  {
+   "gene1": 7067,
+   "gene2": 10403,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.663
+  },
+  {
+   "gene1": 3211,
+   "gene2": 5590,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.663
+  },
+  {
+   "gene1": 6491,
+   "gene2": 8091,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.663
+  },
+  {
+   "gene1": 667,
+   "gene2": 23172,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.663
+  },
+  {
+   "gene1": 6257,
+   "gene2": 852881,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.662
+  },
+  {
+   "gene1": 380037,
+   "gene2": 851520,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.662
+  },
+  {
+   "gene1": 374393,
+   "gene2": 856490,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.662
+  },
+  {
+   "gene1": 1901,
+   "gene2": 56897,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.662
+  },
+  {
+   "gene1": 113984,
+   "gene2": 856210,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.662
+  },
+  {
+   "gene1": 3614,
+   "gene2": 3717,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.661
+  },
+  {
+   "gene1": 10533,
+   "gene2": 11346,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.661
+  },
+  {
+   "gene1": 6801,
+   "gene2": 28996,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.66
+  },
+  {
+   "gene1": 5296,
+   "gene2": 10845,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.659
+  },
+  {
+   "gene1": 2067,
+   "gene2": 23345,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.658
+  },
+  {
+   "gene1": 6293,
+   "gene2": 11228,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.658
+  },
+  {
+   "gene1": 10181,
+   "gene2": 25983,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.658
+  },
+  {
+   "gene1": 6608,
+   "gene2": 57708,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.658
+  },
+  {
+   "gene1": 23381,
+   "gene2": 29789,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.657
+  },
+  {
+   "gene1": 5441,
+   "gene2": 23215,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.656
+  },
+  {
+   "gene1": 78973,
+   "gene2": 83732,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.656
+  },
+  {
+   "gene1": 9928,
+   "gene2": 10445,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.656
+  },
+  {
+   "gene1": 9636,
+   "gene2": 10270,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.656
+  },
+  {
+   "gene1": 7529,
+   "gene2": 51375,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.655
+  },
+  {
+   "gene1": 429,
+   "gene2": 1111,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.655
+  },
+  {
+   "gene1": 3866,
+   "gene2": 8312,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.655
+  },
+  {
+   "gene1": 2874,
+   "gene2": 8991,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.654
+  },
+  {
+   "gene1": 852273,
+   "gene2": 852846,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.653
+  },
+  {
+   "gene1": 24144,
+   "gene2": 65056,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.653
+  },
+  {
+   "gene1": 3299,
+   "gene2": 3718,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.652
+  },
+  {
+   "gene1": 852184,
+   "gene2": 854345,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.651
+  },
+  {
+   "gene1": 898,
+   "gene2": 421202,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.651
+  },
+  {
+   "gene1": 18559,
+   "gene2": 29947,
+   "class": "SL",
+   "n_variants_available": 4,
+   "n_variants_interacting": 4,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.65
+  },
+  {
+   "gene1": 161,
+   "gene2": 10664,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.65
+  },
+  {
+   "gene1": 14174,
+   "gene2": 26994,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.65
+  },
+  {
+   "gene1": 9637,
+   "gene2": 10250,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.649
+  },
+  {
+   "gene1": 2059,
+   "gene2": 4697,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.649
+  },
+  {
+   "gene1": 4162,
+   "gene2": 11279,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.649
+  },
+  {
+   "gene1": 5310,
+   "gene2": 26958,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.648
+  },
+  {
+   "gene1": 2034,
+   "gene2": 285464,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.648
+  },
+  {
+   "gene1": 5449,
+   "gene2": 55609,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.648
+  },
+  {
+   "gene1": 5834,
+   "gene2": 51130,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.647
+  },
+  {
+   "gene1": 8940,
+   "gene2": 2543682,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.647
+  },
+  {
+   "gene1": 6748,
+   "gene2": 23328,
+   "class": "SL",
+   "n_variants_available": 5,
+   "n_variants_interacting": 5,
+   "same_class": true,
+   "mean_confidence_when_interacting": 0.646
+  }
+ ]
+}

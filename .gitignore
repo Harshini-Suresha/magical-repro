@@ -4,3 +4,5 @@ __pycache__/
 venv/
 .DS_Store
 .ipynb_checkpoints/
+results/*.pkl
+results/perturb_parts/

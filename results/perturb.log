@@ -1,0 +1,38 @@
+unique pairs: train 17349, test 7643, total 23765
+candidate pool (NOT pairs unseen in labels): 6535
+[21:22:28] baseline: cached
+[21:22:28] node-5: cached
+[21:22:28] node-10: cached
+[21:22:28] node-20: cached
+[21:22:28] node-30: cached
+[21:22:28] edge-5: cached
+[21:22:28] edge-10: cached
+[21:22:28] edge-20: cached
+[21:22:28] edge-30: cached
+[21:22:28] noise-5: cached
+[21:22:28] noise-10: cached
+[21:22:28] noise-20: cached
+[21:22:28] noise-30: cached
+[21:22:28] rewire-1x: cached
+[21:22:28] rewire-5x: cached
+pair features for 15 variants in 2s
+re-extracted baseline train accuracy: 0.9963 (14557/19127 train rows have both genes in the network)
+baseline {'family': 'none', 'param': 0.0, 'n_rows': 6043, 'dropped_share': 0.2391, 'accuracy': 0.745, 'macro_f1': 0.7059}
+node-5 {'family': 'node', 'param': 0.05, 'n_rows': 5479, 'dropped_share': 0.3101, 'accuracy': 0.6965, 'macro_f1': 0.6381}
+node-10 {'family': 'node', 'param': 0.1, 'n_rows': 4999, 'dropped_share': 0.3706, 'accuracy': 0.6603, 'macro_f1': 0.5909}
+node-20 {'family': 'node', 'param': 0.2, 'n_rows': 4026, 'dropped_share': 0.4931, 'accuracy': 0.6289, 'macro_f1': 0.5574}
+node-30 {'family': 'node', 'param': 0.3, 'n_rows': 3167, 'dropped_share': 0.6012, 'accuracy': 0.6031, 'macro_f1': 0.517}
+edge-5 {'family': 'edge', 'param': 0.05, 'n_rows': 6043, 'dropped_share': 0.2391, 'accuracy': 0.6856, 'macro_f1': 0.6327}
+edge-10 {'family': 'edge', 'param': 0.1, 'n_rows': 6043, 'dropped_share': 0.2391, 'accuracy': 0.6618, 'macro_f1': 0.5993}
+edge-20 {'family': 'edge', 'param': 0.2, 'n_rows': 6043, 'dropped_share': 0.2391, 'accuracy': 0.6244, 'macro_f1': 0.5598}
+edge-30 {'family': 'edge', 'param': 0.3, 'n_rows': 6043, 'dropped_share': 0.2391, 'accuracy': 0.6033, 'macro_f1': 0.5265}
+noise-5 {'family': 'noise', 'param': 0.05, 'n_rows': 6043, 'dropped_share': 0.2391, 'accuracy': 0.671, 'macro_f1': 0.6144}
+noise-10 {'family': 'noise', 'param': 0.1, 'n_rows': 6043, 'dropped_share': 0.2391, 'accuracy': 0.6479, 'macro_f1': 0.581}
+noise-20 {'family': 'noise', 'param': 0.2, 'n_rows': 6043, 'dropped_share': 0.2391, 'accuracy': 0.6268, 'macro_f1': 0.5516}
+noise-30 {'family': 'noise', 'param': 0.3, 'n_rows': 6043, 'dropped_share': 0.2391, 'accuracy': 0.6118, 'macro_f1': 0.5271}
+rewire-1x {'family': 'rewire', 'param': 1.0, 'n_rows': 6043, 'dropped_share': 0.2391, 'accuracy': 0.5299, 'macro_f1': 0.4059}
+rewire-5x {'family': 'rewire', 'param': 5.0, 'n_rows': 6043, 'dropped_share': 0.2391, 'accuracy': 0.5223, 'macro_f1': 0.3972}
+/Users/harshinisuresha/Downloads/magical-repro/src/exp_perturb.py:213: RuntimeWarning: Mean of empty slice
+  mean_conf = np.nanmean(np.where(interacting, confs.T, np.nan), axis=1)
+stable candidates: 451 of pool 6535
+total wall time 5s
