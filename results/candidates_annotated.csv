@@ -1,0 +1,452 @@
+gene1,symbol1,species1,gene2,symbol2,species2,human_pair,class,n_variants_available,n_variants_interacting,mean_confidence_when_interacting
+80288,Bcl9l,Mus musculus,80905,Polh,Mus musculus,False,SL,5,5,0.969
+4088,SMAD3,Homo sapiens,79102,RNF26,Homo sapiens,True,SL,5,5,0.837
+675,BRCA2,Homo sapiens,57561,ARRDC3,Homo sapiens,True,SL,5,5,0.825
+4130,MAP1A,Homo sapiens,10949,HNRNPA0,Homo sapiens,True,SL,5,5,0.824
+2289,FKBP5,Homo sapiens,5915,RARB,Homo sapiens,True,SL,5,5,0.815
+853811,DEF1,Saccharomyces cerevisiae S288C,43740570,E,Severe acute respiratory syndrome coronavirus 2,False,SL,5,5,0.812
+51109,RDH11,Homo sapiens,60481,ELOVL5,Homo sapiens,True,SL,5,5,0.811
+5245,PHB1,Homo sapiens,220134,SKA1,Homo sapiens,True,SL,5,5,0.81
+3575,IL7R,Homo sapiens,51426,POLK,Homo sapiens,True,SL,4,4,0.801
+3065,HDAC1,Homo sapiens,29086,BABAM1,Homo sapiens,True,SL,5,5,0.8
+6271,S100A1,Homo sapiens,27161,AGO2,Homo sapiens,True,SL,5,5,0.796
+828756,CPSUFE,Arabidopsis thaliana,829746,AT4G35910,Arabidopsis thaliana,False,SL,5,5,0.794
+23286,WWC1,Homo sapiens,27180,SIGLEC9,Homo sapiens,True,SL,4,4,0.791
+5612,THAP12,Homo sapiens,258010,SVIP,Homo sapiens,True,SL,5,5,0.789
+7046,TGFBR1,Homo sapiens,9657,IQCB1,Homo sapiens,True,SL,5,5,0.789
+5300,PIN1,Homo sapiens,10001,MED6,Homo sapiens,True,SL,4,4,0.788
+5364,PLXNB1,Homo sapiens,155030,gag,Human immunodeficiency virus 1,False,SL,5,5,0.786
+852538,ABD1,Saccharomyces cerevisiae S288C,856246,ANT1,Saccharomyces cerevisiae S288C,False,SL,5,5,0.783
+23363,OBSL1,Homo sapiens,57761,TRIB3,Homo sapiens,True,SL,5,5,0.782
+3980,LIG3,Homo sapiens,10687,PNMA2,Homo sapiens,True,SL,5,5,0.78
+851957,SPC110,Saccharomyces cerevisiae S288C,851996,RVS167,Saccharomyces cerevisiae S288C,False,SL,5,5,0.779
+3298,HSF2,Homo sapiens,29089,UBE2T,Homo sapiens,True,SL,5,5,0.775
+26223,FBXL21P,Homo sapiens,51719,CAB39,Homo sapiens,True,SL,4,4,0.774
+5927,KDM5A,Homo sapiens,25820,ARIH1,Homo sapiens,True,SL,5,5,0.771
+54780,NSMCE4A,Homo sapiens,57506,MAVS,Homo sapiens,True,SL,5,5,0.77
+5470,PPEF2,Homo sapiens,850907,CLB4,Saccharomyces cerevisiae S288C,False,SL,4,4,0.768
+3728,JUP,Homo sapiens,10992,SF3B2,Homo sapiens,True,SL,4,4,0.766
+5063,PAK3,Homo sapiens,55074,OXR1,Homo sapiens,True,SL,5,5,0.762
+29066,ZC3H7A,Homo sapiens,80851,SH3BP5L,Homo sapiens,True,SL,5,5,0.761
+4841,NONO,Homo sapiens,6274,S100A3,Homo sapiens,True,SL,4,4,0.754
+3297,HSF1,Homo sapiens,64343,AZI2,Homo sapiens,True,SL,5,5,0.754
+3091,HIF1A,Homo sapiens,850620,UBI4,Saccharomyces cerevisiae S288C,False,SL,5,5,0.753
+11331,PHB2,Homo sapiens,494470,ARK2C,Homo sapiens,True,SL,5,5,0.753
+851990,RPP2B,Saccharomyces cerevisiae S288C,852586,SSH1,Saccharomyces cerevisiae S288C,False,SL,5,5,0.752
+3376,IARS1,Homo sapiens,55611,OTUB1,Homo sapiens,True,SL,4,4,0.751
+181557,eor-2,Caenorhabditis elegans,43740572,ORF6,Severe acute respiratory syndrome coronavirus 2,False,SL,5,5,0.751
+509,ATP5F1C,Homo sapiens,10133,OPTN,Homo sapiens,True,SL,5,5,0.749
+5599,MAPK8,Homo sapiens,56888,KCMF1,Homo sapiens,True,SL,5,5,0.747
+2264,FGFR4,Homo sapiens,11059,WWP1,Homo sapiens,True,SL,5,5,0.746
+1022,CDK7,Homo sapiens,2876,GPX1,Homo sapiens,True,SL,4,4,0.746
+6184,RPN1,Homo sapiens,348303,SELENOV,Homo sapiens,True,SL,5,5,0.745
+5829,PXN,Homo sapiens,55367,PIDD1,Homo sapiens,True,SL,5,5,0.745
+843,CASP10,Homo sapiens,7030,TFE3,Homo sapiens,True,SL,5,5,0.74
+1211,CLTA,Homo sapiens,5514,PPP1R10,Homo sapiens,True,SL,5,5,0.739
+10728,PTGES3,Homo sapiens,30818,KCNIP3,Homo sapiens,True,SL,4,4,0.737
+7126,TNFAIP1,Homo sapiens,57161,PELI2,Homo sapiens,True,SL,5,5,0.737
+3313,HSPA9,Homo sapiens,51176,LEF1,Homo sapiens,True,SL,5,5,0.735
+7529,YWHAB,Homo sapiens,175721,gop-1,Caenorhabditis elegans,False,SL,5,5,0.733
+6732,SRPK1,Homo sapiens,6772,STAT1,Homo sapiens,True,SL,5,5,0.732
+5764,PTN,Homo sapiens,8453,CUL2,Homo sapiens,True,SL,5,5,0.732
+815,CAMK2A,Homo sapiens,10940,POP1,Homo sapiens,True,SL,5,5,0.731
+5930,RBBP6,Homo sapiens,25962,VIRMA,Homo sapiens,True,SL,5,5,0.731
+1027,CDKN1B,Homo sapiens,850568,CMK1,Saccharomyces cerevisiae S288C,False,SL,4,4,0.73
+55975,KLHL7,Homo sapiens,64344,HIF3A,Homo sapiens,True,SL,5,5,0.729
+142,PARP1,Homo sapiens,8878,SQSTM1,Homo sapiens,True,SL,4,4,0.729
+526,ATP6V1B2,Homo sapiens,5156,PDGFRA,Homo sapiens,True,SL,5,5,0.728
+3191,HNRNPL,Homo sapiens,9457,FHL5,Homo sapiens,True,SL,5,5,0.728
+2049,EPHB3,Homo sapiens,5159,PDGFRB,Homo sapiens,True,SL,5,5,0.728
+9978,RBX1,Homo sapiens,171923,rde-10,Caenorhabditis elegans,False,SL,5,5,0.727
+2289,FKBP5,Homo sapiens,23513,SCRIB,Homo sapiens,True,SL,5,5,0.727
+3217,HOXB7,Homo sapiens,10381,TUBB3,Homo sapiens,True,SL,5,5,0.726
+25909,AHCTF1,Homo sapiens,161882,ZFPM1,Homo sapiens,True,SL,4,4,0.725
+10645,CAMKK2,Homo sapiens,55585,UBE2Q1,Homo sapiens,True,SL,4,4,0.724
+2551,GABPA,Homo sapiens,10410,IFITM3,Homo sapiens,True,SL,5,5,0.722
+867,CBL,Homo sapiens,5887,RAD23B,Homo sapiens,True,SL,5,5,0.72
+26272,FBXO4,Homo sapiens,79892,MCMBP,Homo sapiens,True,SL,5,5,0.718
+5245,PHB1,Homo sapiens,20674,Sox2,Mus musculus,False,SL,5,5,0.717
+10507,SEMA4D,Homo sapiens,81922,Sh3gl1,Rattus norvegicus,False,SL,5,5,0.717
+9892,SNAP91,Homo sapiens,79586,CHPF,Homo sapiens,True,SL,4,4,0.717
+5753,PTK6,Homo sapiens,150684,COMMD1,Homo sapiens,True,SL,5,5,0.716
+3015,H2AZ1,Homo sapiens,55031,USP47,Homo sapiens,True,SL,4,4,0.716
+7324,UBE2E1,Homo sapiens,55835,CPAP,Homo sapiens,True,SL,5,5,0.716
+79050,NOC4L,Homo sapiens,2542606,sst2,Schizosaccharomyces pombe,False,SL,4,4,0.715
+6478,SIAH2,Homo sapiens,220972,MARCHF8,Homo sapiens,True,SL,4,4,0.715
+1997,ELF1,Homo sapiens,387357,THEMIS,Homo sapiens,True,SV,5,5,0.712
+7556,ZNF10,Homo sapiens,10551,AGR2,Homo sapiens,True,SL,4,4,0.71
+850918,RSA3,Saccharomyces cerevisiae S288C,856162,ATG11,Saccharomyces cerevisiae S288C,False,SL,4,4,0.709
+6617,SNAPC1,Homo sapiens,8450,CUL4B,Homo sapiens,True,SL,4,4,0.708
+8826,IQGAP1,Homo sapiens,10236,HNRNPR,Homo sapiens,True,SL,5,5,0.708
+5018,OXA1L,Homo sapiens,54951,COMMD8,Homo sapiens,True,SL,5,5,0.708
+890,CCNA2,Homo sapiens,5704,PSMC4,Homo sapiens,True,SL,5,5,0.707
+8676,STX11,Homo sapiens,856089,CTF19,Saccharomyces cerevisiae S288C,False,SL,4,4,0.706
+22863,ATG14,Homo sapiens,55294,FBXW7,Homo sapiens,True,SL,5,5,0.705
+2004,ELK3,Homo sapiens,4928,NUP98,Homo sapiens,True,SL,5,5,0.704
+2803,GOLGA4,Homo sapiens,4689,NCF4,Homo sapiens,True,SL,5,5,0.702
+56616,DIABLO,Homo sapiens,852487,RPS9B,Saccharomyces cerevisiae S288C,False,SL,5,5,0.702
+84131,CEP78,Homo sapiens,122769,LRR1,Homo sapiens,True,SL,5,5,0.701
+51028,VPS36,Homo sapiens,57787,MARK4,Homo sapiens,True,SL,5,5,0.701
+4676,NAP1L4,Homo sapiens,9722,NOS1AP,Homo sapiens,True,SL,5,5,0.7
+852963,UPF3,Saccharomyces cerevisiae S288C,856048,GRX5,Saccharomyces cerevisiae S288C,False,SL,5,5,0.7
+855258,TRS130,Saccharomyces cerevisiae S288C,856478,IRE1,Saccharomyces cerevisiae S288C,False,SL,5,5,0.699
+851539,GPD1,Saccharomyces cerevisiae S288C,855883,SAR1,Saccharomyces cerevisiae S288C,False,SL,5,5,0.699
+2071,ERCC3,Homo sapiens,9807,IP6K1,Homo sapiens,True,SL,5,5,0.699
+851150,SEN1,Saccharomyces cerevisiae S288C,854372,MCA1,Saccharomyces cerevisiae S288C,False,SL,5,5,0.698
+5577,PRKAR2B,Homo sapiens,163590,TOR1AIP2,Homo sapiens,True,SL,5,5,0.696
+3476,IGBP1,Homo sapiens,55872,PBK,Homo sapiens,True,SL,5,5,0.693
+7025,NR2F1,Homo sapiens,9820,CUL7,Homo sapiens,True,SL,5,5,0.692
+8139,GAN,Homo sapiens,51435,SCARA3,Homo sapiens,True,SL,5,5,0.692
+855652,RNH201,Saccharomyces cerevisiae S288C,856015,RPS6A,Saccharomyces cerevisiae S288C,False,SL,4,4,0.692
+852243,APL3,Saccharomyces cerevisiae S288C,852697,MPT5,Saccharomyces cerevisiae S288C,False,SL,4,4,0.692
+7531,YWHAE,Homo sapiens,259215,LY6G6F,Homo sapiens,True,SL,5,5,0.691
+8767,RIPK2,Homo sapiens,100038882,Isg15,Mus musculus,False,SL,5,5,0.691
+851558,PTC1,Saccharomyces cerevisiae S288C,853649,MTR2,Saccharomyces cerevisiae S288C,False,SL,5,5,0.69
+5378,PMS1,Homo sapiens,54902,TTC19,Homo sapiens,True,SL,5,5,0.69
+9232,PTTG1,Homo sapiens,80155,NAA15,Homo sapiens,True,SL,5,5,0.689
+2288,FKBP4,Homo sapiens,89849,ATG16L2,Homo sapiens,True,SL,5,5,0.689
+8412,BCAR3,Homo sapiens,64714,PDIA2,Homo sapiens,True,SL,5,5,0.688
+6629,SNRPB2,Homo sapiens,7132,TNFRSF1A,Homo sapiens,True,SL,5,5,0.688
+9392,TGFBRAP1,Homo sapiens,10152,ABI2,Homo sapiens,True,SL,5,5,0.688
+10577,NPC2,Homo sapiens,29974,A1CF,Homo sapiens,True,SL,5,5,0.688
+5479,PPIB,Homo sapiens,5518,PPP2R1A,Homo sapiens,True,SL,4,4,0.686
+5338,PLD2,Homo sapiens,852212,UBP13,Saccharomyces cerevisiae S288C,False,SL,4,4,0.686
+4627,MYH9,Homo sapiens,246330,PELI3,Homo sapiens,True,SL,5,5,0.686
+6311,ATXN2,Homo sapiens,16150,Ikbkb,Mus musculus,False,SL,5,5,0.686
+855154,EPO1,Saccharomyces cerevisiae S288C,855757,SNF12,Saccharomyces cerevisiae S288C,False,SL,4,4,0.686
+1803,DPP4,Homo sapiens,5079,PAX5,Homo sapiens,True,SL,5,5,0.684
+10146,G3BP1,Homo sapiens,399694,SHC4,Homo sapiens,True,SL,5,5,0.684
+5564,PRKAB1,Homo sapiens,853475,ESS1,Saccharomyces cerevisiae S288C,False,SL,5,5,0.683
+852969,PAC10,Saccharomyces cerevisiae S288C,856076,PHO85,Saccharomyces cerevisiae S288C,False,SL,5,5,0.683
+11316,COPE,Homo sapiens,856571,CDC23,Saccharomyces cerevisiae S288C,False,SL,5,5,0.682
+1843,DUSP1,Homo sapiens,4772,NFATC1,Homo sapiens,True,SL,5,5,0.682
+6002,RGS12,Homo sapiens,7532,YWHAG,Homo sapiens,True,SL,5,5,0.681
+4772,NFATC1,Homo sapiens,8358,H3C2,Homo sapiens,True,SL,5,5,0.681
+2355,FOSL2,Homo sapiens,5985,RFC5,Homo sapiens,True,SL,5,5,0.68
+9519,TBPL1,Homo sapiens,2540956,uch2,Schizosaccharomyces pombe,False,SL,5,5,0.68
+854307,SFL1,Saccharomyces cerevisiae S288C,854700,MOB1,Saccharomyces cerevisiae S288C,False,SL,5,5,0.678
+11155,LDB3,Homo sapiens,54531,MIER2,Homo sapiens,True,SL,4,4,0.678
+850624,GRC3,Saccharomyces cerevisiae S288C,856367,APM2,Saccharomyces cerevisiae S288C,False,SL,4,4,0.676
+855450,BNI1,Saccharomyces cerevisiae S288C,856126,TIF6,Saccharomyces cerevisiae S288C,False,SL,5,5,0.676
+23607,CD2AP,Homo sapiens,80153,EDC3,Homo sapiens,True,SL,5,5,0.674
+6580,SLC22A1,Homo sapiens,57410,SCYL1,Homo sapiens,True,SL,5,5,0.674
+114,ADCY8,Homo sapiens,2975,GTF3C1,Homo sapiens,True,SL,5,5,0.674
+3483,IGFALS,Homo sapiens,7319,UBE2A,Homo sapiens,True,SL,4,4,0.674
+1478,CSTF2,Homo sapiens,22196,Ube2i,Mus musculus,False,SL,5,5,0.673
+10769,PLK2,Homo sapiens,64837,KLC2,Homo sapiens,True,SL,4,4,0.672
+79172,CENPO,Homo sapiens,855621,POL1,Saccharomyces cerevisiae S288C,False,SL,5,5,0.672
+23191,CYFIP1,Homo sapiens,85458,DIXDC1,Homo sapiens,True,SL,5,5,0.67
+5582,PRKCG,Homo sapiens,6184,RPN1,Homo sapiens,True,SL,5,5,0.67
+5744,PTHLH,Homo sapiens,5883,RAD9A,Homo sapiens,True,SL,5,5,0.67
+853589,ENT3,Saccharomyces cerevisiae S288C,855549,APC1,Saccharomyces cerevisiae S288C,False,SL,5,5,0.669
+9055,PRC1,Homo sapiens,51548,SIRT6,Homo sapiens,True,SL,4,4,0.669
+23077,MYCBP2,Homo sapiens,26965,Cul1,Mus musculus,False,SL,5,5,0.669
+84272,YIPF4,Homo sapiens,283899,INO80E,Homo sapiens,True,SL,5,5,0.669
+851532,ARP2,Saccharomyces cerevisiae S288C,854421,SRL1,Saccharomyces cerevisiae S288C,False,SL,5,5,0.668
+10693,CCT6B,Homo sapiens,10794,ZNF460,Homo sapiens,True,SL,5,5,0.668
+5447,POR,Homo sapiens,8778,SIGLEC5,Homo sapiens,True,SL,5,5,0.668
+854372,MCA1,Saccharomyces cerevisiae S288C,855890,NIP7,Saccharomyces cerevisiae S288C,False,SL,5,5,0.667
+6769,STAC,Homo sapiens,9810,RNF40,Homo sapiens,True,SL,5,5,0.667
+582,BBS1,Homo sapiens,23332,CLASP1,Homo sapiens,True,SL,5,5,0.667
+79026,AHNAK,Homo sapiens,83999,KREMEN1,Homo sapiens,True,SL,5,5,0.667
+850584,ECO1,Saccharomyces cerevisiae S288C,852810,RPB9,Saccharomyces cerevisiae S288C,False,SL,5,5,0.666
+8079,MLF2,Homo sapiens,26146,IFT54,Homo sapiens,True,SL,5,5,0.666
+596,BCL2,Homo sapiens,8831,SYNGAP1,Homo sapiens,True,SL,4,4,0.665
+55840,EAF2,Homo sapiens,64854,USP46,Homo sapiens,True,SL,5,5,0.664
+310,ANXA7,Homo sapiens,7110,TMF1,Homo sapiens,True,SL,5,5,0.664
+1432,MAPK14,Homo sapiens,4547,MTTP,Homo sapiens,True,SL,5,5,0.664
+22853,LMTK2,Homo sapiens,155061,ZNF746,Homo sapiens,True,SL,5,5,0.663
+7067,THRA,Homo sapiens,10403,NDC80,Homo sapiens,True,SL,4,4,0.663
+3211,HOXB1,Homo sapiens,5590,PRKCZ,Homo sapiens,True,SL,5,5,0.663
+6491,STIL,Homo sapiens,8091,HMGA2,Homo sapiens,True,SL,5,5,0.663
+667,DST,Homo sapiens,23172,ABRAXAS2,Homo sapiens,True,SL,5,5,0.663
+6257,RXRB,Homo sapiens,852881,CDH1,Saccharomyces cerevisiae S288C,False,SL,4,4,0.662
+380037,eif3l.L,Xenopus laevis,851520,SIR2,Saccharomyces cerevisiae S288C,False,SL,5,5,0.662
+374393,FAM111B,Homo sapiens,856490,YNG2,Saccharomyces cerevisiae S288C,False,SL,5,5,0.662
+1901,S1PR1,Homo sapiens,56897,WRNIP1,Homo sapiens,True,SL,5,5,0.662
+113984,Nr2f2,Rattus norvegicus,856210,SYT1,Saccharomyces cerevisiae S288C,False,SL,5,5,0.662
+3614,IMPDH1,Homo sapiens,3717,JAK2,Homo sapiens,True,SL,5,5,0.661
+10533,ATG7,Homo sapiens,11346,SYNPO,Homo sapiens,True,SL,5,5,0.661
+6801,STRN,Homo sapiens,28996,HIPK2,Homo sapiens,True,SL,5,5,0.66
+5296,PIK3R2,Homo sapiens,10845,CLPX,Homo sapiens,True,SL,5,5,0.659
+2067,ERCC1,Homo sapiens,23345,SYNE1,Homo sapiens,True,SL,5,5,0.658
+6293,VPS52,Homo sapiens,11228,RASSF8,Homo sapiens,True,SL,5,5,0.658
+10181,RBM5,Homo sapiens,25983,NGDN,Homo sapiens,True,SL,4,4,0.658
+6608,SMO,Homo sapiens,57708,MIER1,Homo sapiens,True,SL,5,5,0.658
+23381,SMG5,Homo sapiens,29789,OLA1,Homo sapiens,True,SL,5,5,0.657
+5441,POLR2L,Homo sapiens,23215,PRRC2C,Homo sapiens,True,SL,5,5,0.656
+78973,Senp2,Rattus norvegicus,83732,RIOK1,Homo sapiens,False,SL,5,5,0.656
+9928,KIF14,Homo sapiens,10445,MCRS1,Homo sapiens,True,SL,4,4,0.656
+9636,ISG15,Homo sapiens,10270,AKAP8,Homo sapiens,True,SL,5,5,0.656
+7529,YWHAB,Homo sapiens,51375,SNX7,Homo sapiens,True,SL,5,5,0.655
+429,ASCL1,Homo sapiens,1111,CHEK1,Homo sapiens,True,SL,5,5,0.655
+3866,KRT15,Homo sapiens,8312,AXIN1,Homo sapiens,True,SL,5,5,0.655
+2874,GPS2,Homo sapiens,8991,SELENBP1,Homo sapiens,True,SL,5,5,0.654
+852273,LAA2,Saccharomyces cerevisiae S288C,852846,PNC1,Saccharomyces cerevisiae S288C,False,SL,5,5,0.653
+24144,TFIP11,Homo sapiens,65056,GPBP1,Homo sapiens,True,SL,5,5,0.653
+3299,HSF4,Homo sapiens,3718,JAK3,Homo sapiens,True,SL,5,5,0.652
+852184,ROX3,Saccharomyces cerevisiae S288C,854345,MED4,Saccharomyces cerevisiae S288C,False,SL,5,5,0.651
+898,CCNE1,Homo sapiens,421202,FANCL,Gallus gallus,False,SL,5,5,0.651
+18559,Pctp,Mus musculus,29947,DNMT3L,Homo sapiens,False,SL,4,4,0.65
+161,AP2A2,Homo sapiens,10664,CTCF,Homo sapiens,True,SL,5,5,0.65
+14174,Fgf3,Mus musculus,26994,RNF11,Homo sapiens,False,SL,5,5,0.65
+9637,FEZ2,Homo sapiens,10250,SRRM1,Homo sapiens,True,SL,5,5,0.649
+2059,EPS8,Homo sapiens,4697,COXFA4,Homo sapiens,True,SL,5,5,0.649
+4162,MCAM,Homo sapiens,11279,KLF8,Homo sapiens,True,SL,5,5,0.649
+5310,PKD1,Homo sapiens,26958,COPG2,Homo sapiens,True,SL,5,5,0.648
+2034,EPAS1,Homo sapiens,285464,CRIPAK,Homo sapiens,True,SL,5,5,0.648
+5449,POU1F1,Homo sapiens,55609,ZNF280C,Homo sapiens,True,SL,5,5,0.648
+5834,PYGB,Homo sapiens,51130,ASB3,Homo sapiens,True,SL,5,5,0.647
+8940,TOP3B,Homo sapiens,2543682,rpn10,Schizosaccharomyces pombe,False,SL,5,5,0.647
+6748,SSR4,Homo sapiens,23328,SASH1,Homo sapiens,True,SL,5,5,0.646
+8676,STX11,Homo sapiens,84923,VCF1,Homo sapiens,True,SL,4,4,0.646
+6733,SRPK2,Homo sapiens,58186,Rad18,Mus musculus,False,SL,5,5,0.646
+10438,C1D,Homo sapiens,83851,SYT16,Homo sapiens,True,SL,5,5,0.646
+775,CACNA1C,Homo sapiens,23381,SMG5,Homo sapiens,True,SL,4,4,0.646
+7204,TRIO,Homo sapiens,23281,MTUS2,Homo sapiens,True,SL,4,4,0.645
+10208,USPL1,Homo sapiens,55561,CDC42BPG,Homo sapiens,True,SL,5,5,0.645
+852663,MIG2,Saccharomyces cerevisiae S288C,855184,NUP53,Saccharomyces cerevisiae S288C,False,SL,5,5,0.644
+80258,EFHC2,Homo sapiens,84277,DNAJC30,Homo sapiens,True,SL,5,5,0.644
+54840,APTX,Homo sapiens,850946,CDD1,Saccharomyces cerevisiae S288C,False,SL,5,5,0.644
+2064,ERBB2,Homo sapiens,856318,MLC2,Saccharomyces cerevisiae S288C,False,SL,5,5,0.644
+3576,CXCL8,Homo sapiens,9474,ATG5,Homo sapiens,True,SL,5,5,0.644
+3455,IFNAR2,Homo sapiens,8379,MAD1L1,Homo sapiens,True,SL,5,5,0.644
+860,RUNX2,Homo sapiens,146956,EME1,Homo sapiens,True,SL,4,4,0.643
+13669,Eif3a,Mus musculus,84171,LOXL4,Homo sapiens,False,SL,5,5,0.643
+84617,TUBB6,Homo sapiens,850590,RPL2A,Saccharomyces cerevisiae S288C,False,SL,5,5,0.641
+446588,h2bc11.S,Xenopus laevis,850872,CBF5,Saccharomyces cerevisiae S288C,False,SL,5,5,0.641
+29903,CCDC106,Homo sapiens,853545,ACF4,Saccharomyces cerevisiae S288C,False,SL,5,5,0.641
+3665,IRF7,Homo sapiens,57819,LSM2,Homo sapiens,True,SL,5,5,0.64
+1994,ELAVL1,Homo sapiens,3638,INSIG1,Homo sapiens,True,SL,5,5,0.64
+16600,Klf4,Mus musculus,126393,HSPB6,Homo sapiens,False,SL,5,5,0.64
+3672,ITGA1,Homo sapiens,5786,PTPRA,Homo sapiens,True,SL,5,5,0.64
+5558,PRIM2,Homo sapiens,9501,RPH3AL,Homo sapiens,True,SL,4,4,0.638
+851774,NUP42,Saccharomyces cerevisiae S288C,855663,GCD10,Saccharomyces cerevisiae S288C,False,SL,5,5,0.638
+54476,RNF216,Homo sapiens,90427,BMF,Homo sapiens,True,SL,5,5,0.638
+8924,HERC2,Homo sapiens,10112,KIF20A,Homo sapiens,True,SL,5,5,0.638
+55832,CAND1,Homo sapiens,192669,AGO3,Homo sapiens,True,SL,5,5,0.637
+2444,FRK,Homo sapiens,7415,VCP,Homo sapiens,True,SL,4,4,0.637
+11262,SP140,Homo sapiens,55957,LIN37,Homo sapiens,True,SL,5,5,0.636
+8727,CTNNAL1,Homo sapiens,51008,ASCC1,Homo sapiens,True,SL,5,5,0.636
+4756,NEO1,Homo sapiens,90522,YIF1B,Homo sapiens,True,SL,5,5,0.636
+7029,TFDP2,Homo sapiens,850500,OTU1,Saccharomyces cerevisiae S288C,False,SL,5,5,0.636
+9693,RAPGEF2,Homo sapiens,55707,NECAP2,Homo sapiens,True,SL,5,5,0.636
+284217,LAMA1,Homo sapiens,853669,TRP3,Saccharomyces cerevisiae S288C,False,SL,5,5,0.635
+2905,GRIN2C,Homo sapiens,10969,EBNA1BP2,Homo sapiens,True,SL,5,5,0.635
+10189,ALYREF,Homo sapiens,10613,ERLIN1,Homo sapiens,True,SL,5,5,0.634
+3156,HMGCR,Homo sapiens,5864,RAB3A,Homo sapiens,True,SL,5,5,0.634
+2767,GNA11,Homo sapiens,55054,ATG16L1,Homo sapiens,True,SL,4,4,0.634
+64750,SMURF2,Homo sapiens,852773,ARC1,Saccharomyces cerevisiae S288C,False,SL,4,4,0.632
+1147,CHUK,Homo sapiens,22284,Usp9x,Mus musculus,False,SL,4,4,0.632
+27238,GPKOW,Homo sapiens,854888,ALO1,Saccharomyces cerevisiae S288C,False,SL,5,5,0.632
+4624,MYH6,Homo sapiens,59338,PLEKHA1,Homo sapiens,True,SL,5,5,0.632
+854059,RFC4,Saccharomyces cerevisiae S288C,855170,RIM11,Saccharomyces cerevisiae S288C,False,SL,5,5,0.632
+4110,MAGEA11,Homo sapiens,54433,GAR1,Homo sapiens,True,SL,5,5,0.631
+852398,EXO84,Saccharomyces cerevisiae S288C,855458,YIF1,Saccharomyces cerevisiae S288C,False,SL,5,5,0.631
+2885,GRB2,Homo sapiens,283870,BRICD5,Homo sapiens,True,SL,5,5,0.63
+8740,TNFSF14,Homo sapiens,10459,MAD2L2,Homo sapiens,True,SL,5,5,0.629
+4217,MAP3K5,Homo sapiens,7352,UCP3,Homo sapiens,True,SL,4,4,0.629
+64462,Csnk1d,Rattus norvegicus,80007,C10orf88,Homo sapiens,False,SL,5,5,0.628
+54471,MIEF1,Homo sapiens,81609,SNX27,Homo sapiens,True,SL,5,5,0.628
+56672,AKIP1,Homo sapiens,57221,ARFGEF3,Homo sapiens,True,SL,5,5,0.628
+5970,RELA,Homo sapiens,2540555,mcs2,Schizosaccharomyces pombe,False,SL,5,5,0.628
+6342,SCP2,Homo sapiens,196441,ZFC3H1,Homo sapiens,True,SL,4,4,0.628
+55367,PIDD1,Homo sapiens,80143,SIKE1,Homo sapiens,True,SL,4,4,0.627
+148,ADRA1A,Homo sapiens,81542,TMX1,Homo sapiens,True,SL,5,5,0.627
+727,C5,Homo sapiens,9232,PTTG1,Homo sapiens,True,SL,5,5,0.627
+179003,exp-2,Caenorhabditis elegans,852294,HHF1,Saccharomyces cerevisiae S288C,False,SL,5,5,0.626
+23090,ZNF423,Homo sapiens,139341,FUNDC1,Homo sapiens,True,SL,5,5,0.626
+2037,EPB41L2,Homo sapiens,11321,GPN1,Homo sapiens,True,SL,4,4,0.625
+8087,FXR1,Homo sapiens,11156,PTP4A3,Homo sapiens,True,SL,5,5,0.625
+25796,PGLS,Homo sapiens,129401,NUP35,Homo sapiens,True,SL,4,4,0.625
+23770,FKBP8,Homo sapiens,856753,YPT31,Saccharomyces cerevisiae S288C,False,SL,5,5,0.624
+1527,TEX28,Homo sapiens,7098,TLR3,Homo sapiens,True,SL,5,5,0.624
+1390,CREM,Homo sapiens,23239,PHLPP1,Homo sapiens,True,SL,5,5,0.624
+3476,IGBP1,Homo sapiens,5036,PA2G4,Homo sapiens,True,SL,5,5,0.624
+26094,DCAF4,Homo sapiens,855049,ARP9,Saccharomyces cerevisiae S288C,False,SL,5,5,0.623
+4300,MLLT3,Homo sapiens,854668,TPM2,Saccharomyces cerevisiae S288C,False,SL,5,5,0.623
+55620,STAP2,Homo sapiens,56254,RNF20,Homo sapiens,True,SL,5,5,0.623
+4287,ATXN3,Homo sapiens,75717,Cul5,Mus musculus,False,SL,5,5,0.622
+5565,PRKAB2,Homo sapiens,55662,HIF1AN,Homo sapiens,True,SL,5,5,0.619
+5000,ORC4,Homo sapiens,853972,PCK1,Saccharomyces cerevisiae S288C,False,SL,5,5,0.618
+7468,NSD2,Homo sapiens,51271,UBAP1,Homo sapiens,True,SL,5,5,0.618
+4863,NPAT,Homo sapiens,5594,MAPK1,Homo sapiens,True,SL,5,5,0.618
+852652,BOL2,Saccharomyces cerevisiae S288C,853463,SUI2,Saccharomyces cerevisiae S288C,False,SL,4,4,0.618
+546,ATRX,Homo sapiens,8500,PPFIA1,Homo sapiens,True,SL,4,4,0.617
+6840,SVIL,Homo sapiens,79956,ERMP1,Homo sapiens,True,SL,5,5,0.617
+2908,NR3C1,Homo sapiens,85458,DIXDC1,Homo sapiens,True,SL,5,5,0.617
+6314,ATXN7,Homo sapiens,850720,RSC58,Saccharomyces cerevisiae S288C,False,SL,5,5,0.617
+3005,H1-0,Homo sapiens,57037,ANKMY2,Homo sapiens,True,SL,5,5,0.616
+51230,PHF20,Homo sapiens,114798,SLITRK1,Homo sapiens,True,SL,5,5,0.616
+852472,SWD3,Saccharomyces cerevisiae S288C,855049,ARP9,Saccharomyces cerevisiae S288C,False,SL,5,5,0.615
+64798,DEPTOR,Homo sapiens,100124700,HOTAIR,Homo sapiens,True,SL,4,4,0.615
+6606,SMN1,Homo sapiens,852468,NPL4,Saccharomyces cerevisiae S288C,False,SL,5,5,0.614
+9887,SMG7,Homo sapiens,22061,Trp63,Mus musculus,False,SL,5,5,0.614
+6207,RPS13,Homo sapiens,46194,Spn,Drosophila melanogaster,False,SV,4,4,0.613
+7251,TSG101,Homo sapiens,851150,SEN1,Saccharomyces cerevisiae S288C,False,SL,5,5,0.613
+390,RND3,Homo sapiens,1783,DYNC1LI2,Homo sapiens,True,SL,4,4,0.611
+5605,MAP2K2,Homo sapiens,161725,OTUD7A,Homo sapiens,True,SL,5,5,0.61
+2318,FLNC,Homo sapiens,7314,UBB,Homo sapiens,True,SL,5,5,0.61
+5331,PLCB3,Homo sapiens,55257,MRGBP,Homo sapiens,True,SL,5,5,0.609
+9401,RECQL4,Homo sapiens,79901,CYBRD1,Homo sapiens,True,SL,5,5,0.609
+575,ADGRB1,Homo sapiens,2901,GRIK5,Homo sapiens,True,SL,5,5,0.609
+4771,NF2,Homo sapiens,94121,SYTL4,Homo sapiens,True,SL,5,5,0.608
+854384,NPT1,Saccharomyces cerevisiae S288C,854940,MFT1,Saccharomyces cerevisiae S288C,False,SL,5,5,0.608
+2992,GYG1,Homo sapiens,112936,VPS26B,Homo sapiens,True,SL,5,5,0.607
+8924,HERC2,Homo sapiens,255394,TCP11L2,Homo sapiens,True,SL,5,5,0.606
+855177,TIF34,Saccharomyces cerevisiae S288C,855356,PSE1,Saccharomyces cerevisiae S288C,False,SL,5,5,0.606
+821,CANX,Homo sapiens,8558,CDK10,Homo sapiens,True,SL,5,5,0.606
+6925,TCF4,Homo sapiens,55603,TENT5A,Homo sapiens,True,SL,5,5,0.605
+865,CBFB,Homo sapiens,79872,CBLL1,Homo sapiens,True,SL,5,5,0.605
+10190,TXNDC9,Homo sapiens,11035,RIPK3,Homo sapiens,True,SL,5,5,0.605
+23276,KLHL18,Homo sapiens,852372,SEC18,Saccharomyces cerevisiae S288C,False,SL,5,5,0.605
+2139,EYA2,Homo sapiens,2554,GABRA1,Homo sapiens,True,SL,4,4,0.605
+57510,XPO5,Homo sapiens,852250,PET9,Saccharomyces cerevisiae S288C,False,SL,4,4,0.604
+8557,TCAP,Homo sapiens,138639,PTPDC1,Homo sapiens,True,SL,5,5,0.604
+6667,SP1,Homo sapiens,2542239,chp1,Schizosaccharomyces pombe,False,SL,5,5,0.604
+853787,AAN1,Saccharomyces cerevisiae S288C,856449,CIC1,Saccharomyces cerevisiae S288C,False,SV,5,5,0.604
+11318,ACKR5,Homo sapiens,80010,RMI1,Homo sapiens,True,SL,5,5,0.603
+10228,STX6,Homo sapiens,55275,VPS53,Homo sapiens,True,SL,5,5,0.603
+7337,UBE3A,Homo sapiens,172655,idha-1,Caenorhabditis elegans,False,SL,5,5,0.602
+851882,NSE3,Saccharomyces cerevisiae S288C,854653,RRD1,Saccharomyces cerevisiae S288C,False,SL,5,5,0.601
+83737,ITCH,Homo sapiens,853857,PRP40,Saccharomyces cerevisiae S288C,False,SL,5,5,0.6
+10298,PAK4,Homo sapiens,107995,Cdc20,Mus musculus,False,SL,5,5,0.6
+84078,KBTBD7,Homo sapiens,851631,UBC5,Saccharomyces cerevisiae S288C,False,SL,5,5,0.599
+54386,TERF2IP,Homo sapiens,855824,YAH1,Saccharomyces cerevisiae S288C,False,SL,5,5,0.599
+9414,TJP2,Homo sapiens,56916,SMARCAD1,Homo sapiens,True,SL,5,5,0.598
+79155,TNIP2,Homo sapiens,219699,UNC5B,Homo sapiens,True,SL,5,5,0.597
+6304,SATB1,Homo sapiens,7536,SF1,Homo sapiens,True,SL,5,5,0.597
+856024,RPS9A,Saccharomyces cerevisiae S288C,856719,NOP16,Saccharomyces cerevisiae S288C,False,SL,5,5,0.597
+79872,CBLL1,Homo sapiens,81922,Sh3gl1,Rattus norvegicus,False,SL,5,5,0.595
+2107,ETF1,Homo sapiens,3674,ITGA2B,Homo sapiens,True,SV,5,5,0.595
+3191,HNRNPL,Homo sapiens,396440,TNC,Gallus gallus,False,SL,5,5,0.595
+6300,MAPK12,Homo sapiens,852640,RTG2,Saccharomyces cerevisiae S288C,False,SL,5,5,0.594
+7703,PCGF2,Homo sapiens,22897,CEP164,Homo sapiens,True,SL,5,5,0.594
+7415,VCP,Homo sapiens,10926,DBF4,Homo sapiens,True,SL,5,5,0.594
+855706,SSN8,Saccharomyces cerevisiae S288C,856361,RIM4,Saccharomyces cerevisiae S288C,False,SL,5,5,0.594
+854023,RRP40,Saccharomyces cerevisiae S288C,856466,RRP4,Saccharomyces cerevisiae S288C,False,SL,5,5,0.592
+5901,RAN,Homo sapiens,852834,RPT6,Saccharomyces cerevisiae S288C,False,SL,4,4,0.591
+1656,DDX6,Homo sapiens,2669,GEM,Homo sapiens,True,SL,5,5,0.591
+17984,Ndn,Mus musculus,117584,RFFL,Homo sapiens,False,SL,5,5,0.59
+4678,NASP,Homo sapiens,216190,Appl2,Mus musculus,False,SL,5,5,0.59
+51062,ATL1,Homo sapiens,851967,SEM1,Saccharomyces cerevisiae S288C,False,SL,4,4,0.59
+6752,SSTR2,Homo sapiens,8636,SSNA1,Homo sapiens,True,SL,5,5,0.588
+396,ARHGDIA,Homo sapiens,23326,USP22,Homo sapiens,True,SL,4,4,0.586
+11338,U2AF2,Homo sapiens,338785,KRT79,Homo sapiens,True,SL,5,5,0.586
+1032,CDKN2D,Homo sapiens,10011,SRA1,Homo sapiens,True,SL,5,5,0.585
+850623,PRP19,Saccharomyces cerevisiae S288C,851309,TIM22,Saccharomyces cerevisiae S288C,False,SL,5,5,0.585
+854227,CKA2,Saccharomyces cerevisiae S288C,854283,RPO31,Saccharomyces cerevisiae S288C,False,SL,5,5,0.585
+3659,IRF1,Homo sapiens,51631,LUC7L2,Homo sapiens,True,SL,4,4,0.583
+2068,ERCC2,Homo sapiens,171484,FAM9C,Homo sapiens,True,SL,5,5,0.583
+6667,SP1,Homo sapiens,851955,TRR1,Saccharomyces cerevisiae S288C,False,SL,5,5,0.583
+128178,EDARADD,Homo sapiens,854791,RPB3,Saccharomyces cerevisiae S288C,False,SL,5,5,0.582
+29760,BLNK,Homo sapiens,57727,NCOA5,Homo sapiens,True,SL,4,4,0.582
+5774,PTPN3,Homo sapiens,57826,RAP2C,Homo sapiens,True,SL,5,5,0.582
+815,CAMK2A,Homo sapiens,146227,BEAN1,Homo sapiens,True,SL,5,5,0.582
+7625,ZNF74,Homo sapiens,57787,MARK4,Homo sapiens,True,SL,5,5,0.58
+23043,TNIK,Homo sapiens,854796,SNL1,Saccharomyces cerevisiae S288C,False,SL,5,5,0.58
+583,BBS2,Homo sapiens,221037,JMJD1C,Homo sapiens,True,SL,5,5,0.58
+5013,OTX1,Homo sapiens,5982,RFC2,Homo sapiens,True,SL,4,4,0.58
+22223,Uchl1,Mus musculus,43740571,M,Severe acute respiratory syndrome coronavirus 2,False,SL,5,5,0.578
+850760,RGR1,Saccharomyces cerevisiae S288C,856663,TCA17,Saccharomyces cerevisiae S288C,False,SL,4,4,0.578
+2972,BRF1,Homo sapiens,55684,RABL6,Homo sapiens,True,SL,5,5,0.578
+3667,IRS1,Homo sapiens,9145,SYNGR1,Homo sapiens,True,SL,5,5,0.578
+851339,PPH22,Saccharomyces cerevisiae S288C,856457,VMA22,Saccharomyces cerevisiae S288C,False,SL,4,4,0.578
+914,CD2,Homo sapiens,10006,ABI1,Homo sapiens,True,SL,5,5,0.575
+853498,URB2,Saccharomyces cerevisiae S288C,855605,DCP2,Saccharomyces cerevisiae S288C,False,SL,5,5,0.574
+54908,SPDL1,Homo sapiens,144717,PHETA1,Homo sapiens,True,SL,5,5,0.574
+3205,HOXA9,Homo sapiens,8847,DLEU2,Homo sapiens,True,SL,5,5,0.574
+8563,THOC5,Homo sapiens,26574,AATF,Homo sapiens,True,SL,4,4,0.574
+7690,ZBTB35,Homo sapiens,200734,SPRED2,Homo sapiens,True,SL,5,5,0.572
+1674,DES,Homo sapiens,5195,PEX14,Homo sapiens,True,SL,5,5,0.572
+55119,PRPF38B,Homo sapiens,55208,DCUN1D2,Homo sapiens,True,SL,4,4,0.572
+8291,DYSF,Homo sapiens,51503,CWC15,Homo sapiens,True,SL,4,4,0.57
+25842,ASF1A,Homo sapiens,79885,HDAC11,Homo sapiens,True,SL,5,5,0.57
+3069,HDLBP,Homo sapiens,8350,H3C1,Homo sapiens,True,SL,5,5,0.569
+2872,MKNK2,Homo sapiens,81929,SEH1L,Homo sapiens,True,SL,4,4,0.569
+57120,GOPC,Homo sapiens,852512,AME1,Saccharomyces cerevisiae S288C,False,SL,4,4,0.569
+3613,IMPA2,Homo sapiens,10397,NDRG1,Homo sapiens,True,SL,5,5,0.568
+1058,CENPA,Homo sapiens,83593,RASSF5,Homo sapiens,True,SL,4,4,0.568
+4212,MEIS2,Homo sapiens,9367,RAB9A,Homo sapiens,True,SL,5,5,0.568
+868,CBLB,Homo sapiens,855318,BUL1,Saccharomyces cerevisiae S288C,False,SL,5,5,0.568
+10513,APPBP2,Homo sapiens,51177,PLEKHO1,Homo sapiens,True,SL,5,5,0.567
+79188,TMEM43,Homo sapiens,201501,ZBTB7C,Homo sapiens,True,SL,5,5,0.566
+851379,AIR2,Saccharomyces cerevisiae S288C,854227,CKA2,Saccharomyces cerevisiae S288C,False,SL,5,5,0.566
+4193,MDM2,Homo sapiens,851608,ENA5,Saccharomyces cerevisiae S288C,False,SL,5,5,0.566
+575,ADGRB1,Homo sapiens,22926,ATF6,Homo sapiens,True,SL,5,5,0.565
+117246,FTSJ3,Homo sapiens,855841,RVB2,Saccharomyces cerevisiae S288C,False,SL,5,5,0.563
+2893,GRIA4,Homo sapiens,853957,NUP133,Saccharomyces cerevisiae S288C,False,SL,5,5,0.562
+1977,EIF4E,Homo sapiens,12576,Cdkn1b,Mus musculus,False,SL,5,5,0.562
+5790,PTPRCAP,Homo sapiens,856924,BMH1,Saccharomyces cerevisiae S288C,False,SL,4,4,0.562
+54870,QRICH1,Homo sapiens,80856,LNPK,Homo sapiens,True,SL,5,5,0.562
+11321,GPN1,Homo sapiens,171024,SYNPO2,Homo sapiens,True,SL,5,5,0.56
+54825,CDHR2,Homo sapiens,854361,IES4,Saccharomyces cerevisiae S288C,False,SL,5,5,0.56
+852908,THG1,Saccharomyces cerevisiae S288C,856009,PNG1,Saccharomyces cerevisiae S288C,False,SL,5,5,0.558
+610,HCN2,Homo sapiens,5930,RBBP6,Homo sapiens,True,SL,5,5,0.556
+5270,SERPINE2,Homo sapiens,51119,SBDS,Homo sapiens,True,SL,5,5,0.556
+1981,EIF4G1,Homo sapiens,3224,HOXC8,Homo sapiens,True,SL,5,5,0.556
+5817,PVR,Homo sapiens,143425,SYT9,Homo sapiens,True,SL,5,5,0.556
+9267,CYTH1,Homo sapiens,129401,NUP35,Homo sapiens,True,SL,5,5,0.555
+5966,REL,Homo sapiens,9851,KIAA0753,Homo sapiens,True,SL,5,5,0.554
+8175,SF3A2,Homo sapiens,55236,UBA6,Homo sapiens,True,SL,5,5,0.554
+23132,RAD54L2,Homo sapiens,76281,Tax1bp3,Mus musculus,False,SL,4,4,0.55
+3021,H3-3B,Homo sapiens,10398,MYL9,Homo sapiens,True,SL,5,5,0.549
+26580,BSCL2,Homo sapiens,80028,FBXL18,Homo sapiens,True,SL,5,5,0.548
+8496,PPFIBP1,Homo sapiens,23371,TNS2,Homo sapiens,True,SL,4,4,0.548
+8463,TEAD2,Homo sapiens,57216,VANGL2,Homo sapiens,True,SL,5,5,0.546
+851440,CYK3,Saccharomyces cerevisiae S288C,852271,SCT1,Saccharomyces cerevisiae S288C,False,SL,5,5,0.545
+26286,ARFGAP3,Homo sapiens,79726,WDR59,Homo sapiens,True,SL,5,5,0.545
+8266,UBL4A,Homo sapiens,855154,EPO1,Saccharomyces cerevisiae S288C,False,SL,5,5,0.544
+7375,USP4,Homo sapiens,829847,SPT,Arabidopsis thaliana,False,SL,5,5,0.542
+3838,KPNA2,Homo sapiens,852870,PUF4,Saccharomyces cerevisiae S288C,False,SL,5,5,0.542
+851678,ARX1,Saccharomyces cerevisiae S288C,856217,RPL11A,Saccharomyces cerevisiae S288C,False,SL,5,5,0.541
+55668,GPATCH2L,Homo sapiens,56413,LTB4R2,Homo sapiens,True,SL,4,4,0.54
+23352,UBR4,Homo sapiens,56937,PMEPA1,Homo sapiens,True,SL,5,5,0.537
+852487,RPS9B,Saccharomyces cerevisiae S288C,853778,HOT13,Saccharomyces cerevisiae S288C,False,SL,4,4,0.537
+7414,VCL,Homo sapiens,338382,RAB7B,Homo sapiens,True,SL,5,5,0.536
+6874,TAF4,Homo sapiens,855577,MFA2,Saccharomyces cerevisiae S288C,False,SL,5,5,0.536
+852973,TOM20,Saccharomyces cerevisiae S288C,854350,GAC1,Saccharomyces cerevisiae S288C,False,SL,5,5,0.536
+7745,ZKSCAN8,Homo sapiens,57448,BIRC6,Homo sapiens,True,SL,4,4,0.536
+51760,SYT17,Homo sapiens,55743,CHFR,Homo sapiens,True,SL,5,5,0.535
+5395,PMS2,Homo sapiens,854106,GAL11,Saccharomyces cerevisiae S288C,False,SL,5,5,0.535
+850442,SRB8,Saccharomyces cerevisiae S288C,856277,PIN3,Saccharomyces cerevisiae S288C,False,SL,5,5,0.533
+51099,ABHD5,Homo sapiens,55037,PTCD3,Homo sapiens,True,SL,5,5,0.533
+51400,PPME1,Homo sapiens,852222,SHP1,Saccharomyces cerevisiae S288C,False,SL,5,5,0.528
+854436,GPN2,Saccharomyces cerevisiae S288C,856563,KEL1,Saccharomyces cerevisiae S288C,False,SL,5,5,0.526
+930,CD19,Homo sapiens,9759,HDAC4,Homo sapiens,True,SL,5,5,0.526
+17131,Smad7,Mus musculus,285527,FRYL,Homo sapiens,False,SV,5,5,0.526
+831899,UBQ3,Arabidopsis thaliana,851024,CDC3,Saccharomyces cerevisiae S288C,False,SL,5,5,0.525
+56893,UBQLN4,Homo sapiens,853994,MDH2,Saccharomyces cerevisiae S288C,False,SL,5,5,0.523
+14102,Fas,Mus musculus,23195,MDN1,Homo sapiens,False,SL,5,5,0.523
+9108,MTMR7,Homo sapiens,852892,SEC9,Saccharomyces cerevisiae S288C,False,SL,5,5,0.522
+27153,ZNF777,Homo sapiens,84466,MEGF10,Homo sapiens,True,SL,4,4,0.522
+10280,SIGMAR1,Homo sapiens,22944,KIN,Homo sapiens,True,SL,4,4,0.521
+84749,USP30,Homo sapiens,116442,RAB39B,Homo sapiens,True,SL,5,5,0.52
+905,CCNT2,Homo sapiens,116835,HSPA12B,Homo sapiens,True,SL,4,4,0.519
+850958,HAP1,Saccharomyces cerevisiae S288C,855865,KEL3,Saccharomyces cerevisiae S288C,False,SL,5,5,0.518
+92345,NAF1,Homo sapiens,851665,RLI1,Saccharomyces cerevisiae S288C,False,SL,5,5,0.515
+2688,GH1,Homo sapiens,79269,DCAF10,Homo sapiens,True,SL,5,5,0.513
+5991,RFX3,Homo sapiens,8498,RANBP3,Homo sapiens,True,SL,5,5,0.512
+68652,Tab2,Mus musculus,1489670,ORF3b,SARS coronavirus Tor2,False,SL,5,5,0.511
+6175,RPLP0,Homo sapiens,69524,Esam,Mus musculus,False,SL,5,5,0.51
+2735,GLI1,Homo sapiens,140688,NOL4L,Homo sapiens,True,SL,5,5,0.507
+56353,Rybp,Mus musculus,84946,LTV1,Homo sapiens,False,SL,5,5,0.504
+174,AFP,Homo sapiens,79874,RABEP2,Homo sapiens,True,SV,5,5,0.502
+1674,DES,Homo sapiens,2958,GTF2A2,Homo sapiens,True,SL,5,5,0.501
+50813,COPS7A,Homo sapiens,99377,Sall4,Mus musculus,False,SL,4,4,0.498
+610,HCN2,Homo sapiens,9959,USP12P1,Homo sapiens,True,SL,5,5,0.496
+6622,SNCA,Homo sapiens,15504,Dnajb3,Mus musculus,False,SL,5,5,0.495
+10014,HDAC5,Homo sapiens,837357,DCP1,Arabidopsis thaliana,False,SL,5,5,0.494
+231201,Semp2l2a,Mus musculus,1489078,E6,Human papillomavirus 16,False,SL,5,5,0.491
+4090,SMAD5,Homo sapiens,855498,ATG4,Saccharomyces cerevisiae S288C,False,SL,4,4,0.491
+3934,LCN2,Homo sapiens,7852,CXCR4,Homo sapiens,True,SL,5,5,0.49
+28969,BZW2,Homo sapiens,850611,PRE4,Saccharomyces cerevisiae S288C,False,SL,5,5,0.489
+90249,UNC5A,Homo sapiens,856607,RPN10,Saccharomyces cerevisiae S288C,False,SL,4,4,0.488
+852276,SLA1,Saccharomyces cerevisiae S288C,856835,UBP9,Saccharomyces cerevisiae S288C,False,SL,5,5,0.482
+59274,TLNRD1,Homo sapiens,83931,STK40,Homo sapiens,True,SL,5,5,0.482
+9372,ZFYVE9,Homo sapiens,851752,SUP35,Saccharomyces cerevisiae S288C,False,SL,5,5,0.48
+10142,AKAP9,Homo sapiens,18643,Pfn1,Mus musculus,False,SL,4,4,0.48
+22944,KIN,Homo sapiens,51361,HOOK1,Homo sapiens,True,SL,4,4,0.474
+7091,TLE4,Homo sapiens,30841,Kdm2b,Mus musculus,False,SL,5,5,0.468
+3718,JAK3,Homo sapiens,79798,ARMC5,Homo sapiens,True,SL,5,5,0.466
+2318,FLNC,Homo sapiens,4093,SMAD9,Homo sapiens,True,SV,4,4,0.437

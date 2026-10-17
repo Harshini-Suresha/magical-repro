@@ -1,20 +1,20 @@
 unique pairs: train 17349, test 7643, total 23765
 candidate pool (NOT pairs unseen in labels): 6535
-[21:22:28] baseline: cached
-[21:22:28] node-5: cached
-[21:22:28] node-10: cached
-[21:22:28] node-20: cached
-[21:22:28] node-30: cached
-[21:22:28] edge-5: cached
-[21:22:28] edge-10: cached
-[21:22:28] edge-20: cached
-[21:22:28] edge-30: cached
-[21:22:28] noise-5: cached
-[21:22:28] noise-10: cached
-[21:22:28] noise-20: cached
-[21:22:28] noise-30: cached
-[21:22:28] rewire-1x: cached
-[21:22:28] rewire-5x: cached
+[22:19:16] baseline: cached
+[22:19:16] node-5: cached
+[22:19:16] node-10: cached
+[22:19:16] node-20: cached
+[22:19:16] node-30: cached
+[22:19:16] edge-5: cached
+[22:19:16] edge-10: cached
+[22:19:16] edge-20: cached
+[22:19:16] edge-30: cached
+[22:19:16] noise-5: cached
+[22:19:16] noise-10: cached
+[22:19:16] noise-20: cached
+[22:19:16] noise-30: cached
+[22:19:16] rewire-1x: cached
+[22:19:16] rewire-5x: cached
 pair features for 15 variants in 2s
 re-extracted baseline train accuracy: 0.9963 (14557/19127 train rows have both genes in the network)
 baseline {'family': 'none', 'param': 0.0, 'n_rows': 6043, 'dropped_share': 0.2391, 'accuracy': 0.745, 'macro_f1': 0.7059}

@@ -223,6 +223,7 @@ def main():
     cand = out[stable].copy()
     cand = cand.sort_values("mean_confidence_when_interacting", ascending=False)
     cand["mean_confidence_when_interacting"] = cand["mean_confidence_when_interacting"].round(3)
+    cand.to_csv(os.path.join(RESULTS, "candidates.csv"), index=False)
     summary = {
         "pool": int(len(not_pool)),
         "n_variants": n_variants,

@@ -5,6 +5,7 @@ Missing files become nulls in the payload; the site falls back to placeholders.
 """
 import json
 import os
+import shutil
 import time
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -82,6 +83,13 @@ def main():
     with open(os.path.join(SITE, "results.js"), "w") as fh:
         fh.write(out)
     print("wrote site/results.js", len(out), "bytes")
+
+    csv_src = os.path.join(RESULTS, "candidates_annotated.csv")
+    if os.path.exists(csv_src):
+        shutil.copyfile(csv_src, os.path.join(SITE, "candidates.csv"))
+        print("copied candidates.csv to site/")
+    else:
+        print("missing: candidates_annotated.csv (run src/annotate_candidates.py)")
 
 
 if __name__ == "__main__":

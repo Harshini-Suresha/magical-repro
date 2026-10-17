@@ -24,7 +24,7 @@ Reproduction and robustness test of MAGICAL (a PPI-network classifier for synthe
 - Baselines: an RF on all 20 shipped columns reaches 87.5%, gradient boosting 77.2%, logistic regression 56.6%; degree-product stump 48.5%, shortest-path stump 55.5%.
 - Stricter splits: MCC 0.690 on random pairs, 0.503 holding out genes, 0.296 holding out the label source.
 - Perturbations: macro-F1 falls 0.706 -> 0.517 when 30% of genes are removed and 0.706 -> 0.526 with 30% of edges removed; degree-preserving rewiring collapses it to ~0.40, so predictions depend on the exact wiring.
-- Candidate pairs: 451 pairs are predicted confidently and consistently across network variants out of 6,535 unlabeled not-in-pool pairs.
+- Candidate pairs: 451 pairs are predicted confidently and consistently across network variants out of 6,535 unlabeled not-in-pool pairs; 289 are human-human (the official network file mixes species, so `src/annotate_candidates.py` adds symbols and species to `results/candidates_annotated.csv`, also published as `site/candidates.csv`).
 
 ## Run
 1. `python -m venv .venv && source .venv/bin/activate`
