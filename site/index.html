@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MAGICAL reproduction: synthetic lethality from network features</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fde4ec;--surface:#fff6f9;--ink:#3b1a2b;--muted:#7a5063;--line:#f1c3d3;--sl:#b4134f;--sv:#00796b;--node:#c58aa3;--sel:#3b1a2b;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2a1420;--surface:#381b2a;--ink:#fbe6ee;--muted:#d3a9bb;--line:#583044;--sl:#ff6f9c;--sv:#4fd1be;--node:#6f8794;--sel:#e6eef1;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#2a1420;--surface:#381b2a;--ink:#fbe6ee;--muted:#d3a9bb;--line:#583044;--sl:#ff6f9c;--sv:#4fd1be;--node:#6f8794;--sel:#e6eef1;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.65 "Source Serif 4",Georgia,serif}
+h1,h2,h3,.sans{font-family:"Bricolage Grotesque",system-ui,sans-serif}
+main{max-width:980px;margin:0 auto;padding:0 20px 64px}
+header{padding:56px 0 24px}
+h1{font-size:clamp(2.2rem,6vw,4rem);line-height:1.05;margin:0 0 16px;letter-spacing:-.02em;max-width:16ch}
+.lede{max-width:60ch;color:var(--muted);margin:0}
+h2{font-size:1.7rem;margin:72px 0 8px;letter-spacing:-.01em}
+p{max-width:66ch}
+a{color:var(--sl)}
+a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--sv);outline-offset:2px}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.links a{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-size:.95rem;text-decoration:none;color:var(--ink);border:1.5px solid var(--ink);padding:6px 14px;border-radius:999px}
+.links a:hover{background:var(--ink);color:var(--bg)}
+.lab{background:var(--surface);border:1px solid var(--line);border-radius:14px;display:grid;grid-template-columns:1.6fr 1fr;overflow:hidden}
+@media (max-width:760px){.lab{grid-template-columns:1fr}}
+.lab svg{width:100%;height:auto;display:block;touch-action:manipulation}
+.edge{stroke:var(--line);stroke-width:1.6}
+.edge.on{stroke:var(--sl);stroke-width:3}
+.n circle{fill:var(--node);stroke:var(--surface);stroke-width:2;transition:r .15s}
+.n text{font:600 11px "Bricolage Grotesque",system-ui,sans-serif;fill:var(--ink);pointer-events:none}
+.n{cursor:pointer}
+.n.sel circle{fill:var(--sel)}.n.sel text{fill:var(--bg)}
+.n.path circle{fill:var(--sl)}
+.panel{padding:22px;border-left:1px solid var(--line);font-size:16px}
+@media (max-width:760px){.panel{border-left:0;border-top:1px solid var(--line)}}
+.panel h3{margin:0 0 6px;font-size:1.15rem}
+.feat{display:flex;justify-content:space-between;border-bottom:1px dashed var(--line);padding:7px 0;font-family:"Bricolage Grotesque",system-ui,sans-serif}
+.feat b{font-weight:700}
+.note{color:var(--muted);font-size:14px;margin-top:14px}
+button.reset{font:inherit;font-family:"Bricolage Grotesque",system-ui,sans-serif;font-size:.9rem;background:none;border:1.5px solid var(--ink);color:var(--ink);border-radius:999px;padding:5px 14px;cursor:pointer;margin-top:12px}
+.key{display:flex;gap:18px;flex-wrap:wrap;font-family:"Bricolage Grotesque",system-ui,sans-serif;font-size:.9rem;margin:14px 0 0}
+.key i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+ol.steps{list-style:none;padding:0;margin:20px 0 0;counter-reset:s;border-left:3px solid var(--ink)}
+ol.steps li{counter-increment:s;padding:2px 0 22px 22px;position:relative;max-width:70ch}
+ol.steps li::before{content:counter(s);position:absolute;left:-15px;top:0;width:27px;height:27px;border-radius:50%;background:var(--ink);color:var(--bg);font:700 .85rem "Bricolage Grotesque",sans-serif;display:grid;place-items:center}
+ol.steps h3{margin:0;font-size:1.1rem}
+ol.steps p{margin:2px 0 0;color:var(--muted);font-size:16px}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:15px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:"Bricolage Grotesque",sans-serif}
+tr:last-child td{border-bottom:0}
+.todo{color:var(--muted)}
+pre{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;overflow-x:auto;font-size:14px;line-height:1.5}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+@media (max-width:760px){.cols{grid-template-columns:1fr}}
+.cols div{border-top:3px solid var(--ink);padding-top:10px}
+.cols h3{margin:0;font-size:1.05rem}.cols p{margin:4px 0 0;font-size:15.5px;color:var(--muted)}
+.caveat{border-left:4px solid var(--sl);padding:4px 0 4px 18px;margin-top:20px}
+footer{color:var(--muted);font-size:14px;margin-top:64px}
+.viz{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;margin-top:16px}.viz svg{width:100%;height:auto;display:block}.viz text{font-family:"Bricolage Grotesque",system-ui,sans-serif}.viz .t{fill:var(--ink)}.viz .tm{fill:var(--muted)}.viz .w{fill:#fff;font-weight:700}
+.vg{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media (max-width:760px){.vg{grid-template-columns:1fr}}
+.slide{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:8px;font-family:"Bricolage Grotesque",system-ui,sans-serif;font-size:.95rem}.slide input{flex:1;min-width:180px;accent-color:var(--sl)}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0}.nav a{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-size:.85rem;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--line);padding:4px 12px;border-radius:999px}.nav a:hover{border-color:var(--ink)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin-top:10px;max-width:760px}summary{cursor:pointer;font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:700}details p{margin:8px 0 0;font-size:16.5px}
+dl{display:grid;grid-template-columns:max-content 1fr;gap:10px 22px;margin:18px 0 0;max-width:760px}dt{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:700}dd{margin:0;color:var(--muted);font-size:16px}@media (max-width:640px){dl{grid-template-columns:1fr;gap:2px}dd{margin-bottom:10px}}
+ul.tight{max-width:68ch;padding-left:20px}ul.tight li{margin:7px 0}
+.calc input{width:60px;font:inherit;font-size:15px;padding:4px 6px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink)}.calc table{min-width:0}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px;margin-top:16px}.fg{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px}.fg svg{width:100%;height:auto;display:block}.fg text{font-family:"Bricolage Grotesque",system-ui,sans-serif}.fg .t{fill:var(--ink);font-weight:700}.fg .tm{fill:var(--muted)}.fg figcaption{font-size:13.5px;color:var(--muted);margin-top:6px;line-height:1.35}.fg figcaption b{color:var(--ink)}
+.flt{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.flt button{font:inherit;font-family:"Bricolage Grotesque",system-ui,sans-serif;font-size:.88rem;border:1.5px solid var(--ink);background:var(--surface);color:var(--ink);border-radius:999px;padding:5px 14px;cursor:pointer}.flt button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.nlab textarea,.nlab select{font:14px/1.4 ui-monospace,Menlo,Consolas,monospace;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:8px}.nlab textarea{width:100%;display:block;margin:6px 0 10px;resize:vertical}.nlab label{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-size:.95rem}.nlab .slide{margin-top:4px}.nlab p{max-width:none}
+.kg{display:grid;grid-template-columns:1.5fr 1fr;gap:16px}@media (max-width:760px){.kg{grid-template-columns:1fr}}.kout p{max-width:none}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <h1>Can network position predict which gene pairs kill a cancer cell?</h1>
+  <p class="lede">A reproduction and stress test of MAGICAL, a classifier that uses protein-protein interaction (PPI) network features to label gene pairs as synthetic lethal, synthetic viable, or neither. The goal is to check how well the published results hold up, then test how fragile they are.</p>
+  <div class="links">
+    <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371%2Fjournal.pcbi.1012336">Paper (PLOS Comp Biol, 2024)</a>
+    <a href="https://github.com/Anubhagithub/MAGICAL">Official code</a>
+    <a href="http://sls.uohyd.ac.in/new/magicaldb">MAGICAL database</a>
+  </div>
+<nav class="nav" aria-label="Page sections"><a href="#demo">Try it</a><a href="#v1">Concept</a><a href="#v2">Fragility</a><a href="#plan">Plan</a><a href="#res">Results</a><a href="#setup">Schedule</a><a href="#bg">Background</a><a href="#feat">Features</a><a href="#eval">Evaluation</a><a href="#prot">Robustness protocol</a><a href="#cand">Candidates</a><a href="#risk">Risks</a><a href="#gloss">Glossary</a><a href="#ko">Knockout screen</a><a href="#nl">Null lab</a><a href="#lab">Shortcut lab</a><a href="#figs">100 figures</a><a href="#faq">FAQ</a></nav>
+</header>
+
+<section aria-labelledby="demo">
+  <h2 id="demo">Try the idea: pick two genes</h2>
+  <p>Click any two nodes in this toy network. The panel shows the kind of network features a classifier can use for a pair. A trained model maps features like these to a class.</p>
+  <div class="lab">
+    <svg id="net" viewBox="0 0 640 420" role="group" aria-label="Toy protein interaction network. Select two nodes."></svg>
+    <div class="panel" aria-live="polite">
+      <h3 id="ptitle">No pair selected</h3>
+      <div id="pbody"><p class="note" style="margin:0">Select a first gene, then a second.</p></div>
+      <button class="reset" id="reset" type="button">Clear selection</button>
+      <p class="note">Toy graph with made-up gene labels, for explaining features only. It is not MAGICAL's model or data.</p>
+    </div>
+  </div>
+  <div class="key"><span><i style="background:var(--sl)"></i>shortest path between the pair</span><span><i style="background:var(--sel)"></i>selected gene</span></div>
+</section>
+
+<section aria-labelledby="v1">
+  <h2 id="v1">The idea in pictures</h2>
+  <p>Synthetic lethality and its opposite, synthetic viability, are both about pairs of genes. The classifier tries to tell them apart from where the genes sit in the interaction network.</p>
+  <div class="viz"><svg id="concept" viewBox="0 0 700 270" role="img" aria-label="Cell outcomes when gene A, gene B or both are lost, for synthetic lethal and synthetic viable pairs"></svg></div>
+  <div class="viz"><svg id="flow" viewBox="0 0 700 110" role="img" aria-label="Pipeline: pairs and network, features, classifier, evaluation, perturbation tests, candidate pairs"></svg></div>
+</section>
+
+<section aria-labelledby="v2">
+  <h2 id="v2">How fragile is a network?</h2>
+  <p>Predictions rest on network structure, so damaging the network is a fair stress test. This chart removes genes or interactions at random from the toy network (150 trials per step) and tracks how much stays connected. Drag the slider.</p>
+  <div class="viz"><svg id="rob" viewBox="0 0 700 280" role="img" aria-label="Share of the toy network still connected as genes or interactions are removed"></svg>
+    <div class="slide"><label for="rm">Share removed</label><input type="range" id="rm" min="0" max="20" value="0"><b id="rmout" aria-live="polite"></b></div></div>
+  <div class="vg">
+    <div class="viz"><svg id="hist" viewBox="0 0 340 225" role="img" aria-label="Histogram of connections per gene in the toy network"></svg></div>
+    <div class="viz"><svg id="cm" viewBox="0 0 340 225" role="img" aria-label="Empty confusion matrix awaiting results"></svg></div>
+  </div>
+</section>
+
+<section aria-labelledby="v3">
+  <h2 id="v3">Charts waiting for results</h2>
+  <p>These stay empty until the experiments run. No numbers are shown on purpose.</p>
+  <div class="viz"><svg id="cmp" viewBox="0 0 700 200" role="img" aria-label="Model comparison placeholders"></svg></div>
+  <div class="viz"><svg id="gantt" viewBox="0 0 700 225" role="img" aria-label="Three-week schedule"></svg></div>
+</section>
+
+<section aria-labelledby="plan">
+  <h2 id="plan">What gets implemented</h2>
+  <p>Five stages, in order. Each later stage depends on the one before it.</p>
+  <ol class="steps">
+    <li><h3>Rebuild the feature pipeline</h3><p>Pull the labelled gene pairs and PPI network from the paper's repository and database. Re-extract the network features, checking each against the code's output.</p></li>
+    <li><h3>Recreate the published evaluation</h3><p>Use the same train/test split and metrics as the paper. Report the gap between my numbers and theirs before changing anything.</p></li>
+    <li><h3>Compare with simpler models</h3><p>Logistic regression, random forest and gradient boosting on the same features, plus network-only heuristics such as degree product and shortest-path distance.</p></li>
+    <li><h3>Perturb the network</h3><p>Remove random nodes or edges, rewire while keeping degrees, and re-score. See how fast performance drops.</p></li>
+    <li><h3>Shortlist candidate pairs</h3><p>Rank pairs the model predicts confidently and consistently across perturbations, as leads for biological follow-up.</p></li>
+  </ol>
+</section>
+
+<section aria-labelledby="res">
+  <h2 id="res">Results tracker</h2>
+  <p>Nothing here has been run yet. Rows fill in as each stage finishes.</p>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Experiment</th><th>Question</th><th>Status</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><td>Reproduction</td><td>Do I match the paper's reported metrics?</td><td class="todo">Not started</td><td class="todo">-</td></tr>
+      <tr><td>Baselines</td><td>How much does the full model add over simple classifiers?</td><td class="todo">Not started</td><td class="todo">-</td></tr>
+      <tr><td>Node removal</td><td>How does performance fall as nodes are dropped?</td><td class="todo">Not started</td><td class="todo">-</td></tr>
+      <tr><td>Edge rewiring</td><td>Do predictions depend on the exact network wiring?</td><td class="todo">Not started</td><td class="todo">-</td></tr>
+      <tr><td>Candidate pairs</td><td>Which predictions are stable enough to follow up?</td><td class="todo">Not started</td><td class="todo">-</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section aria-labelledby="setup">
+  <h2 id="setup">Setup and schedule</h2>
+  <p>CPU-only: classical machine learning and graph analysis. Start with a small subset of pairs, check the repository's dependencies, then scale to the full benchmark.</p>
+<pre>magical-repro/
+  data/            # raw + processed pairs, PPI network
+  src/features.py  # network feature extraction
+  src/train.py     # model + published split
+  src/baselines.py
+  src/perturb.py   # node removal, edge rewiring
+  notebooks/       # figures for each experiment
+  results/</pre>
+  <div class="cols">
+    <div><h3>Week 1</h3><p>Environment, data download, feature extraction on a subset, first checks against the paper.</p></div>
+    <div><h3>Week 2</h3><p>Full reproduction of the published evaluation, then baselines.</p></div>
+    <div><h3>Week 3</h3><p>Perturbation experiments, candidate shortlist, write-up.</p></div>
+  </div>
+</section>
+
+<section aria-labelledby="bg">
+  <h2 id="bg">Background: why gene pairs matter</h2>
+  <p>Two genes are synthetically lethal when losing either one alone is survivable but losing both kills the cell. This matters for cancer because a tumour often has one gene already broken. A drug that hits its partner can then kill tumour cells while leaving healthy cells, which still have both genes, largely alone.</p>
+  <p>The best-known example is BRCA-deficient tumours treated with PARP inhibitors. Finding more pairs like this by experiment is slow, because the number of possible gene pairs is enormous. That is the gap computational prediction tries to fill.</p>
+  <p>Synthetic viability is the opposite surprise: a loss that would normally hurt the cell is rescued when a second gene is also lost. Predicting both, plus the ordinary "no interaction" case, makes this a three-way classification problem rather than a yes/no one.</p>
+</section>
+
+<section aria-labelledby="feat">
+  <h2 id="feat">Network features to extract</h2>
+  <p>The paper uses properties of the protein-protein interaction network. The table lists typical candidates from network science. Which ones MAGICAL actually uses, and how, gets confirmed against the repository before anything is built.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Feature</th><th>What it measures</th><th>Why it might help</th></tr></thead>
+    <tbody>
+      <tr><td>Degree</td><td>Number of direct interaction partners of a gene</td><td>Hubs tend to matter to many processes</td></tr>
+      <tr><td>Betweenness centrality</td><td>How often a gene sits on shortest paths between others</td><td>Bridges between modules may be hard to compensate for</td></tr>
+      <tr><td>Clustering coefficient</td><td>How interconnected a gene's neighbours are</td><td>Dense local groups hint at redundancy</td></tr>
+      <tr><td>Shortest path of the pair</td><td>Steps between gene A and gene B</td><td>Close genes may share function or back each other up</td></tr>
+      <tr><td>Common neighbours</td><td>Partners the two genes share</td><td>Shared partners suggest a shared pathway</td></tr>
+      <tr><td>Jaccard / Adamic-Adar</td><td>Overlap of neighbourhoods, weighted by how rare the shared partners are</td><td>Corrects for hubs inflating overlap</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section aria-labelledby="eval">
+  <h2 id="eval">Evaluation plan</h2>
+  <p>With three classes and probably far more "other" pairs than lethal ones, plain accuracy can look good while the model misses most real lethal pairs. So every result gets reported per class.</p>
+  <ul class="tight">
+    <li><b>Per-class precision, recall and F1</b> show where the model fails, especially for the rare classes.</li>
+    <li><b>Macro-F1</b> averages F1 over classes so the large class cannot hide weak ones.</li>
+    <li><b>Matthews correlation coefficient</b> summarises the whole confusion matrix in one number that is hard to inflate.</li>
+    <li><b>Confidence intervals</b> from repeated seeds or bootstrap resamples, so small gaps are not over-read.</li>
+  </ul>
+  <p>Try the calculator below. It works from a confusion matrix (rows are the true class, columns are the predicted class). The starting numbers are an example to show how the metrics behave, not results from this project.</p>
+  <div class="viz calc">
+    <div class="tablewrap"><table id="cin"><thead><tr><th>True \ Predicted</th><th>Lethal</th><th>Viable</th><th>Other</th></tr></thead><tbody></tbody></table></div>
+    <div class="tablewrap" style="margin-top:14px"><table><thead><tr><th>Class</th><th>Pairs</th><th>Precision</th><th>Recall</th><th>F1</th></tr></thead><tbody id="cres"></tbody></table></div>
+    <p id="csum" aria-live="polite" style="margin:12px 0 0"></p>
+  </div>
+  <h3 style="margin:28px 0 4px">How the data gets split</h3>
+  <p>How pairs are divided into train and test sets can change the answer a lot. The paper's split is reproduced first, then the stricter ones are added.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Split</th><th>How</th><th>What it tests</th></tr></thead>
+    <tbody>
+      <tr><td>Published split</td><td>As in the paper and repository</td><td>Whether the reported numbers can be matched</td></tr>
+      <tr><td>Random pairs</td><td>Shuffle pairs, repeat over several seeds</td><td>Spread between runs</td></tr>
+      <tr><td>Gene held out</td><td>No gene in the test set appears in training pairs</td><td>Whether the model learns real network signal or just memorises genes</td></tr>
+      <tr><td>Source held out</td><td>Train on one data source, test on another, if available</td><td>Generalisation beyond the original labels</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section aria-labelledby="prot">
+  <h2 id="prot">Robustness protocol</h2>
+  <p>Each perturbation is applied to the network only, then the features are recomputed and the same trained model is scored again. Every setting is repeated over many random seeds and reported as a curve with an interval, not a single number.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Perturbation</th><th>How</th><th>What it reveals</th></tr></thead>
+    <tbody>
+      <tr><td>Remove nodes</td><td>Delete 5% to 30% of genes at random</td><td>Sensitivity to missing proteins</td></tr>
+      <tr><td>Remove edges</td><td>Delete 5% to 30% of interactions at random</td><td>Sensitivity to an incomplete network</td></tr>
+      <tr><td>Add noise edges</td><td>Insert random false interactions</td><td>Sensitivity to false positives in the network</td></tr>
+      <tr><td>Degree-preserving rewiring</td><td>Swap edge endpoints, keeping every gene's degree</td><td>Whether results come from wiring or just from degree</td></tr>
+      <tr><td>Swap the network</td><td>Rebuild features from a different interaction database</td><td>Dependence on one data source</td></tr>
+    </tbody>
+  </table></div>
+  <p>The rewiring row is the sharpest test. If performance barely changes when only degrees are kept, the model is mostly learning degree.</p>
+</section>
+
+<section aria-labelledby="cand">
+  <h2 id="cand">From predictions to candidates</h2>
+  <ul class="tight">
+    <li>Keep pairs predicted with high confidence and the same class across most perturbations.</li>
+    <li>Remove pairs that already appear in the training labels, since those are not new.</li>
+    <li>Cross-check against public resources: existing synthetic lethality databases, CRISPR dependency data such as DepMap, and the literature.</li>
+    <li>Look for pathway themes among the top pairs instead of trusting single pairs.</li>
+    <li>Report them as hypotheses, with the evidence for and against each one.</li>
+  </ul>
+</section>
+
+<section aria-labelledby="risk">
+  <h2 id="risk">Risks and how they are handled</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Risk</th><th>Mitigation</th></tr></thead>
+    <tbody>
+      <tr><td>Repository dependencies are old or fail to install</td><td>Pin versions in a clean environment; note every fix</td></tr>
+      <tr><td>Published numbers cannot be matched exactly</td><td>Report the gap honestly and list what differs</td></tr>
+      <tr><td>Rare classes have few examples</td><td>Per-class metrics, repeated seeds, intervals</td></tr>
+      <tr><td>Well-studied genes dominate the network and the labels</td><td>Gene-held-out split; check performance by degree bucket</td></tr>
+      <tr><td>Interactions depend on cell type and context</td><td>State the limitation; do not claim clinical relevance</td></tr>
+      <tr><td>Information leaks from test to training</td><td>Fix splits once, save them, never tune on the test set</td></tr>
+    </tbody>
+  </table></div>
+  <h3 style="margin:28px 0 4px">Reproducibility checklist</h3>
+  <ul class="tight">
+    <li>Record the repository commit and every package version.</li>
+    <li>Fix and log random seeds.</li>
+    <li>Save the exact train/test pairs used for every table.</li>
+    <li>Keep original-paper numbers and my numbers in separate files and separate figures.</li>
+    <li>Write each experiment's question before running it.</li>
+  </ul>
+</section>
+
+<section aria-labelledby="gloss">
+  <h2 id="gloss">Glossary</h2>
+  <dl>
+    <dt>PPI network</dt><dd>A graph where genes or proteins are nodes and physical interactions are edges.</dd>
+    <dt>Synthetic lethal</dt><dd>A gene pair where losing both is fatal but losing one is not.</dd>
+    <dt>Synthetic viable</dt><dd>A gene pair where a harmful loss is rescued by losing the second gene.</dd>
+    <dt>Knockout</dt><dd>Switching a gene off so its protein is no longer made.</dd>
+    <dt>Node and edge</dt><dd>A gene, and an interaction between two genes.</dd>
+    <dt>Centrality</dt><dd>A score of how important a node's position in the network is.</dd>
+    <dt>Macro-F1</dt><dd>F1 averaged equally over all classes.</dd>
+    <dt>Data leakage</dt><dd>Test information sneaking into training, making results look better than they are.</dd>
+    <dt>Rewiring</dt><dd>Randomly swapping edges while keeping each node's degree.</dd>
+  </dl>
+</section>
+
+<section aria-labelledby="faq">
+  <h2 id="faq">Questions</h2>
+  <details><summary>Is this a new discovery?</summary><p>No. Reproducing a published model confirms or questions the original claims. The new part is the stricter generalisation and robustness testing, reported separately.</p></details>
+  <details><summary>Why CPU only?</summary><p>The method uses classical machine learning and graph statistics, which run on an ordinary laptop. Start with a small subset to check everything works before the full run.</p></details>
+  <details><summary>What if I cannot match the paper's numbers?</summary><p>That is still a result. Document the gap, check data versions and split details, and report what differs rather than tuning until the numbers agree.</p></details>
+  <details><summary>Can predictions be used clinically?</summary><p>No. They are hypotheses for lab follow-up, not evidence about treatment.</p></details>
+  <details><summary>Where do I start tomorrow?</summary><p>Clone the official repository, create a clean environment, read how the features are built, and run the smallest example end to end.</p></details>
+</section>
+
+<section aria-labelledby="ko">
+  <h2 id="ko">Knockout screen simulator: where synthetic lethality comes from</h2>
+  <p>Genes often back each other up. In this toy cell a nutrient flows through steps to biomass, and the cell lives as long as any route still works. Click genes to knock them out and watch the green path, or click a square in the grid to test a pair. The grid is a full double-knockout screen: every pair, computed instantly.</p>
+  <div class="flt" id="kop" role="group" aria-label="Choose a network"></div>
+  <div class="viz kout">
+    <p style="margin:0 0 10px"><b id="kos"></b></p>
+    <div class="kg"><svg id="kon" viewBox="0 0 520 300" role="group" aria-label="Pathway network. Select genes to knock out."></svg><svg id="koh" viewBox="0 0 300 320" role="img" aria-label="Double-knockout grid: which gene pairs are synthetic lethal"></svg></div>
+    <p id="kst" aria-live="polite" style="margin:12px 0 4px"></p>
+    <p id="kct" style="margin:0 0 10px;color:var(--muted)"></p>
+    <div class="flt" id="ksl" role="group" aria-label="Synthetic lethal pairs. Press one to test it."></div>
+    <div class="tablewrap" id="kft" style="margin-top:14px"></div>
+    <p style="margin:12px 0 0;color:var(--muted);font-size:15px">Synthetic lethal pairs come from redundancy, but a network feature only sees that indirectly. The averages above often overlap between the two groups, which is one reason predicting these pairs from network structure is hard.</p>
+  </div>
+  <p class="note" style="max-width:66ch;color:var(--muted);font-size:15px">An abstract model: a cell lives if a route survives. Real cells add context, timing and rescue effects (synthetic viability is not modelled here). The same screen runs in Python with <code>src/knockout_screen.py</code> in the zip.</p>
+</section>
+
+<section aria-labelledby="nl">
+  <h2 id="nl">Null lab: is a pair closer than its degrees explain?</h2>
+  <p>Features like shared neighbours go up simply because both genes have many partners. To check, this lab compares your pair with 300 networks rewired to keep every gene's number of connections but scramble who connects to whom. If the pair is no closer than that null, a model using the feature may only be reading degree. Paste any interaction list, such as a subset of a real PPI network. It runs in your browser and nothing is uploaded. It starts with the toy network.</p>
+  <div class="viz nlab">
+    <label for="nle">Interactions, one pair per line (gene gene)</label>
+    <textarea id="nle" rows="7" spellcheck="false"></textarea>
+    <div class="slide"><label for="nla">Gene A</label><select id="nla"></select><label for="nlb">Gene B</label><select id="nlb"></select><button class="reset" id="nlgo" type="button" style="margin:0">Analyse pair</button></div>
+    <p id="nlmsg" aria-live="polite" style="margin:6px 0 0"></p>
+    <div id="nlsum" aria-live="polite" style="margin-top:12px"></div>
+    <div class="vg"><div><svg id="nlc" viewBox="0 0 340 210" role="img" aria-label="Common neighbours across rewired networks, with the observed pair marked"></svg></div><div><svg id="nld" viewBox="0 0 340 210" role="img" aria-label="Shortest path across rewired networks, with the observed pair marked"></svg></div></div>
+    <div class="tablewrap" id="nlscan" style="margin-top:12px"></div>
+  </div>
+  <p class="note" style="max-width:66ch;color:var(--muted);font-size:15px">These are generic pair features, not MAGICAL's own feature set. The same idea runs on a real network with <code>src/degree_null.py</code> in the zip. The all-pairs scan works for networks of up to 40 genes.</p>
+</section>
+
+<section aria-labelledby="lab">
+  <h2 id="lab">Shortcut lab: can a model pass without learning the biology?</h2>
+  <p>A model can score well by learning which genes tend to be lethal, instead of what makes a particular pair lethal. A random split hides this, because the same genes appear in training and test. A gene-held-out split exposes it. This lab simulates both on invented data. Drag the first slider and watch the memoriser's score fall apart on unseen genes.</p>
+  <div class="viz"><svg id="shc" viewBox="0 0 700 256" role="img" aria-label="AUC of two simple models on a random split and a gene-held-out split"></svg>
+    <div class="slide"><label for="sg">Label depends on which genes are involved</label><input type="range" id="sg" min="0" max="100" step="5" value="60"><b id="sgv"></b></div>
+    <div class="slide"><label for="sn">Noise in the pair-level signal</label><input type="range" id="sn" min="0" max="20" value="8"><b id="snv"></b></div>
+    <button class="reset" id="sre" type="button">Run again with new random data</button>
+    <p id="sout" aria-live="polite" style="margin:12px 0 0"></p></div>
+  <div class="viz"><svg id="swp" viewBox="0 0 700 256" role="img" aria-label="Model scores across all strengths of gene-level effect"></svg></div>
+  <p class="note" style="max-width:66ch;color:var(--muted);font-size:15px">Synthetic data: 80 invented genes, all 3,160 pairs, the top quarter labelled lethal, scores averaged over a handful of random runs. The memoriser has no features, so on genes it has never seen it can only guess. This is a simulation to explain the risk, not a result about MAGICAL. In the real project the gene-held-out split and the degree-preserving rewiring play this role.</p>
+</section>
+
+<section aria-labelledby="figs">
+  <h2 id="figs"><span id="gcount">100</span> figures</h2>
+  <p>Each figure is labelled by where it comes from. <b>Computed</b> and <b>simulated</b> figures come from the made-up 14-gene toy network, so they show how the methods behave rather than anything about MAGICAL's real data. <b>Concept</b> figures are drawings with illustrative values. <b>Awaiting results</b> figures are empty on purpose and get filled in as experiments finish.</p>
+  <div class="flt" id="flt" role="group" aria-label="Filter figures"></div>
+  <div class="gal" id="gal"></div>
+</section>
+
+<section aria-labelledby="scope">
+  <h2 id="scope">What this project does and does not claim</h2>
+  <div class="caveat"><p>Reproducing a published model is not a new discovery. The contribution here is an independent test of how well MAGICAL generalises and how robust it is to changes in the network. Those results will be reported separately from the original paper's numbers, and predicted pairs are hypotheses until tested in the lab.</p></div>
+</section>
+<footer>Project page. Original method and data belong to the MAGICAL authors.</footer>
+</main>
+
+<script>
+(function(){
+var NS="http://www.w3.org/2000/svg";
+var nodes=[["TP53",110,90],["ATM",230,60],["CHK2",350,90],["BRCA1",200,180],["RAD51",320,210],["PARP1",90,230],["XRCC1",110,340],["LIG3",230,330],["MYC",450,60],["MAX",550,120],["KRAS",470,200],["RAF1",560,260],["MEK1",450,330],["ERK2",560,360]];
+var edges=[[0,1],[1,2],[0,3],[1,3],[3,4],[3,5],[5,6],[5,7],[6,7],[4,2],[2,8],[8,9],[8,10],[10,11],[11,12],[10,12],[12,13],[11,13],[4,10],[0,5]];
+var adj=nodes.map(function(){return []});
+edges.forEach(function(e){adj[e[0]].push(e[1]);adj[e[1]].push(e[0])});
+window.TOY={nodes:nodes,edges:edges};var svg=document.getElementById("net"),sel=[],els=[],lines=[];
+function mk(t,a){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);return e}
+edges.forEach(function(e,i){var l=mk("line",{"class":"edge",x1:nodes[e[0]][1],y1:nodes[e[0]][2],x2:nodes[e[1]][1],y2:nodes[e[1]][2]});svg.appendChild(l);lines.push(l)});
+nodes.forEach(function(n,i){
+ var g=mk("g",{"class":"n",tabindex:0,role:"button","aria-label":"Gene "+n[0]});
+ g.appendChild(mk("circle",{cx:n[1],cy:n[2],r:19}));
+ var t=mk("text",{x:n[1],y:n[2]+4,"text-anchor":"middle"});t.textContent=n[0].length>5?n[0].slice(0,5):n[0];g.appendChild(t);
+ g.addEventListener("click",function(){pick(i)});
+ g.addEventListener("keydown",function(ev){if(ev.key==="Enter"||ev.key===" "){ev.preventDefault();pick(i)}});
+ svg.appendChild(g);els.push(g)});
+function bfs(a,b){var prev={},q=[a],seen={};seen[a]=1;
+ while(q.length){var u=q.shift();if(u===b)break;adj[u].forEach(function(v){if(!seen[v]){seen[v]=1;prev[v]=u;q.push(v)}})}
+ if(!seen[b])return null;var p=[b];while(p[0]!==a)p.unshift(prev[p[0]]);return p}
+function pick(i){if(sel.length>=2)sel=[];if(sel.indexOf(i)<0)sel.push(i);render()}
+function render(){
+ els.forEach(function(g,i){g.setAttribute("class","n"+(sel.indexOf(i)>=0?" sel":""))});
+ lines.forEach(function(l){l.setAttribute("class","edge")});
+ var title=document.getElementById("ptitle"),body=document.getElementById("pbody");
+ if(sel.length===0){title.textContent="No pair selected";body.innerHTML='<p class="note" style="margin:0">Select a first gene, then a second.</p>';return}
+ if(sel.length===1){title.textContent=nodes[sel[0]][0]+" + ?";body.innerHTML='<p class="note" style="margin:0">Now select a second gene.</p>';return}
+ var a=sel[0],b=sel[1],p=bfs(a,b),cn=adj[a].filter(function(x){return adj[b].indexOf(x)>=0}).length;
+ title.textContent=nodes[a][0]+" + "+nodes[b][0];
+ if(p){p.forEach(function(x,k){if(sel.indexOf(x)<0)els[x].setAttribute("class","n path");if(k>0)edges.forEach(function(e,ei){if((e[0]===p[k-1]&&e[1]===x)||(e[1]===p[k-1]&&e[0]===x))lines[ei].setAttribute("class","edge on")})})}
+ body.innerHTML='<div class="feat"><span>Shortest path</span><b>'+(p?p.length-1+" step"+(p.length>2?"s":""):"none")+'</b></div>'+
+ '<div class="feat"><span>Shared neighbours</span><b>'+cn+'</b></div>'+
+ '<div class="feat"><span>Degree of each</span><b>'+adj[a].length+" and "+adj[b].length+'</b></div>'+
+ '<div class="feat"><span>Degree product</span><b>'+adj[a].length*adj[b].length+'</b></div>'}
+document.getElementById("reset").addEventListener("click",function(){sel=[];render()});
+
+function E(t,a,x){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e}
+function T(p,x,y,s,c,a,z){p.appendChild(E("text",{x:x,y:y,"class":c||"t","text-anchor":a||"middle","font-size":z||12},s))}
+function Rc(p,x,y,w,h,a){a.x=x;a.y=y;a.width=w;a.height=h;p.appendChild(E("rect",a))}
+function Ln(p,x1,y1,x2,y2,a){a.x1=x1;a.y1=y1;a.x2=x2;a.y2=y2;p.appendChild(E("line",a))}
+var G=function(id){return document.getElementById(id)};
+
+var cv=G("concept");
+["Normal cell","Gene A lost","Gene B lost","A and B lost"].forEach(function(c,i){T(cv,230+i*150,22,c,"tm","middle",13)});
+[["Synthetic lethal",[1,1,1,0],["lives","lives","lives","dies"],"Each loss alone is tolerated. Losing both kills the cell."],["Synthetic viable",[1,0,1,1],["lives","sick","lives","lives"],"A harmful loss is rescued by also losing a second gene."]].forEach(function(r,ri){
+ var cy=80+ri*105;T(cv,8,cy+5,r[0],"t","start",15);
+ r[1].forEach(function(ok,i){var cx=230+i*150;cv.appendChild(E("circle",{cx:cx,cy:cy,r:27,fill:ok?"var(--sv)":"var(--sl)"}));T(cv,cx,cy+7,ok?"✓":"✕","w","middle",20);T(cv,cx,cy+46,r[2][i],"tm","middle",12)});
+ T(cv,430,cy+68,r[3],"tm","middle",12)});
+
+var fv=G("flow");
+["Pairs and|network","Network|features","Classifier|","Evaluation|","Perturbation|tests","Candidate|pairs"].forEach(function(s,i){var x=6+i*114,p=s.split("|");
+ Rc(fv,x,28,96,54,{rx:10,fill:"var(--surface)",stroke:"var(--ink)","stroke-width":1.6});
+ if(p[1]){T(fv,x+48,52,p[0],"t","middle",12);T(fv,x+48,68,p[1],"t","middle",12)}else T(fv,x+48,60,p[0],"t","middle",12);
+ if(i<5)fv.appendChild(E("path",{d:"M"+(x+98)+" 55h12m-5 -5l5 5l-5 5",fill:"none",stroke:"var(--sl)","stroke-width":2}))});
+
+var N=nodes.length,M=edges.length,sd=7;
+function R(){sd=(sd*1664525+1013904223)%4294967296;return sd/4294967296}
+function fy(n){var a=[],i,j,t;for(i=0;i<n;i++)a.push(i);for(i=n-1;i>0;i--){j=Math.floor(R()*(i+1));t=a[i];a[i]=a[j];a[j]=t}return a}
+function lcc(na,ea){var seen={},best=0;for(var i=0;i<N;i++){if(!na[i]||seen[i])continue;var q=[i],c=0;seen[i]=1;while(q.length){var u=q.pop();c++;adj[u].forEach(function(v){if(na[v]&&!seen[v]&&ea[u+"-"+v]){seen[v]=1;q.push(v)}})}if(c>best)best=c}return best/N}
+var cn=[],ce=[];
+for(var k=0;k<=20;k++){var sn=0,se=0;for(var r=0;r<150;r++){
+ var na=[],ea={},i,p,rm;for(i=0;i<N;i++)na[i]=1;edges.forEach(function(e){ea[e[0]+"-"+e[1]]=ea[e[1]+"-"+e[0]]=1});
+ p=fy(N);rm=Math.round(N*k/20);for(i=0;i<rm;i++)na[p[i]]=0;sn+=lcc(na,ea);
+ for(i=0;i<N;i++)na[i]=1;p=fy(M);rm=Math.round(M*k/20);for(i=0;i<rm;i++){var e=edges[p[i]];ea[e[0]+"-"+e[1]]=ea[e[1]+"-"+e[0]]=0}se+=lcc(na,ea)}
+ cn.push(sn/150);ce.push(se/150)}
+var rb=G("rob"),X=function(k){return 60+k/20*610},Y=function(v){return 230-v*210};
+[0,.25,.5,.75,1].forEach(function(v){Ln(rb,60,Y(v),670,Y(v),{stroke:"var(--line)"});T(rb,52,Y(v)+4,Math.round(v*100)+"%","tm","end",11)});
+[0,5,10,15,20].forEach(function(k){T(rb,X(k),248,k*5+"%","tm","middle",11)});
+T(rb,365,270,"share removed at random (y-axis: largest connected piece, as share of original genes)","tm","middle",12);
+function pl(a,c){rb.appendChild(E("polyline",{points:a.map(function(v,k){return X(k)+","+Y(v)}).join(" "),fill:"none",stroke:c,"stroke-width":3}))}
+pl(cn,"var(--sl)");pl(ce,"var(--sv)");
+rb.appendChild(E("circle",{cx:380,cy:10,r:5,fill:"var(--sl)"}));T(rb,390,14,"Genes removed","t","start",12);
+rb.appendChild(E("circle",{cx:520,cy:10,r:5,fill:"var(--sv)"}));T(rb,530,14,"Interactions removed","t","start",12);
+var mk=E("line",{y1:20,y2:230,stroke:"var(--ink)","stroke-dasharray":"4 3"}),m1=E("circle",{r:6,fill:"var(--sl)",stroke:"var(--surface)","stroke-width":2}),m2=E("circle",{r:6,fill:"var(--sv)",stroke:"var(--surface)","stroke-width":2});
+rb.appendChild(mk);rb.appendChild(m1);rb.appendChild(m2);
+function upd(){var k=+G("rm").value;mk.setAttribute("x1",X(k));mk.setAttribute("x2",X(k));m1.setAttribute("cx",X(k));m1.setAttribute("cy",Y(cn[k]));m2.setAttribute("cx",X(k));m2.setAttribute("cy",Y(ce[k]));
+ G("rmout").textContent=k*5+"% removed: "+Math.round(cn[k]*100)+"% (genes) and "+Math.round(ce[k]*100)+"% (interactions) still connected"}
+G("rm").addEventListener("input",upd);upd();
+
+var hs=G("hist"),dg={};adj.forEach(function(a){dg[a.length]=(dg[a.length]||0)+1});
+var ds=Object.keys(dg).map(Number).sort(function(a,b){return a-b}),hm=Math.max.apply(null,ds.map(function(d){return dg[d]})),bw=Math.min(40,270/ds.length-8);
+T(hs,170,18,"Connections per gene (toy network)","t","middle",13);
+ds.forEach(function(d,i){var h=dg[d]/hm*120,x=40+i*(270/ds.length);Rc(hs,x,180-h,bw,h,{rx:4,fill:"var(--sl)"});T(hs,x+bw/2,174-h,dg[d],"t","middle",12);T(hs,x+bw/2,196,d,"tm","middle",12)});
+T(hs,170,216,"number of connections","tm","middle",12);
+
+var cm=G("cm");T(cm,170,16,"Confusion matrix, once run","t","middle",13);
+T(cm,8,44,"Actual","tm","start",11);T(cm,230,34,"Predicted","tm","middle",11);
+["Lethal","Viable","Other"].forEach(function(c,i){T(cm,125+i*68,46,c,"tm","middle",11);T(cm,86,79+i*52,c,"tm","end",11);
+ for(var j=0;j<3;j++){Rc(cm,95+j*68,56+i*52,60,44,{rx:6,fill:"none",stroke:"var(--ink)","stroke-dasharray":"4 3"});T(cm,125+j*68,83+i*52,"?","tm","middle",16)}});
+
+var cp=G("cmp");T(cp,10,18,"Score on the same test split (metric chosen after reading the paper)","t","start",13);
+["MAGICAL, published","MAGICAL, my rerun","Random forest","Logistic regression","Degree product, path length"].forEach(function(m,i){var y=34+i*32;T(cp,250,y+17,m,"t","end",13);Rc(cp,262,y,420,24,{rx:6,fill:"none",stroke:"var(--ink)","stroke-dasharray":"5 4"});T(cp,472,y+17,"awaiting results","tm","middle",12)});
+
+var gt=G("gantt"),D=function(d){return 190+d*490/21};
+for(var w=0;w<3;w++){Ln(gt,D(w*7),28,D(w*7),215,{stroke:"var(--line)"});T(gt,D(w*7+3.5),20,"Week "+(w+1),"tm","middle",12)}
+Ln(gt,D(21),28,D(21),215,{stroke:"var(--line)"});
+[["Environment and data",0,4],["Feature extraction (subset)",3,8],["Reproduce published split",7,13],["Baselines",11,15],["Perturbation tests",14,19],["Shortlist and write-up",18,21]].forEach(function(t,i){var y=40+i*29;T(gt,180,y+15,t[0],"t","end",12.5);Rc(gt,D(t[1]),y,D(t[2])-D(t[1]),20,{rx:5,fill:i%2?"var(--sl)":"var(--sv)"})});
+
+var ex=[[30,5,5],[6,20,4],[8,6,60]],cb=document.querySelector("#cin tbody"),nm=["Lethal","Viable","Other"];
+ex.forEach(function(r,i){var tr=document.createElement("tr");tr.innerHTML="<td>"+nm[i]+"</td>"+r.map(function(v,j){return '<td><input type="number" min="0" id="c'+i+j+'" value="'+v+'" aria-label="True '+nm[i]+', predicted '+nm[j]+'"></td>'}).join("");cb.appendChild(tr)});
+function pc(x){return (x*100).toFixed(0)+"%"}
+function calc(){var m=[],t=0,ok=0,f1=0,i,j,sp=0,st=0,h="";
+ for(i=0;i<3;i++){m[i]=[];for(j=0;j<3;j++){m[i][j]=Math.max(0,+G("c"+i+j).value||0);t+=m[i][j]}}
+ for(i=0;i<3;i++){var tp=m[i][i],rs=0,cs=0;for(j=0;j<3;j++){rs+=m[i][j];cs+=m[j][i]}
+  var p=cs?tp/cs:0,r=rs?tp/rs:0,f=p+r?2*p*r/(p+r):0;f1+=f;ok+=tp;sp+=cs*rs;st+=0;
+  h+="<tr><td>"+nm[i]+"</td><td>"+rs+"</td><td>"+pc(p)+"</td><td>"+pc(r)+"</td><td>"+pc(f)+"</td></tr>"}
+ var ps=0,ts=0;for(i=0;i<3;i++){var a=0,b=0;for(j=0;j<3;j++){a+=m[j][i];b+=m[i][j]}ps+=a*a;ts+=b*b}
+ var den=Math.sqrt((t*t-ps)*(t*t-ts)),mcc=den?(ok*t-sp)/den:0;
+ G("cres").innerHTML=h;
+ G("csum").textContent=t?"Accuracy "+pc(ok/t)+", macro-F1 "+pc(f1/3)+", MCC "+mcc.toFixed(2)+" ("+t+" pairs). Edit the numbers above to see how the metrics move.":"Enter some counts."}
+cb.addEventListener("input",calc);calc();
+})();
+</script>
+<script>
+(function(){
+var NS="http://www.w3.org/2000/svg",nodes=TOY.nodes,edges=TOY.edges,N=nodes.length,M=edges.length,nm=nodes.map(function(n){return n[0]}),sd=11,figs=[],i,j;
+function R(){sd=(sd*1664525+1013904223)%4294967296;return sd/4294967296}
+function ri(n){return Math.floor(R()*n)}
+function E(t,a,x){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e}
+function T(s,x,y,t,c,a,z,r){var e=E("text",{x:x,y:y,"class":c||"tm","text-anchor":a||"middle","font-size":z||9},t);if(r)e.setAttribute("transform","rotate(-90 "+x+" "+y+")");s.appendChild(e)}
+function Rc(s,x,y,w,h,a){a=a||{};a.x=x;a.y=y;a.width=Math.max(w,0);a.height=Math.max(h,0);s.appendChild(E("rect",a))}
+function Ln(s,x1,y1,x2,y2,a){a=a||{};a.x1=x1;a.y1=y1;a.x2=x2;a.y2=y2;if(!a.stroke)a.stroke="var(--line)";s.appendChild(E("line",a))}
+function Ci(s,x,y,r,a){a=a||{};a.cx=x;a.cy=y;a.r=r;s.appendChild(E("circle",a))}
+function mx(v){return Math.max.apply(null,v)}function mn(v){return Math.min.apply(null,v)}
+function build(es,al){var A=[],k;for(k=0;k<N;k++)A.push([]);es.forEach(function(e){if(!al||(al[e[0]]&&al[e[1]])){A[e[0]].push(e[1]);A[e[1]].push(e[0])}});return A}
+var A0=build(edges),ALL=nodes.map(function(){return 1});
+function bfs(A,s){var d=[],q=[s],k;for(k=0;k<N;k++)d[k]=-1;d[s]=0;while(q.length){var u=q.shift();A[u].forEach(function(v){if(d[v]<0){d[v]=d[u]+1;q.push(v)}})}return d}
+function tri(A){return A.map(function(a){var t=0,p,q;for(p=0;p<a.length;p++)for(q=p+1;q<a.length;q++)if(A[a[p]].indexOf(a[q])>=0)t++;return t})}
+function clus(A){var t=tri(A);return A.map(function(a,k){var d=a.length;return d<2?0:t[k]/(d*(d-1)/2)})}
+function btw(A){var n=A.length,b=[],s,k;for(k=0;k<n;k++)b[k]=0;for(s=0;s<n;s++){var S=[],P=A.map(function(){return[]}),sg=[],d=[],q=[s],dl=[];for(k=0;k<n;k++){sg[k]=0;d[k]=-1;dl[k]=0}sg[s]=1;d[s]=0;while(q.length){var v=q.shift();S.push(v);A[v].forEach(function(w){if(d[w]<0){d[w]=d[v]+1;q.push(w)}if(d[w]===d[v]+1){sg[w]+=sg[v];P[w].push(v)}})}while(S.length){var w=S.pop();P[w].forEach(function(v){dl[v]+=sg[v]/sg[w]*(1+dl[w])});if(w!==s)b[w]+=dl[w]}}return b.map(function(x){return x/2})}
+function clo(A){return A.map(function(a,s){var sum=0,c=0;bfs(A,s).forEach(function(x){if(x>0){sum+=x;c++}});return sum?c/sum:0})}
+function ecc(A){return A.map(function(a,s){return mx(bfs(A,s))})}
+function pr(A){var p=[],q,k,m;for(k=0;k<N;k++)p[k]=1/N;for(m=0;m<50;m++){q=[];for(k=0;k<N;k++)q[k]=.15/N;for(k=0;k<N;k++)A[k].forEach(function(v){q[v]+=.85*p[k]/A[k].length});p=q}return p}
+function nbd(A){return A.map(function(a){return a.length?a.reduce(function(s,v){return s+A[v].length},0)/a.length:0})}
+var X0=36,X1=290,Y0=172,Y1=30;
+function f2(v){return Math.abs(v)>=10||v===Math.round(v)?String(Math.round(v)):v.toFixed(2)}
+function fr(s,t,xl,yl){T(s,150,14,t,"t","middle",10.5);Ln(s,X0,Y0,X1,Y0,{stroke:"var(--muted)"});Ln(s,X0,Y0,X0,Y1,{stroke:"var(--muted)"});if(xl)T(s,163,203,xl,"tm","middle",9);if(yl)T(s,10,100,yl,"tm","middle",9,1)}
+function yt(s,lo,hi){T(s,X0-3,Y0+3,f2(lo),"tm","end",8);T(s,X0-3,Y1+6,f2(hi),"tm","end",8)}
+function bars(s,t,labs,v,col,xl,yl){fr(s,t,xl,yl);var m=mx(v)||1,w=(X1-X0)/v.length;yt(s,0,m);v.forEach(function(x,k){Rc(s,X0+k*w+1,Y0-x/m*(Y0-Y1),w-2,x/m*(Y0-Y1),{fill:col});T(s,X0+k*w+w/2,Y0+9,labs[k].slice(0,4),"tm","middle",6.5)})}
+function hbars(s,t,labs,v){T(s,150,14,t,"t","middle",10.5);var o=v.map(function(_,k){return k}).sort(function(a,b){return v[b]-v[a]}),m=mx(v)||1,h=160/o.length;o.forEach(function(k,r){var y=22+r*h;T(s,52,y+h*.75,labs[k],"tm","end",7);Rc(s,56,y+1,v[k]/m*230,h-2,{fill:"var(--sv)"})})}
+function hist(s,t,v,col,xl,mk){var nb=10,lo=mn(v),hi=mx(v),c=[],k;if(mk!=null){lo=Math.min(lo,mk);hi=Math.max(hi,mk)}if(hi===lo)hi=lo+1;fr(s,t,xl,"count");for(k=0;k<nb;k++)c[k]=0;v.forEach(function(x){c[Math.min(nb-1,Math.floor((x-lo)/(hi-lo)*nb))]++});var m=mx(c),w=(X1-X0)/nb;yt(s,0,m);c.forEach(function(n,q){Rc(s,X0+q*w+1,Y0-n/m*(Y0-Y1),w-2,n/m*(Y0-Y1),{fill:col})});T(s,X0,Y0+10,f2(lo),"tm","start",8);T(s,X1,Y0+10,f2(hi),"tm","end",8);if(mk!=null){var px=X0+(mk-lo)/(hi-lo)*(X1-X0);Ln(s,px,Y1,px,Y0,{stroke:"var(--ink)","stroke-width":2,"stroke-dasharray":"4 3"});T(s,px,Y1-2,"original","t","middle",8)}}
+function sc(s,t,x,y,xl,yl){fr(s,t,xl,yl);var xa=mn(x),xb=mx(x),ya=mn(y),yb=mx(y);if(xb===xa)xb=xa+1;if(yb===ya)yb=ya+1;yt(s,ya,yb);T(s,X0,Y0+10,f2(xa),"tm","start",8);T(s,X1,Y0+10,f2(xb),"tm","end",8);x.forEach(function(a,k){Ci(s,X0+8+(a-xa)/(xb-xa)*(X1-X0-16),Y0-6-(y[k]-ya)/(yb-ya)*(Y0-Y1-12),3.2,{fill:"var(--sl)","fill-opacity":.65})})}
+function heat(s,t,m,lab){T(s,150,14,t,"t","middle",10.5);var top=0,c=150/N;m.forEach(function(r){r.forEach(function(v){if(v>top)top=v})});top=top||1;m.forEach(function(r,a){r.forEach(function(v,b){Rc(s,70+b*c,24+a*c,c-.6,c-.6,{fill:"var(--sl)","fill-opacity":v/top*.95+.03})})});T(s,145,196,lab||"gene index (rows and columns)","tm","middle",9)}
+function ln(s,t,xs,ser,xl,yl,lo,hi,u){fr(s,t,xl,yl);var all=[].concat.apply([],ser.map(function(a){return a.v}));lo=lo==null?mn(all):lo;hi=hi==null?mx(all):hi;if(hi===lo)hi=lo+1;yt(s,lo,hi);var xa=xs[0],xb=xs[xs.length-1],un=u==null?"%":u;T(s,X0,Y0+10,xa+un,"tm","start",8);T(s,X1,Y0+10,xb+un,"tm","end",8);ser.forEach(function(a,k){s.appendChild(E("polyline",{points:a.v.map(function(v,q){return(X0+(xs[q]-xa)/(xb-xa)*(X1-X0))+","+(Y0-(v-lo)/(hi-lo)*(Y0-Y1))}).join(" "),fill:"none",stroke:a.c,"stroke-width":2.2}));if(ser.length>1){T(s,X1-4,Y1+10+k*10,a.n,"tm","end",8);s.lastChild.setAttribute("style","fill:"+a.c)}})}
+function add(c,cap,fn){figs.push({c:c,t:cap,d:fn})}
+var NET="Computed on the toy network",SIM="Simulated on the toy network",CON="Illustrative concept",PEN="Awaiting results";
+/* A: computed on the toy network (39) */
+var MT=[["Degree",A0.map(function(a){return a.length})],["Betweenness",btw(A0)],["Closeness",clo(A0)],["Clustering",clus(A0)],["Triangles",tri(A0)],["Avg neighbour degree",nbd(A0)],["PageRank",pr(A0)],["Eccentricity",ecc(A0)]];
+MT.forEach(function(m){add(NET,m[0]+" of each gene",function(s){bars(s,m[0]+" by gene",nm,m[1],"var(--sl)","gene","value")})});
+MT.forEach(function(m){add(NET,m[0]+", genes ranked from highest",function(s){hbars(s,m[0]+" ranking",nm,m[1])})});
+MT.forEach(function(m){add(NET,"Distribution of "+m[0].toLowerCase()+" across genes",function(s){hist(s,m[0]+" distribution",m[1],"var(--sv)",m[0].toLowerCase())})});
+[[0,1],[0,3],[0,6],[2,1],[0,5],[4,0]].forEach(function(p){add(NET,MT[p[0]][0]+" against "+MT[p[1]][0].toLowerCase()+", one dot per gene",function(s){sc(s,MT[p[0]][0]+" vs "+MT[p[1]][0],MT[p[0]][1],MT[p[1]][1],MT[p[0]][0],MT[p[1]][0])})});
+var D=[];for(i=0;i<N;i++)D.push(bfs(A0,i));
+function pm(f){return nm.map(function(_,a){return nm.map(function(_,b){return a===b?0:f(a,b)})})}
+function cnb(a,b){return A0[a].filter(function(x){return A0[b].indexOf(x)>=0}).length}
+[["Adjacency: who interacts with whom",pm(function(a,b){return A0[a].indexOf(b)>=0?1:0})],["Shortest-path distance between genes",pm(function(a,b){return D[a][b]>0?D[a][b]:0})],["Common neighbours for every pair",pm(cnb)],["Jaccard overlap of neighbourhoods",pm(function(a,b){var c=cnb(a,b),u=A0[a].length+A0[b].length-c;return u?c/u:0})],["Adamic-Adar score for every pair",pm(function(a,b){return A0[a].filter(function(x){return A0[b].indexOf(x)>=0&&A0[x].length>1}).reduce(function(s,x){return s+1/Math.log(A0[x].length)},0)})]].forEach(function(h){add(NET,h[0],function(s){heat(s,h[0],h[1])})});
+var dg=MT[0][1],xsd=[];for(i=1;i<=mx(dg);i++)xsd.push(i);
+add(NET,"Share of genes with at least a given number of connections",function(s){ln(s,"Cumulative degree",xsd,[{v:xsd.map(function(d){return dg.filter(function(x){return x>=d}).length/N}),c:"var(--sl)"}],"connections","share of genes",0,1,"")});
+var PD=[],PC=[];for(i=0;i<N;i++)for(j=i+1;j<N;j++)if(D[i][j]>0){PD.push(D[i][j]);PC.push(cnb(i,j))}
+add(NET,"Shortest-path distance across all gene pairs",function(s){hist(s,"Pair distances",PD,"var(--sv)","steps between genes")});
+add(NET,"Common neighbours across all gene pairs",function(s){hist(s,"Pair common neighbours",PC,"var(--sl)","shared partners")});
+add(NET,"Distance against common neighbours for every pair (jittered)",function(s){sc(s,"Distance vs common neighbours",PD.map(function(d){return d+(R()-.5)*.3}),PC.map(function(c){return c+(R()-.5)*.3}),"distance","common neighbours")});
+/* B: simulated robustness (20) */
+function stats(A,al){var seen=[],best=0,bs=[],comps=0,alv=0,dd=0,k;for(k=0;k<N;k++){if(!al[k])continue;alv++;dd+=A[k].length;if(!seen[k]){comps++;var q=[k],c=[k];seen[k]=1;while(q.length){var u=q.pop();A[u].forEach(function(v){if(!seen[v]){seen[v]=1;q.push(v);c.push(v)}})}if(c.length>best){best=c.length;bs=c}}}var cl=clus(A),cs=0,sp=0,pc=0;for(k=0;k<N;k++)if(al[k])cs+=cl[k];bs.forEach(function(s0){bfs(A,s0).forEach(function(d){if(d>0){sp+=d;pc++}})});return[best/N,comps,alv?dd/alv:0,alv>1?dd/(alv*(alv-1)):0,alv?cs/alv:0,pc?sp/pc:0]}
+function shuf(n){var a=[],k,q,t;for(k=0;k<n;k++)a.push(k);for(k=n-1;k>0;k--){q=ri(k+1);t=a[k];a[k]=a[q];a[q]=t}return a}
+var KS=19,xs=[];for(i=0;i<KS;i++)xs.push(i*5);
+function run(mode,order){var out=[],k;for(k=0;k<KS;k++){var acc=[0,0,0,0,0,0],lo=1,hi=0,tr=order?1:40,r,q;for(r=0;r<tr;r++){var p=order||shuf(mode==="n"?N:M),al=ALL.slice(),es=edges,rm,dead={};if(mode==="n"){rm=Math.round(N*k*.05);for(q=0;q<rm;q++)al[p[q]]=0}else{rm=Math.round(M*k*.05);for(q=0;q<rm;q++)dead[p[q]]=1;es=edges.filter(function(e,ix){return!dead[ix]})}var st=stats(build(es,al),al);for(q=0;q<6;q++)acc[q]+=st[q];if(st[0]<lo)lo=st[0];if(st[0]>hi)hi=st[0]}out.push({m:acc.map(function(a){return a/tr}),lo:lo,hi:hi})}return out}
+var tord=dg.map(function(_,k){return k}).sort(function(a,b){return dg[b]-dg[a]}),RN=run("n"),RE=run("e"),RT=run("n",tord);
+var MN=["Largest component","Number of components","Average degree","Density","Mean clustering","Average path length"];
+MN.forEach(function(n,k){add(SIM,n+" as genes are removed at random",function(s){ln(s,n,xs,[{v:RN.map(function(r){return r.m[k]}),c:"var(--sl)"}],"% genes removed",n)})});
+MN.forEach(function(n,k){add(SIM,n+" as interactions are removed at random",function(s){ln(s,n,xs,[{v:RE.map(function(r){return r.m[k]}),c:"var(--sv)"}],"% interactions removed",n)})});
+[0,1,2].forEach(function(k){add(SIM,MN[k]+": random removal against highest-degree-first removal",function(s){ln(s,MN[k]+", two strategies",xs,[{v:RN.map(function(r){return r.m[k]}),c:"var(--sl)",n:"random"},{v:RT.map(function(r){return r.m[k]}),c:"var(--sv)",n:"hubs first"}],"% genes removed",MN[k])})});
+function band(s,t,Rr,xl){fr(s,t,xl,"largest component");yt(s,0,1);var P=function(a,v){return(X0+a/(KS-1)*(X1-X0))+","+(Y0-v*(Y0-Y1))};s.appendChild(E("polygon",{points:Rr.map(function(r,a){return P(a,r.hi)}).concat(Rr.slice().reverse().map(function(r,a){return P(KS-1-a,r.lo)})).join(" "),fill:"var(--sl)","fill-opacity":.25}));s.appendChild(E("polyline",{points:Rr.map(function(r,a){return P(a,r.m[0])}).join(" "),fill:"none",stroke:"var(--sl)","stroke-width":2.2}));T(s,X0,Y0+10,"0%","tm","start",8);T(s,X1,Y0+10,"90%","tm","end",8)}
+add(SIM,"Spread across 40 trials: largest component as genes are removed",function(s){band(s,"Gene removal, min to max",RN,"% genes removed")});
+add(SIM,"Spread across 40 trials: largest component as interactions are removed",function(s){band(s,"Interaction removal, min to max",RE,"% interactions removed")});
+function rew(){var e2=edges.map(function(e){return[e[0],e[1]]}),S={},t,a,b,c,d,p,q;e2.forEach(function(e){S[e[0]+"-"+e[1]]=S[e[1]+"-"+e[0]]=1});for(t=0;t<12*M;t++){p=ri(M);q=ri(M);if(p===q)continue;a=e2[p][0];b=e2[p][1];c=e2[q][0];d=e2[q][1];if(a===d||c===b||S[a+"-"+d]||S[c+"-"+b])continue;S[a+"-"+b]=S[b+"-"+a]=S[c+"-"+d]=S[d+"-"+c]=0;S[a+"-"+d]=S[d+"-"+a]=S[c+"-"+b]=S[b+"-"+c]=1;e2[p]=[a,d];e2[q]=[c,b]}return e2}
+var O0=stats(A0,ALL),RS=[];for(i=0;i<100;i++)RS.push(stats(build(rew()),ALL));
+[[4,"Mean clustering"],[5,"Average path length"],[0,"Largest component"]].forEach(function(p){add(SIM,p[1]+" over 100 degree-preserving rewirings, original marked",function(s){hist(s,p[1]+" after rewiring",RS.map(function(r){return r[p[0]]}),"var(--sv)",p[1].toLowerCase(),O0[p[0]])})});
+/* C: illustrative concepts (20) */
+[["Synthetic lethal",[1,.95,.9,0]],["Synthetic viable",[1,.3,.95,.9]],["No interaction",[1,.8,.8,.64]],["Essential gene A",[1,0,1,0]],["Redundant paralog pair",[1,.95,.95,.05]],["Pathway bypass",[1,1,.9,.1]],["Same linear pathway",[1,.6,.6,.6]],["Context-dependent lethality",[1,.9,.9,.2]]].forEach(function(g){add(CON,g[0]+": fitness by genotype (illustrative values)",function(s){fr(s,g[0],null,"relative fitness");["Normal","A lost","B lost","A+B lost"].forEach(function(l,k){var h=g[1][k]*(Y0-Y1),x=X0+10+k*62;Rc(s,x,Y0-h,50,h,{fill:g[1][k]>=.5?"var(--sv)":"var(--sl)"});T(s,x+25,Y0+11,l,"tm","middle",9)})})});
+function split(s,t,mode){T(s,150,14,t,"t","middle",10.5);var a,b,col;for(a=0;a<10;a++)for(b=a+1;b<10;b++){var f="var(--sv)",o=1;if(mode==="r"){if(R()<.2)f="var(--sl)"}else if(mode==="g"){var h=(a>=7)+(b>=7);f=h===2?"var(--sl)":h===1?"var(--line)":"var(--sv)"}else if(mode==="s"){if(b>=5)f="var(--sl)"}else{o=[.45,.7,1][(a+b)%3];if((a*b)%5===0)f="var(--sl)"}Rc(s,70+b*15,24+a*15,13,13,{fill:f,"fill-opacity":o,rx:2})}[["train","var(--sv)"],["test","var(--sl)"],["dropped","var(--line)"]].forEach(function(l,k){Rc(s,62+k*62,182,9,9,{fill:l[1]});T(s,74+k*62,190,l[0],"tm","start",8.5)})}
+[["Random pair split","r"],["Gene-held-out split","g"],["Source-held-out split","s"],["Stratified by degree bucket","b"]].forEach(function(p){add(CON,p[0]+": each square is one gene pair",function(s){split(s,p[0],p[1])})});
+function flow(s,t,st){T(s,150,14,t,"t","middle",10.5);st.forEach(function(l,k){var y=24+k*32;Rc(s,70,y,160,22,{rx:6,fill:"var(--surface)",stroke:"var(--ink)"});T(s,150,y+15,l,"t","middle",10);if(k<st.length-1)s.appendChild(E("path",{d:"M150 "+(y+23)+"v7m-3 -3l3 3l3 -3",fill:"none",stroke:"var(--sl)","stroke-width":1.6}))})}
+[["Feature extraction",["Load PPI network","Map genes to nodes","Compute gene metrics","Compute pair metrics","Save feature table"]],["Evaluation",["Fix train/test split","Train classifier","Predict test pairs","Per-class metrics","Intervals over seeds"]],["Perturbation test",["Perturb network","Recompute features","Score trained model","Repeat over seeds","Plot curve"]],["Candidate filtering",["All predicted pairs","High confidence only","Stable across tests","Not in training labels","Cross-check evidence"]]].forEach(function(p){add(CON,p[0]+" step by step",function(s){flow(s,p[0],p[1])})});
+function mg(s,es,ox,oy,k,hn,he,dash){es.forEach(function(e,q){var a=nodes[e[0]],b=nodes[e[1]],on=he&&he.indexOf(q)>=0;Ln(s,ox+a[1]*k,oy+a[2]*k,ox+b[1]*k,oy+b[2]*k,{stroke:on?"var(--sl)":"var(--muted)","stroke-width":on?2.6:1,"stroke-dasharray":dash&&dash.indexOf(q)>=0?"3 2":"0"})});nodes.forEach(function(n,q){var h=hn&&hn.indexOf(q)>=0;Ci(s,ox+n[1]*k,oy+n[2]*k,h?5:3.2,{fill:h?"var(--sl)":"var(--node)"})})}
+add(CON,"Shortest path between TP53 and MEK1 is four steps",function(s){T(s,150,14,"Shortest path: TP53 to MEK1","t","middle",10.5);mg(s,edges,10,26,.5,[0,3,4,10,12],[2,4,18,15])});
+add(CON,"ATM and BRCA1 share one neighbour, TP53",function(s){T(s,150,14,"Common neighbour of ATM and BRCA1","t","middle",10.5);mg(s,edges,10,26,.5,[1,3,0],[0,2,3])});
+add(CON,"Degree-preserving rewiring: original network and one rewired copy",function(s){T(s,150,14,"Rewiring keeps every degree","t","middle",10.5);mg(s,edges,8,50,.24);mg(s,rew(),160,50,.24);T(s,70,150,"original","tm","middle",9);T(s,222,150,"rewired","tm","middle",9)});
+add(CON,"Noise test: six false interactions (dashed) added to the network",function(s){T(s,150,14,"Noise edges added","t","middle",10.5);var ex=[],q=0,a,b;while(ex.length<6){a=ri(N);b=ri(N);if(a!==b&&A0[a].indexOf(b)<0)ex.push([a,b])}mg(s,edges.concat(ex),10,26,.5,null,[M,M+1,M+2,M+3,M+4,M+5],[M,M+1,M+2,M+3,M+4,M+5])});
+/* D: awaiting results (21) */
+function ph(s,t,xl,yl,kind,labs){fr(s,t,xl,yl);var w=X1-X0,h=Y0-Y1,dsh={fill:"none",stroke:"var(--ink)","stroke-dasharray":"4 3","stroke-opacity":.5,rx:5};if(kind==="diag")Ln(s,X0,Y0,X1,Y1,{"stroke-dasharray":"4 3"});if(kind==="bars"){labs.forEach(function(l,k){var b=w/labs.length;Rc(s,X0+k*b+5,Y1+10,b-10,h-10,dsh);T(s,X0+k*b+b/2,Y0+10,l,"tm","middle",7.5)})}else Rc(s,X0+4,Y1+4,w-8,h-8,dsh);T(s,(X0+X1)/2,(Y0+Y1)/2+3,"awaiting results","tm","middle",10)}
+function cmph(s,t){T(s,150,14,t,"t","middle",10.5);["Lethal","Viable","Other"].forEach(function(c,a){T(s,123+a*52,36,c,"tm","middle",8);T(s,62,66+a*40,c,"tm","end",8);for(var b=0;b<3;b++){Rc(s,100+b*52,44+a*40,46,34,{fill:"none",stroke:"var(--ink)","stroke-dasharray":"4 3","stroke-opacity":.6,rx:5});T(s,123+b*52,66+a*40,"?","tm","middle",14)}});T(s,150,184,"rows: true class, columns: predicted","tm","middle",9)}
+["Published split","Random pairs","Gene held out","Source held out"].forEach(function(n){add(PEN,"Confusion matrix on the "+n.toLowerCase()+" (pending)",function(s){cmph(s,"Confusion: "+n.toLowerCase())})});
+["lethal","viable","other"].forEach(function(c){add(PEN,"ROC curve for the "+c+" class (pending)",function(s){ph(s,"ROC, "+c+" class","false positive rate","true positive rate","diag")})});
+["lethal","viable","other"].forEach(function(c){add(PEN,"Precision-recall curve for the "+c+" class (pending)",function(s){ph(s,"Precision-recall, "+c+" class","recall","precision","curve")})});
+add(PEN,"F1 score per class (pending)",function(s){ph(s,"F1 per class","class","F1","bars",["Lethal","Viable","Other"])});
+add(PEN,"Macro-F1 for the paper model, my rerun and baselines (pending)",function(s){ph(s,"Macro-F1 by model","model","macro-F1","bars",["Paper","Rerun","RF","LogReg","Degree"])});
+add(PEN,"Matthews correlation coefficient across splits (pending)",function(s){ph(s,"MCC by split","split","MCC","bars",["Publ.","Random","Gene","Source"])});
+add(PEN,"Learning curve: score against training size (pending)",function(s){ph(s,"Learning curve","share of training data","macro-F1","curve")});
+["genes removed","interactions removed","noise edges added","rewired"].forEach(function(n){add(PEN,"Macro-F1 against "+n+" (pending)",function(s){ph(s,"Macro-F1 vs "+n,n,"macro-F1","curve")})});
+add(PEN,"Calibration: predicted confidence against observed accuracy (pending)",function(s){ph(s,"Calibration","predicted confidence","observed accuracy","diag")});
+add(PEN,"Score by gene degree bucket (pending)",function(s){ph(s,"Score by degree bucket","degree bucket","macro-F1","bars",["Low","Mid","High"])});
+add(PEN,"Candidate pairs against perturbations: stability (pending)",function(s){T(s,150,14,"Candidate stability","t","middle",10.5);for(var a=0;a<8;a++)for(var b=0;b<5;b++)Rc(s,62+b*34,28+a*18,30,14,{fill:"none",stroke:"var(--ink)","stroke-dasharray":"3 3","stroke-opacity":.5,rx:3});T(s,150,190,"rows: candidate pairs, columns: perturbations","tm","middle",9)});
+window.FIGS=figs;
+var gal=document.getElementById("gal");
+if(gal){var cats=[NET,SIM,CON,PEN],fl=document.getElementById("flt");
+ var show=function(c){[].forEach.call(gal.children,function(f){f.hidden=!!c&&f.getAttribute("data-c")!==c});[].forEach.call(fl.children,function(b){b.setAttribute("aria-pressed",String((b.getAttribute("data-c")||"")===(c||"")))})};
+ figs.forEach(function(f,n){var fg=document.createElement("figure");fg.className="fg";fg.setAttribute("data-c",f.c);var s=E("svg",{viewBox:"0 0 300 210",role:"img","aria-label":f.t});f.d(s);fg.appendChild(s);var cp=document.createElement("figcaption");cp.innerHTML="<b>Fig. "+(n+1)+".</b> "+f.t+"<br>"+f.c;fg.appendChild(cp);gal.appendChild(fg)});
+ [""].concat(cats).forEach(function(c){var b=document.createElement("button");b.type="button";b.setAttribute("data-c",c);b.textContent=(c||"All")+" ("+(c?figs.filter(function(f){return f.c===c}).length:figs.length)+")";b.addEventListener("click",function(){show(c)});fl.appendChild(b)});
+ show("");document.getElementById("gcount").textContent=figs.length}
+})();
+</script>
+<script>
+(function(){
+var NS="http://www.w3.org/2000/svg",G=80,sd=5,seed=5;
+function R(){sd=(sd*1664525+1013904223)%4294967296;return sd/4294967296}
+function gauss(){return Math.sqrt(-2*Math.log(R()+1e-12))*Math.cos(2*Math.PI*R())}
+function E(t,a,x){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e}
+function T(s,x,y,t,c,a,z){s.appendChild(E("text",{x:x,y:y,"class":c||"tm","text-anchor":a||"middle","font-size":z||12},t))}
+function shuf(n){var a=[],k,q,t;for(k=0;k<n;k++)a.push(k);for(k=n-1;k>0;k--){q=Math.floor(R()*(k+1));t=a[k];a[k]=a[q];a[q]=t}return a}
+function auc(sc,y){var idx=sc.map(function(_,i){return i}).sort(function(a,b){return sc[a]-sc[b]}),rk=[],i=0,n1=0,sum=0,j,k;while(i<idx.length){j=i;while(j+1<idx.length&&sc[idx[j+1]]===sc[idx[i]])j++;for(k=i;k<=j;k++)rk[idx[k]]=(i+j)/2+1;i=j+1}y.forEach(function(v,q){if(v){n1++;sum+=rk[q]}});var n0=y.length-n1;return n1&&n0?(sum-n1*(n1+1)/2)/(n1*n0):.5}
+function mem(tr,te){var tot=[],cnt=[],k,g=0;for(k=0;k<G;k++){tot[k]=0;cnt[k]=0}tr.forEach(function(p){tot[p.a]+=p.y;tot[p.b]+=p.y;cnt[p.a]++;cnt[p.b]++;g+=p.y});g/=tr.length;var r=tot.map(function(t,q){return cnt[q]?t/cnt[q]:g});return auc(te.map(function(p){return(r[p.a]+r[p.b])/2}),te.map(function(p){return p.y}))}
+function prf(te){return auc(te.map(function(p){return p.x}),te.map(function(p){return p.y}))}
+function sim(s,nz,TR){var out=[0,0,0,0],t,i,j,k;for(t=0;t<TR;t++){var h=[],P=[];for(i=0;i<G;i++)h.push(R());for(i=0;i<G;i++)for(j=i+1;j<G;j++){var u=gauss();P.push({a:i,b:j,z:s*3*(h[i]+h[j]-1)+(1-s)*u,x:u+nz*gauss()})}
+ var zs=P.map(function(p){return p.z}).sort(function(a,b){return a-b}),th=zs[Math.floor(.75*zs.length)];P.forEach(function(p){p.y=p.z>th?1:0});
+ var ix=shuf(P.length),cut=Math.floor(.8*ix.length),trR=ix.slice(0,cut).map(function(q){return P[q]}),teR=ix.slice(cut).map(function(q){return P[q]});
+ var held={},gl=shuf(G);for(k=0;k<16;k++)held[gl[k]]=1;
+ var trG=P.filter(function(p){return!held[p.a]&&!held[p.b]}),teG=P.filter(function(p){return held[p.a]&&held[p.b]});
+ out[0]+=mem(trR,teR);out[1]+=mem(trG,teG);out[2]+=prf(teR);out[3]+=prf(teG)}
+ return out.map(function(v){return v/TR})}
+window.SHC={sim:sim};
+var bc=document.getElementById("shc");if(!bc)return;
+var wp=document.getElementById("swp"),sg=document.getElementById("sg"),sn=document.getElementById("sn"),sweep=[],busy=false;
+function yy(v,t,b){return b-v*(b-t)}
+function bars(){bc.innerHTML="";var s=+sg.value/100,nz=+sn.value/10;sd=seed;var r=sim(s,nz,10);
+ var tk=[0,.5,1];tk.forEach(function(v){bc.appendChild(E("line",{x1:70,x2:680,y1:yy(v,40,220),y2:yy(v,40,220),stroke:v===.5?"var(--ink)":"var(--line)","stroke-dasharray":v===.5?"5 4":"0"}));T(bc,62,yy(v,40,220)+4,v,"tm","end",11)});
+ T(bc,684,yy(.5,40,220)-5,"chance","tm","end",11);
+ [["Random split",[r[0],r[2]]],["Gene held out",[r[1],r[3]]]].forEach(function(g,gi){var cx=230+gi*290;g[1].forEach(function(v,k){var x=cx-95+k*100,h=v*180;bc.appendChild(E("rect",{x:x,y:220-h,width:90,height:h,rx:5,fill:k?"var(--sv)":"var(--sl)"}));T(bc,x+45,220-h-6,v.toFixed(2),"t","middle",13)});T(bc,cx,244,g[0],"t","middle",13)});
+ bc.appendChild(E("circle",{cx:90,cy:14,r:6,fill:"var(--sl)"}));T(bc,102,18,"Gene memoriser (knows which genes tend to be lethal)","t","start",12);
+ bc.appendChild(E("circle",{cx:410,cy:14,r:6,fill:"var(--sv)"}));T(bc,422,18,"Pair-feature model","t","start",12);
+ document.getElementById("sgv").textContent=sg.value+"%";document.getElementById("snv").textContent=nz.toFixed(1);
+ var gap=r[0]-r[1];document.getElementById("sout").textContent="Score is AUC (0.5 is guessing). On a random split the gene memoriser reaches "+r[0].toFixed(2)+". On genes it has never seen it falls to "+r[1].toFixed(2)+". "+(gap>.1?"That gap is the shortcut: the model learned which genes tend to be lethal, not why. The pair-feature model barely changes because it reads the pair itself.":"With little gene-level effect in the labels, the split barely matters here.")}
+function sw(){wp.innerHTML="";var nz=+sn.value/10,pts=[],k;sd=seed+1;for(k=0;k<=20;k++)pts.push(sim(k/20,nz,6));sweep=pts;
+ var X=function(k){return 70+k/20*600},Y=function(v){return yy(v,20,200)};
+ [0,.5,1].forEach(function(v){wp.appendChild(E("line",{x1:70,x2:670,y1:Y(v),y2:Y(v),stroke:v===.5?"var(--ink)":"var(--line)","stroke-dasharray":v===.5?"5 4":"0"}));T(wp,62,Y(v)+4,v,"tm","end",11)});
+ [0,25,50,75,100].forEach(function(v){T(wp,X(v/5),222,v+"%","tm","middle",11)});T(wp,370,244,"how much the label depends on which genes are involved","tm","middle",12);
+ [[0,"var(--sl)","0","Memoriser, random split"],[1,"var(--ink)","6 4","Memoriser, gene held out"],[2,"var(--sv)","0","Pair-feature model, random split"]].forEach(function(L,li){wp.appendChild(E("polyline",{points:pts.map(function(p,q){return X(q)+","+Y(p[L[0]])}).join(" "),fill:"none",stroke:L[1],"stroke-width":2.6,"stroke-dasharray":L[2]}));T(wp,665,34+li*16,L[3],"t","end",12)});
+ var mk=E("line",{id:"smk",y1:20,y2:200,stroke:"var(--sl)","stroke-width":1.5,"stroke-dasharray":"2 3"});wp.appendChild(mk);mv()}
+function mv(){var m=document.getElementById("smk");if(m){var x=70+(+sg.value/100)*600;m.setAttribute("x1",x);m.setAttribute("x2",x)}}
+sg.addEventListener("input",function(){if(busy)return;busy=true;requestAnimationFrame(function(){bars();mv();busy=false})});
+sn.addEventListener("input",function(){bars()});sn.addEventListener("change",sw);
+document.getElementById("sre").addEventListener("click",function(){seed+=17;bars();sw()});
+bars();sw();
+})();
+</script>
+<script>
+(function(){
+var ta=document.getElementById("nle");if(!ta)return;
+var NS="http://www.w3.org/2000/svg",sd=3,T0=300,TS=200,cur=null;
+function R(){sd=(sd*1664525+1013904223)%4294967296;return sd/4294967296}
+function ri(n){return Math.floor(R()*n)}
+function E(t,a,x){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e}
+function Tx(s,x,y,t,c,a,z){s.appendChild(E("text",{x:x,y:y,"class":c||"tm","text-anchor":a||"middle","font-size":z||11},t))}
+var $=function(i){return document.getElementById(i)},sa=$("nla"),sb=$("nlb"),msg=$("nlmsg");
+if(window.TOY)ta.value=TOY.edges.map(function(e){return TOY.nodes[e[0]][0]+" "+TOY.nodes[e[1]][0]}).join("\n");
+function parse(){var names=[],ix=Object.create(null),es=[],seen={};ta.value.split("\n").forEach(function(l){l=l.replace(/#.*/,"").trim();if(!l)return;var p=l.split(/[\s,;]+/).map(function(g){return g.replace(/[^\w.\-:@]/g,"")});if(p.length<2||!p[0]||!p[1]||p[0]===p[1])return;[p[0],p[1]].forEach(function(g){if(!(g in ix)){ix[g]=names.length;names.push(g)}});var a=ix[p[0]],b=ix[p[1]],k=Math.min(a,b)+"-"+Math.max(a,b);if(!seen[k]){seen[k]=1;es.push([a,b])}});return{names:names,es:es}}
+function mk(n,es){var adj=[],mat=new Uint8Array(n*n),i;for(i=0;i<n;i++)adj.push([]);es.forEach(function(e){adj[e[0]].push(e[1]);adj[e[1]].push(e[0]);mat[e[0]*n+e[1]]=mat[e[1]*n+e[0]]=1});return{n:n,adj:adj,mat:mat}}
+function cn(g,a,b){var c=0;g.adj[a].forEach(function(k){if(g.mat[k*g.n+b])c++});return c}
+function jac(g,a,b){var c=cn(g,a,b),u=g.adj[a].length+g.adj[b].length-c;return u?c/u:0}
+function aa(g,a,b){var s=0;g.adj[a].forEach(function(k){if(g.mat[k*g.n+b]&&g.adj[k].length>1)s+=1/Math.log(g.adj[k].length)});return s}
+function dist(g,a,b){var d=[],q=[a],i;for(i=0;i<g.n;i++)d[i]=-1;d[a]=0;while(q.length){var u=q.shift();if(u===b)return d[u];g.adj[u].forEach(function(v){if(d[v]<0){d[v]=d[u]+1;q.push(v)}})}return 9}
+function rew(n,es){var e2=es.map(function(e){return[e[0],e[1]]}),S={},t,p,q,a,b,c,d,m=es.length;e2.forEach(function(e){S[e[0]+"-"+e[1]]=S[e[1]+"-"+e[0]]=1});for(t=0;t<6*m;t++){p=ri(m);q=ri(m);if(p===q)continue;a=e2[p][0];b=e2[p][1];c=e2[q][0];d=e2[q][1];if(a===d||c===b||S[a+"-"+d]||S[c+"-"+b])continue;S[a+"-"+b]=S[b+"-"+a]=S[c+"-"+d]=S[d+"-"+c]=0;S[a+"-"+d]=S[d+"-"+a]=S[c+"-"+b]=S[b+"-"+c]=1;e2[p]=[a,d];e2[q]=[c,b]}return e2}
+function load(){var p=parse();if(p.names.length<3||p.es.length<3){msg.textContent="Enter at least three interactions, one pair per line.";return null}if(p.names.length>150||p.es.length>600){msg.textContent="Use at most 150 genes and 600 interactions so the page stays fast.";return null}
+ var old=[sa.value,sb.value],so=p.names.slice().sort(),opt=so.map(function(g){return"<option>"+g+"</option>"}).join("");sa.innerHTML=opt;sb.innerHTML=opt;
+ sa.value=so.indexOf(old[0])>=0?old[0]:(so.indexOf("ATM")>=0?"ATM":so[0]);sb.value=so.indexOf(old[1])>=0?old[1]:(so.indexOf("BRCA1")>=0?"BRCA1":so[1]);
+ return{names:p.names,es:p.es,g:mk(p.names.length,p.es)}}
+function hb(s,t,v,ob,top,lab){s.innerHTML="";var c=[],k,w=270/(top+1);for(k=0;k<=top;k++)c[k]=0;v.forEach(function(x){c[Math.min(x,top)]++});var m=Math.max.apply(null,c),o=Math.min(ob,top);
+ Tx(s,170,16,t,"t","middle",12);s.appendChild(E("line",{x1:50,x2:320,y1:170,y2:170,stroke:"var(--muted)"}));
+ c.forEach(function(n,i){var h=n/m*125;s.appendChild(E("rect",{x:50+i*w+1,y:170-h,width:w-2,height:h,rx:3,fill:i===o?"var(--sl)":"var(--sv)","fill-opacity":i===o?1:.55}));if(n)Tx(s,50+i*w+w/2,165-h,n,"tm","middle",9);Tx(s,50+i*w+w/2,184,lab(i),"tm","middle",10)});
+ Tx(s,185,204,"red bar: your pair. Bars: "+v.length+" rewired networks","tm","middle",10);T0&&Tx(s,14,100,"rewirings","tm","middle",10);s.lastChild.setAttribute("transform","rotate(-90 14 100)")}
+function ms(v){var m=v.reduce(function(a,b){return a+b},0)/v.length;return[m,Math.sqrt(v.reduce(function(a,b){return a+(b-m)*(b-m)},0)/v.length)]}
+function analyse(skip){sd=3;var c=cur=load();if(!c)return;var a=c.names.indexOf(sa.value),b=c.names.indexOf(sb.value);if(a===b){msg.textContent="Pick two different genes.";return}msg.textContent="";
+ var n=c.names.length,F=[cn,jac,dist,aa],ob=F.map(function(f){return f(c.g,a,b)}),nul=[[],[],[],[]],t;
+ for(t=0;t<T0;t++){var g=mk(n,rew(n,c.es));F.forEach(function(f,i){nul[i].push(f(g,a,b))})}
+ var nm=["Common neighbours","Jaccard overlap","Shortest path (steps)","Adamic-Adar score"],h="";
+ nm.forEach(function(l,i){var s=ms(nul[i]),low=i===2,cnt=nul[i].filter(function(x){return low?x<=ob[i]+1e-9:x>=ob[i]-1e-9}).length,p=(cnt+1)/(T0+1),z=s[1]>0?(ob[i]-s[0])/s[1]:null,f=function(x){return i===1||i===3?x.toFixed(2):x.toFixed(1)};
+  h+="<tr><td>"+l+"</td><td>"+(i===2&&ob[i]===9?"none":f(ob[i]))+"</td><td>"+f(s[0])+" \u00b1 "+f(s[1])+"</td><td>"+(z==null?"n/a":z.toFixed(1))+"</td><td>"+(p<.001?"<0.001":p.toFixed(3))+"</td></tr>"});
+ var s0=ms(nul[0]),p0=(nul[0].filter(function(x){return x>=ob[0]}).length+1)/(T0+1);
+ $("nlsum").innerHTML='<div class="tablewrap"><table><thead><tr><th>'+c.names[a]+" and "+c.names[b]+'</th><th>Observed</th><th>Expected from degrees alone</th><th>z</th><th>One-sided p</th></tr></thead><tbody>'+h+"</tbody></table></div><p>"+(ob[0]>s0[0]&&p0<.05?"These two genes share more partners than their degrees alone would give, so the closeness is not just a hub effect.":"The shared partners here are about what you would expect from how many connections each gene has, so a model leaning on this feature may be reading degree rather than the pair.")+" Small networks give coarse p-values.</p>";
+ hb($("nlc"),"Common neighbours after rewiring",nul[0],ob[0],8,function(i){return i===8?"8+":i});
+ hb($("nld"),"Shortest path after rewiring",nul[2],ob[2],9,function(i){return i===9?"none":i});
+ if(!skip)scan()}
+function scan(){var c=cur,n=c.names.length,el=$("nlscan");if(n>40){el.innerHTML='<p class="note" style="padding:0 14px">The all-pairs scan runs for networks up to 40 genes.</p>';return}
+ var s1=[],s2=[],ob=[],pr=[],i,j,t;for(i=0;i<n;i++)for(j=i+1;j<n;j++){pr.push([i,j]);s1.push(0);s2.push(0);ob.push(cn(c.g,i,j))}
+ for(t=0;t<TS;t++){var g=mk(n,rew(n,c.es));pr.forEach(function(p,k){var v=cn(g,p[0],p[1]);s1[k]+=v;s2[k]+=v*v})}
+ var rows=[];pr.forEach(function(p,k){var m=s1[k]/TS,sv=Math.sqrt(Math.max(0,s2[k]/TS-m*m));if(ob[k]>=1&&sv>0)rows.push({a:p[0],b:p[1],o:ob[k],m:m,z:(ob[k]-m)/sv})});rows.sort(function(x,y){return y.z-x.z});
+ el.innerHTML="<table><thead><tr><th>Pairs with the most surprising overlap</th><th>Common neighbours</th><th>Expected</th><th>z</th><th></th></tr></thead><tbody>"+rows.slice(0,8).map(function(r){return"<tr><td>"+c.names[r.a]+" and "+c.names[r.b]+"</td><td>"+r.o+"</td><td>"+r.m.toFixed(1)+"</td><td>"+r.z.toFixed(1)+'</td><td><button type="button" class="reset" style="margin:0;padding:2px 10px" data-a="'+c.names[r.a]+'" data-b="'+c.names[r.b]+'">Analyse</button></td></tr>'}).join("")+"</tbody></table>"}
+$("nlscan").addEventListener("click",function(e){var b=e.target&&e.target.getAttribute&&e.target.getAttribute("data-a");if(b){sa.value=b;sb.value=e.target.getAttribute("data-b");analyse(true)}});
+$("nlgo").addEventListener("click",function(){analyse()});ta.addEventListener("change",function(){analyse()});sa.addEventListener("change",function(){analyse(true)});sb.addEventListener("change",function(){analyse(true)});
+window.NLAB=analyse;analyse();
+})();
+</script>
+<script>
+(function(){
+var net=document.getElementById("kon");if(!net)return;
+var NS="http://www.w3.org/2000/svg",sd=11,G,KO=[],pset=0;
+function R(){sd=(sd*1664525+1013904223)%4294967296;return sd/4294967296}
+function ri(n){return Math.floor(R()*n)}
+function shuf(n){var a=[],k,q,t;for(k=0;k<n;k++)a.push(k);for(k=n-1;k>0;k--){q=ri(k+1);t=a[k];a[k]=a[q];a[q]=t}return a}
+function E(t,a,x){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e}
+function Tx(s,x,y,t,c,a,z,r){var e=E("text",{x:x,y:y,"class":c||"tm","text-anchor":a||"middle","font-size":z||11},t);if(r)e.setAttribute("transform","rotate(-90 "+x+" "+y+")");s.appendChild(e)}
+var $=function(i){return document.getElementById(i)};
+var PRE=[["Two parallel routes",[["Nutrient"],["A1","B1"],["A2","B2"],["Biomass"]],[["Nutrient","A1"],["A1","A2"],["A2","Biomass"],["Nutrient","B1"],["B1","B2"],["B2","Biomass"]]],
+["Shared steps, one fork",[["Nutrient"],["X"],["Y1","Y2"],["Z"],["Biomass"]],[["Nutrient","X"],["X","Y1"],["X","Y2"],["Y1","Z"],["Y2","Z"],["Z","Biomass"]]],
+["Three routes, no pairs",[["Nutrient"],["R1","R2","R3"],["Biomass"]],[["Nutrient","R1"],["Nutrient","R2"],["Nutrient","R3"],["R1","Biomass"],["R2","Biomass"],["R3","Biomass"]]]];
+function randNet(){var L=[["Nutrient"]],Ed=[],k,n=0,i,nl=3+ri(2);for(k=0;k<nl;k++){var c=2+ri(2),row=[];for(i=0;i<c;i++)row.push("G"+(++n));L.push(row)}L.push(["Biomass"]);
+ for(k=0;k<L.length-1;k++){var A=L[k],B=L[k+1],has={};A.forEach(function(a){var m=k===0?B.length:1+ri(2);shuf(B.length).slice(0,Math.min(m,B.length)).forEach(function(q){Ed.push([a,B[q]]);has[B[q]]=1})});B.forEach(function(b){if(!has[b])Ed.push([A[ri(A.length)],b])})}
+ return["Random network",L,Ed]}
+function reach(src,rev,ko){var seen={},q=[src],u;seen[src]=1;while(q.length){u=q.pop();G.E.forEach(function(e){var a=rev?e[1]:e[0],b=rev?e[0]:e[1];if(a===u&&!seen[b]&&ko.indexOf(b)<0){seen[b]=1;q.push(b)}})}return seen}
+function alive(ko){return!!reach("Nutrient",false,ko).Biomass}
+function setNet(p){var L=p[1],names=[],pos={},nl=L.length;L.forEach(function(row,k){row.forEach(function(g,i){pos[g]={px:40+k*(440/(nl-1)),py:150+(i-(row.length-1)/2)*62};names.push(g)})});
+ G={name:p[0],E:p[2],pos:pos,names:names,genes:names.filter(function(g){return g!=="Nutrient"&&g!=="Biomass"})};KO=[];
+ var g=G.genes,n=g.length,i,j;G.ess=g.map(function(x){return!alive([x])});G.cat=[];G.sl=[];
+ for(i=0;i<n;i++){G.cat[i]=[];for(j=0;j<n;j++){var c=0;if(i===j)c=G.ess[i]?2:0;else if(G.ess[i]||G.ess[j])c=2;else if(!alive([g[i],g[j]])){c=1;if(i<j)G.sl.push([i,j])}G.cat[i][j]=c}}
+ render()}
+function tog(x){var k=KO.indexOf(x);if(k<0)KO.push(x);else KO.splice(k,1);render()}
+function drawNet(){var s=$("kon");s.innerHTML="";var al=alive(KO),F=reach("Nutrient",false,KO),B=reach("Biomass",true,KO),act={};
+ G.names.forEach(function(x){act[x]=!!(al&&F[x]&&B[x]&&KO.indexOf(x)<0)});
+ G.E.forEach(function(e){var a=G.pos[e[0]],b=G.pos[e[1]],on=act[e[0]]&&act[e[1]],dx=b.px-a.px,dy=b.py-a.py,L=Math.sqrt(dx*dx+dy*dy),ux=dx/L,uy=dy/L,x1=a.px+ux*21,y1=a.py+uy*21,x2=b.px-ux*23,y2=b.py-uy*23,col=on?"var(--sv)":"var(--line)";
+  s.appendChild(E("line",{x1:x1,y1:y1,x2:x2,y2:y2,stroke:col,"stroke-width":on?2.8:1.6}));
+  s.appendChild(E("polygon",{points:[x2,y2,x2-ux*9-uy*4.5,y2-uy*9+ux*4.5,x2-ux*9+uy*4.5,y2-uy*9-ux*4.5].join(" "),fill:col}))});
+ G.names.forEach(function(x){var p=G.pos[x],end=x==="Nutrient"||x==="Biomass",ko=KO.indexOf(x)>=0,g=E("g",end?{role:"img","aria-label":x}:{tabindex:0,role:"button","aria-label":"Gene "+x+(ko?", knocked out. Press to restore":". Press to knock out"),style:"cursor:pointer"});
+  if(end)g.appendChild(E("rect",{x:p.px-33,y:p.py-14,width:66,height:28,rx:8,fill:"var(--ink)"}));else g.appendChild(E("circle",{cx:p.px,cy:p.py,r:19,fill:ko?"var(--sl)":"var(--surface)",stroke:ko?"var(--sl)":act[x]?"var(--sv)":"var(--node)","stroke-width":3}));
+  Tx(g,p.px,p.py+4,ko?"\u2715":x,end||ko?"w":"t","middle",end?10:11);if(ko)Tx(g,p.px,p.py+35,x,"tm","middle",10);
+  if(!end){g.addEventListener("click",function(){tog(x)});g.addEventListener("keydown",function(ev){if(ev.key==="Enter"||ev.key===" "){ev.preventDefault();tog(x)}})}
+  s.appendChild(g)});
+ Tx(s,260,292,"Click genes to knock them out. Green path: a route that still works.","tm","middle",11)}
+function drawHeat(){var s=$("koh");s.innerHTML="";var g=G.genes,n=g.length,c=Math.min(24,220/n),ox=62,oy=64,i,j;
+ g.forEach(function(x,i){Tx(s,ox-5,oy+i*c+c/2+3,x,"tm","end",8);Tx(s,ox+i*c+c/2+3,oy-5,x,"tm","start",8,1)});
+ for(i=0;i<n;i++)for(j=0;j<n;j++)(function(i,j){var v=G.cat[i][j],sel=KO.length&&KO.indexOf(g[i])>=0&&KO.indexOf(g[j])>=0,r=E("rect",{x:ox+j*c,y:oy+i*c,width:c-1.5,height:c-1.5,rx:3,fill:v===1?"var(--sl)":v===2?"var(--muted)":"var(--sv)","fill-opacity":v===1?1:v===2?.4:.25,stroke:sel?"var(--ink)":"none","stroke-width":2.5,style:"cursor:pointer"});r.addEventListener("click",function(){KO=i===j?[g[i]]:[g[i],g[j]];render()});s.appendChild(r)})(i,j);
+ var y=oy+n*c+14;[["var(--sv)",.25,"survives"],["var(--sl)",1,"synthetic lethal"],["var(--muted)",.4,"one gene essential"]].forEach(function(l,k){s.appendChild(E("rect",{x:20+k*92,y:y,width:10,height:10,rx:2,fill:l[0],"fill-opacity":l[1]}));Tx(s,34+k*92,y+9,l[2],"tm","start",9)})}
+function und(){var a={};G.names.forEach(function(x){a[x]=[]});G.E.forEach(function(e){a[e[0]].push(e[1]);a[e[1]].push(e[0])});return a}
+function ud(a,s,t){var d={},q=[s],u;d[s]=0;while(q.length){u=q.shift();if(u===t)return d[u];a[u].forEach(function(v){if(d[v]==null){d[v]=d[u]+1;q.push(v)}})}return 9}
+function cnb(a,s,t){return a[s].filter(function(x){return a[t].indexOf(x)>=0}).length}
+function summary(){var g=G.genes,n=g.length,ne=G.ess.filter(Boolean).length,al=alive(KO),a=und(),st;
+ if(!KO.length)st="No genes knocked out. The cell is alive.";else{var es=KO.filter(function(x){return G.ess[g.indexOf(x)]});st="Knocked out: "+KO.join(", ")+". "+(al?"The cell survives because a route from Nutrient to Biomass still works.":es.length?"The cell dies. "+es.join(", ")+(es.length>1?" are":" is")+" essential on its own.":"The cell dies: no route from Nutrient to Biomass is left."+(KO.length===2?" Neither gene is essential alone, so this is a synthetic lethal pair.":""))}
+ $("kst").textContent=st;
+ $("kct").textContent="Full screen: "+n+" genes, "+(n*(n-1)/2)+" gene pairs tested. "+ne+" essential gene"+(ne===1?"":"s")+", "+G.sl.length+" synthetic lethal pair"+(G.sl.length===1?"":"s")+"."+(G.sl.length?"":" Redundant routes can still be lethal in groups of three or more, which a pair screen misses.");
+ var ks=$("ksl");ks.innerHTML="";G.sl.forEach(function(p){var b=document.createElement("button");b.type="button";b.textContent=g[p[0]]+" + "+g[p[1]];b.addEventListener("click",function(){KO=[g[p[0]],g[p[1]]];render()});ks.appendChild(b)});
+ var A=[],B=[],i,j;for(i=0;i<n;i++)for(j=i+1;j<n;j++){var f=[ud(a,g[i],g[j]),cnb(a,g[i],g[j])];if(G.cat[i][j]===1)A.push(f);else if(G.cat[i][j]===0)B.push(f)}
+ var m=function(v,k){return v.length?(v.reduce(function(s,x){return s+x[k]},0)/v.length).toFixed(2):"none"};
+ $("kft").innerHTML="<table><thead><tr><th>Network feature, averaged over pairs</th><th>Synthetic lethal pairs ("+A.length+")</th><th>Other pairs that survive ("+B.length+")</th></tr></thead><tbody><tr><td>Distance in the pathway graph</td><td>"+m(A,0)+"</td><td>"+m(B,0)+"</td></tr><tr><td>Shared neighbours</td><td>"+m(A,1)+"</td><td>"+m(B,1)+"</td></tr></tbody></table>"}
+function render(){$("kos").textContent=G.name;drawNet();drawHeat();summary();[].forEach.call($("kop").children,function(b){b.setAttribute("aria-pressed",String(b.getAttribute("data-n")===G.name))})}
+var bp=$("kop");PRE.forEach(function(p){var b=document.createElement("button");b.type="button";b.textContent=p[0];b.setAttribute("data-n",p[0]);b.addEventListener("click",function(){setNet(p)});bp.appendChild(b)});
+[["New random network",function(){setNet(randNet())}],["Clear knockouts",function(){KO=[];render()}]].forEach(function(x){var b=document.createElement("button");b.type="button";b.textContent=x[0];b.addEventListener("click",x[1]);bp.appendChild(b)});
+window.KOT=function(i){setNet(PRE[i]);return[G.ess.filter(Boolean).length,G.sl.length]};window.KOR=function(){setNet(randNet());return G.sl.length};
+setNet(PRE[0]);
+})();
+</script>
+</body>
+</html>

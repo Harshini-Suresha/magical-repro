@@ -1,0 +1,101 @@
+file	source	caption
+fig_001.svg	Computed on the toy network	Degree of each gene
+fig_002.svg	Computed on the toy network	Betweenness of each gene
+fig_003.svg	Computed on the toy network	Closeness of each gene
+fig_004.svg	Computed on the toy network	Clustering of each gene
+fig_005.svg	Computed on the toy network	Triangles of each gene
+fig_006.svg	Computed on the toy network	Avg neighbour degree of each gene
+fig_007.svg	Computed on the toy network	PageRank of each gene
+fig_008.svg	Computed on the toy network	Eccentricity of each gene
+fig_009.svg	Computed on the toy network	Degree, genes ranked from highest
+fig_010.svg	Computed on the toy network	Betweenness, genes ranked from highest
+fig_011.svg	Computed on the toy network	Closeness, genes ranked from highest
+fig_012.svg	Computed on the toy network	Clustering, genes ranked from highest
+fig_013.svg	Computed on the toy network	Triangles, genes ranked from highest
+fig_014.svg	Computed on the toy network	Avg neighbour degree, genes ranked from highest
+fig_015.svg	Computed on the toy network	PageRank, genes ranked from highest
+fig_016.svg	Computed on the toy network	Eccentricity, genes ranked from highest
+fig_017.svg	Computed on the toy network	Distribution of degree across genes
+fig_018.svg	Computed on the toy network	Distribution of betweenness across genes
+fig_019.svg	Computed on the toy network	Distribution of closeness across genes
+fig_020.svg	Computed on the toy network	Distribution of clustering across genes
+fig_021.svg	Computed on the toy network	Distribution of triangles across genes
+fig_022.svg	Computed on the toy network	Distribution of avg neighbour degree across genes
+fig_023.svg	Computed on the toy network	Distribution of pagerank across genes
+fig_024.svg	Computed on the toy network	Distribution of eccentricity across genes
+fig_025.svg	Computed on the toy network	Degree against betweenness, one dot per gene
+fig_026.svg	Computed on the toy network	Degree against clustering, one dot per gene
+fig_027.svg	Computed on the toy network	Degree against pagerank, one dot per gene
+fig_028.svg	Computed on the toy network	Closeness against betweenness, one dot per gene
+fig_029.svg	Computed on the toy network	Degree against avg neighbour degree, one dot per gene
+fig_030.svg	Computed on the toy network	Triangles against degree, one dot per gene
+fig_031.svg	Computed on the toy network	Adjacency: who interacts with whom
+fig_032.svg	Computed on the toy network	Shortest-path distance between genes
+fig_033.svg	Computed on the toy network	Common neighbours for every pair
+fig_034.svg	Computed on the toy network	Jaccard overlap of neighbourhoods
+fig_035.svg	Computed on the toy network	Adamic-Adar score for every pair
+fig_036.svg	Computed on the toy network	Share of genes with at least a given number of connections
+fig_037.svg	Computed on the toy network	Shortest-path distance across all gene pairs
+fig_038.svg	Computed on the toy network	Common neighbours across all gene pairs
+fig_039.svg	Computed on the toy network	Distance against common neighbours for every pair (jittered)
+fig_040.svg	Simulated on the toy network	Largest component as genes are removed at random
+fig_041.svg	Simulated on the toy network	Number of components as genes are removed at random
+fig_042.svg	Simulated on the toy network	Average degree as genes are removed at random
+fig_043.svg	Simulated on the toy network	Density as genes are removed at random
+fig_044.svg	Simulated on the toy network	Mean clustering as genes are removed at random
+fig_045.svg	Simulated on the toy network	Average path length as genes are removed at random
+fig_046.svg	Simulated on the toy network	Largest component as interactions are removed at random
+fig_047.svg	Simulated on the toy network	Number of components as interactions are removed at random
+fig_048.svg	Simulated on the toy network	Average degree as interactions are removed at random
+fig_049.svg	Simulated on the toy network	Density as interactions are removed at random
+fig_050.svg	Simulated on the toy network	Mean clustering as interactions are removed at random
+fig_051.svg	Simulated on the toy network	Average path length as interactions are removed at random
+fig_052.svg	Simulated on the toy network	Largest component: random removal against highest-degree-first removal
+fig_053.svg	Simulated on the toy network	Number of components: random removal against highest-degree-first removal
+fig_054.svg	Simulated on the toy network	Average degree: random removal against highest-degree-first removal
+fig_055.svg	Simulated on the toy network	Spread across 40 trials: largest component as genes are removed
+fig_056.svg	Simulated on the toy network	Spread across 40 trials: largest component as interactions are removed
+fig_057.svg	Simulated on the toy network	Mean clustering over 100 degree-preserving rewirings, original marked
+fig_058.svg	Simulated on the toy network	Average path length over 100 degree-preserving rewirings, original marked
+fig_059.svg	Simulated on the toy network	Largest component over 100 degree-preserving rewirings, original marked
+fig_060.svg	Illustrative concept	Synthetic lethal: fitness by genotype (illustrative values)
+fig_061.svg	Illustrative concept	Synthetic viable: fitness by genotype (illustrative values)
+fig_062.svg	Illustrative concept	No interaction: fitness by genotype (illustrative values)
+fig_063.svg	Illustrative concept	Essential gene A: fitness by genotype (illustrative values)
+fig_064.svg	Illustrative concept	Redundant paralog pair: fitness by genotype (illustrative values)
+fig_065.svg	Illustrative concept	Pathway bypass: fitness by genotype (illustrative values)
+fig_066.svg	Illustrative concept	Same linear pathway: fitness by genotype (illustrative values)
+fig_067.svg	Illustrative concept	Context-dependent lethality: fitness by genotype (illustrative values)
+fig_068.svg	Illustrative concept	Random pair split: each square is one gene pair
+fig_069.svg	Illustrative concept	Gene-held-out split: each square is one gene pair
+fig_070.svg	Illustrative concept	Source-held-out split: each square is one gene pair
+fig_071.svg	Illustrative concept	Stratified by degree bucket: each square is one gene pair
+fig_072.svg	Illustrative concept	Feature extraction step by step
+fig_073.svg	Illustrative concept	Evaluation step by step
+fig_074.svg	Illustrative concept	Perturbation test step by step
+fig_075.svg	Illustrative concept	Candidate filtering step by step
+fig_076.svg	Illustrative concept	Shortest path between TP53 and MEK1 is four steps
+fig_077.svg	Illustrative concept	ATM and BRCA1 share one neighbour, TP53
+fig_078.svg	Illustrative concept	Degree-preserving rewiring: original network and one rewired copy
+fig_079.svg	Illustrative concept	Noise test: six false interactions (dashed) added to the network
+fig_080.svg	Awaiting results	Confusion matrix on the published split (pending)
+fig_081.svg	Awaiting results	Confusion matrix on the random pairs (pending)
+fig_082.svg	Awaiting results	Confusion matrix on the gene held out (pending)
+fig_083.svg	Awaiting results	Confusion matrix on the source held out (pending)
+fig_084.svg	Awaiting results	ROC curve for the lethal class (pending)
+fig_085.svg	Awaiting results	ROC curve for the viable class (pending)
+fig_086.svg	Awaiting results	ROC curve for the other class (pending)
+fig_087.svg	Awaiting results	Precision-recall curve for the lethal class (pending)
+fig_088.svg	Awaiting results	Precision-recall curve for the viable class (pending)
+fig_089.svg	Awaiting results	Precision-recall curve for the other class (pending)
+fig_090.svg	Awaiting results	F1 score per class (pending)
+fig_091.svg	Awaiting results	Macro-F1 for the paper model, my rerun and baselines (pending)
+fig_092.svg	Awaiting results	Matthews correlation coefficient across splits (pending)
+fig_093.svg	Awaiting results	Learning curve: score against training size (pending)
+fig_094.svg	Awaiting results	Macro-F1 against genes removed (pending)
+fig_095.svg	Awaiting results	Macro-F1 against interactions removed (pending)
+fig_096.svg	Awaiting results	Macro-F1 against noise edges added (pending)
+fig_097.svg	Awaiting results	Macro-F1 against rewired (pending)
+fig_098.svg	Awaiting results	Calibration: predicted confidence against observed accuracy (pending)
+fig_099.svg	Awaiting results	Score by gene degree bucket (pending)
+fig_100.svg	Awaiting results	Candidate pairs against perturbations: stability (pending)
